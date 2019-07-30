@@ -24,5 +24,22 @@ namespace MultiRepuestos
         {
             InitializeComponent();
         }
+
+      
+
+        private void LoginBorder_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
+        }
+
+        private void BtnMin_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnCerrar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
