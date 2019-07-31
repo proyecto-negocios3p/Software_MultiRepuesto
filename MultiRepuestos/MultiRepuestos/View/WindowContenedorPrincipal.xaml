@@ -5,8 +5,247 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MultiRepuestos.View"
         mc:Ignorable="d"
-        Title="WindowContenedorPrincipal" Height="450" Width="800">
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="WindowContenedorPrincipal" Height="500" Width="850" WindowStartupLocation="CenterScreen" WindowStyle="None" FontFamily="Roboto Black">
     <Grid>
+        <!--#region Columnas y filas-->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="60"/>
+        </Grid.RowDefinitions>
+        <!--#endregion-->
         
+        <!--#region Fondo-->
+        <Border Name="PanelFondo" Grid.Row="0"  Grid.Column="0" Grid.RowSpan="4" Grid.ColumnSpan="3" MouseLeftButtonDown="PanelFondo_MouseLeftButtonDown">
+            <Rectangle>
+                <Rectangle.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#03A9F4"/>
+                        <GradientStop Color="#212121" Offset="1"/>
+                        <GradientStop Color="#0288D1" Offset="0.546"/>
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+        </Border>
+        <!--#endregion-->
+        
+        <!--#region Barra Superior-->
+
+        <Border Grid.Row="0" Grid.Column="3">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Name="btnMin" Width="auto" Height="auto" BorderThickness="0" Background="Transparent" Click="BtnMin_Click">
+                    <materialDesign:PackIcon Kind="WindowMinimize" Foreground="White"/>
+                </Button>
+                <Button Name="btnMax" Width="auto" Height="auto" BorderThickness="0" Background="Transparent" Click="BtnMax_Click" Visibility="Visible">
+                    <materialDesign:PackIcon Kind="WindowMaximize" Foreground="White"/>
+                </Button>
+                <Button Name="btnRest" Width="auto" Height="auto" BorderThickness="0" Background="Transparent" Click="BtnRest_Click" Visibility="Collapsed">
+                    <materialDesign:PackIcon Kind="WindowMaximize" Foreground="White"/>
+                </Button>
+                <Button Name="btnCerrar" Width="auto" Height="auto" BorderThickness="0" Background="Transparent" Click="BtnCerrar_Click">
+                    <materialDesign:PackIcon Kind="WindowClose" Foreground="White" />
+                </Button>
+            </StackPanel>
+        </Border>
+        <!--#endregion-->
+        
+        <!--#region MenuPrincipal-->
+        
+        <!--#region B1-->
+        <Grid Name="B1" Grid.Row="1" Grid.Column="0" Margin="10" Visibility="Visible" MouseEnter="B1_MouseEnter" MouseLeave="B1_MouseLeave">
+            <Rectangle>
+                <Rectangle.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#03A9F4"/>
+                        <!--<GradientStop Color="#212121" Offset="1"/>-->
+                        <GradientStop Color="#FFC107" Offset="0.346"/>
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+
+            <Grid Name="B1_Estado1">
+                <StackPanel Orientation="Vertical" VerticalAlignment="Bottom" Margin="15,0,15,13">
+
+                    <materialDesign:PackIcon HorizontalAlignment="Center" Kind="People" Foreground="White" Width="100" Height="100"/>
+                    <TextBlock FontSize="30" HorizontalAlignment="Center">Empleados</TextBlock>
+                </StackPanel>
+            </Grid>
+            <Grid Name="B1_Estado2" Grid.Row="1" Grid.Column="0" Margin="5" Visibility="Collapsed">
+                <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon HorizontalAlignment="Center" Kind="People" Foreground="White" Width="30" Height="30"/>
+                        <TextBlock FontSize="20" HorizontalAlignment="Center">Empleados</TextBlock>
+                    </StackPanel>
+                    <Button Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5">Opcion 1</Button>
+                    <Button Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5">Opcion 2</Button>
+                    <Button Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5">Opcion 3</Button>
+                    <Button Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5">Opcion 4</Button>
+
+                </StackPanel>
+            </Grid>
+
+        </Grid>
+        <!--#endregion-->
+
+        <!--#region B2-->
+        <Grid Name="B2" Grid.Row="1" Grid.Column="1" Margin="10" Visibility="Visible" MouseEnter="B2_MouseEnter" MouseLeave="B2_MouseLeave">
+            <Rectangle>
+                <Rectangle.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#03A9F4"/>
+                        <!--<GradientStop Color="#212121" Offset="1"/>-->
+                        <GradientStop Color="#FFC107" Offset="0.346"/>
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+
+            <Grid Name="B2_Estado1">
+                <StackPanel Orientation="Vertical" VerticalAlignment="Bottom" Margin="15,0,15,13">
+
+                    <materialDesign:PackIcon HorizontalAlignment="Center" Kind="Clock" Foreground="White" Width="100" Height="100"/>
+                    <TextBlock FontSize="30" HorizontalAlignment="Center">Control de Horas</TextBlock>
+                </StackPanel>
+            </Grid>
+            <Grid Name="B2_Estado2" Grid.Row="1" Grid.Column="0" Margin="5" Visibility="Collapsed">
+                <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon HorizontalAlignment="Center" Kind="People" Foreground="White" Width="30" Height="30"/>
+                        <TextBlock FontSize="20" HorizontalAlignment="Center">Control de Horas</TextBlock>
+                    </StackPanel>
+                    <Button Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5">Opcion 1</Button>
+                    <Button Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5">Opcion 2</Button>
+                    <Button Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5">Opcion 3</Button>
+                    <Button Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5">Opcion 4</Button>
+
+                </StackPanel>
+            </Grid>
+
+        </Grid>
+        <!--#endregion-->
+
+        <!--#region B3-->
+        <Grid Name="B3" Grid.Row="1" Grid.Column="3" Margin="10" Visibility="Visible" MouseEnter="B3_MouseEnter" MouseLeave="B3_MouseLeave">
+            <Rectangle>
+                <Rectangle.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#03A9F4"/>
+                        <!--<GradientStop Color="#212121" Offset="1"/>-->
+                        <GradientStop Color="#FFC107" Offset="0.346"/>
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+
+            <Grid Name="B3_Estado1">
+                <StackPanel Orientation="Vertical" VerticalAlignment="Bottom" Margin="15,0,15,13">
+
+                    <materialDesign:PackIcon HorizontalAlignment="Center" Kind="Assignment" Foreground="White" Width="100" Height="100"/>
+                    <TextBlock FontSize="30" HorizontalAlignment="Center">Reportes</TextBlock>
+                </StackPanel>
+            </Grid>
+            <Grid Name="B3_Estado2" Grid.Row="1" Grid.Column="0" Margin="5" Visibility="Collapsed">
+                <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon HorizontalAlignment="Center" Kind="Assessment" Foreground="White" Width="30" Height="30"/>
+                        <TextBlock FontSize="20" HorizontalAlignment="Center">Reportes</TextBlock>
+                    </StackPanel>
+                    <Button Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5">Opcion 1</Button>
+                    <Button Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5">Opcion 2</Button>
+                    <Button Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5">Opcion 3</Button>
+                    <Button Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5">Opcion 4</Button>
+
+                </StackPanel>
+            </Grid>
+
+        </Grid>
+        <!--#endregion-->
+
+        <!--#region B4-->
+        <Grid Name="B4" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="10" Visibility="Visible" MouseEnter="B4_MouseEnter" MouseLeave="B4_MouseLeave">
+            <Rectangle>
+                <Rectangle.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#03A9F4"/>
+                        <!--<GradientStop Color="#212121" Offset="1"/>-->
+                        <GradientStop Color="#FFC107" Offset="0.346"/>
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+
+            <Grid Name="B4_Estado1">
+                <StackPanel Orientation="Vertical" VerticalAlignment="Bottom" Margin="15,0,15,13">
+
+                    <materialDesign:PackIcon HorizontalAlignment="Center" Kind="Resume" Foreground="White" Width="100" Height="100"/>
+                    <TextBlock FontSize="30" HorizontalAlignment="Center">Planillas Mensuales</TextBlock>
+                </StackPanel>
+            </Grid>
+            <Grid Name="B4_Estado2" Grid.Row="1" Grid.Column="0" Margin="5" Visibility="Collapsed">
+                <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon HorizontalAlignment="Center" Kind="Resume" Foreground="White" Width="30" Height="30"/>
+                        <TextBlock FontSize="20" HorizontalAlignment="Center">Planillas Mensuales</TextBlock>
+                    </StackPanel>
+                    <Button Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5">Opcion 1</Button>
+                    <Button Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5">Opcion 2</Button>
+                    <Button Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5">Opcion 3</Button>
+                    <Button Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5">Opcion 4</Button>
+
+                </StackPanel>
+            </Grid>
+
+        </Grid>
+        <!--#endregion-->
+
+        <!--#region B5-->
+        <Grid Name="B5" Grid.Row="2" Grid.Column="3" Margin="10" Visibility="Visible" MouseEnter="B5_MouseEnter" MouseLeave="B5_MouseLeave">
+            <Rectangle>
+                <Rectangle.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#03A9F4"/>
+                        <!--<GradientStop Color="#212121" Offset="1"/>-->
+                        <GradientStop Color="#FFC107" Offset="0.346"/>
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+
+            <Grid Name="B5_Estado1">
+                <StackPanel Orientation="Vertical" VerticalAlignment="Bottom" Margin="15,0,15,13">
+
+                    <materialDesign:PackIcon HorizontalAlignment="Center" Kind="Gear" Foreground="White" Width="100" Height="100"/>
+                    <TextBlock FontSize="30" HorizontalAlignment="Center">Configuracion</TextBlock>
+                </StackPanel>
+            </Grid>
+            <Grid Name="B5_Estado2" Grid.Row="1" Grid.Column="0" Margin="5" Visibility="Collapsed">
+                <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon HorizontalAlignment="Center" Kind="Gear" Foreground="White" Width="30" Height="30"/>
+                        <TextBlock FontSize="20" HorizontalAlignment="Center">Configuracion</TextBlock>
+                    </StackPanel>
+                    <Button Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5">Opcion 1</Button>
+                    <Button Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5">Opcion 2</Button>
+                    <Button Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5">Opcion 3</Button>
+                    <Button Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5">Opcion 4</Button>
+
+                </StackPanel>
+            </Grid>
+
+        </Grid>
+        <!--#endregion-->
+        <!--#endregion-->
+
+
+        <Button Grid.Row="4" Grid.Column="3" Name="btnCerrarSesion" Width="auto" HorizontalAlignment="Center" VerticalAlignment="Center"  Background="#FFC107" Click="BtnCerrarSesion_Click">
+            <StackPanel Orientation="Horizontal">
+                <materialDesign:PackIcon Kind="Logout" Width="auto" Height="auto"/>
+                <TextBlock Margin="4,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center">Cerrar Sesion</TextBlock>
+            </StackPanel>
+        </Button>
+      
     </Grid>
 </Window>

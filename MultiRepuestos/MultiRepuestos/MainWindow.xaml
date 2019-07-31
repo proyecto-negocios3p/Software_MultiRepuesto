@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:MultiRepuestos"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="MainWindow" Height="500" Width="350" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None" FontFamily="Segoe UI Emoji" Background="Transparent">
+        Title="MainWindow" Height="500" Width="350" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None" FontFamily="Roboto Black" Background="Transparent">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -65,7 +65,12 @@
         </Border>
         <!--#endregion-->
         <Border Grid.Row="2" >
-            <Button Name="btnIniciar" Width="150" HorizontalAlignment="Center"  Content="Iniciar Sesion" Background="#FFC107" Click="BtnIniciar_Click"/>
+            <Button Name="btnIniciar" Width="150" HorizontalAlignment="Center" Background="#FFC107" Click="BtnIniciar_Click">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="Login" Width="auto" Height="auto"/>
+                    <TextBlock Margin="4,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center">Iniciar Sesion</TextBlock>
+                </StackPanel>
+            </Button>
 
         </Border>
     </Grid>

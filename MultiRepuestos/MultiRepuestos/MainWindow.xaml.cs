@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MultiRepuestos.View;
 
 namespace MultiRepuestos
 {
@@ -44,7 +45,9 @@ namespace MultiRepuestos
 
         private void BtnIniciar_Click(object sender, RoutedEventArgs e)
         {
-            
+            WindowContenedorPrincipal ventana = new WindowContenedorPrincipal();
+            ventana.Show();
+            this.Close();
         }
     }
 }
