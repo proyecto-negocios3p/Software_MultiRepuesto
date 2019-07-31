@@ -22,9 +22,9 @@
             <Rectangle Height="auto">
                 <Rectangle.Fill>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="#FF2281D1"/>
-                        <GradientStop Color="#FF34268A" Offset="1"/>
-                        <GradientStop Color="#FF33288B" Offset="0.546"/>
+                        <GradientStop Color="#FFC107"/>
+                        <GradientStop Color="#0288D1" Offset="1"/>
+                        <GradientStop Color="#0288D1" Offset="0.546"/>
                     </LinearGradientBrush>
                 </Rectangle.Fill>
             </Rectangle>
@@ -44,21 +44,29 @@
         </Border>
         <!--#endregion-->
         <!--#region Panel Informacion-->
-        <Border Grid.Row="1" Height="auto">
-            <Rectangle Width="280" Height="240" Margin="10" RadiusY="10" RadiusX="10" Fill="White">
-                <Rectangle.Effect>
-                    <DropShadowEffect BlurRadius="15" Direction="0" RenderingBias="Quality" ShadowDepth="1" Color="#FFBBBBBB"/>
-                </Rectangle.Effect>
-            </Rectangle>
-        </Border>
-        <Border Grid.Row="1">
-            <StackPanel VerticalAlignment="Center" Margin="15" Width="280">
-                <Label Content="LOGIN" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="5" Foreground="Gray" FontSize="18"/>
+       <Border Grid.Row="1" Height="auto">
+           <StackPanel Orientation="Vertical">
+                <Image Grid.Row="1" Source="Assets/Logo.png" Width="auto" Height="150" VerticalAlignment="Top" />
+                <Rectangle Width="280" Height="240" Margin="10" RadiusY="10" RadiusX="10" Fill="White">
+                    <Rectangle.Effect>
+                        <DropShadowEffect BlurRadius="15" Direction="0" RenderingBias="Quality" ShadowDepth="1" Color="#FFBBBBBB"/>
+                    </Rectangle.Effect>
+                </Rectangle>
 
-                <TextBox Margin="0,10" materialDesign:HintAssist.Hint="Usuario" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Champagne &amp; Limousines" FontSize="18"/>
-                <PasswordBox Margin="0,10" materialDesign:HintAssist.Hint="Contraseña" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" FontFamily="Champagne &amp; Limousines" FontSize="18"/>
+            </StackPanel>
+       </Border>
+        <Border Grid.Row="1"  Margin="0,135,0,0">
+            <StackPanel VerticalAlignment="Center" Margin="20" Width="280">
+                <Label Content="LOGIN" HorizontalAlignment="Center"  Margin="10" Foreground="Gray" FontSize="18"/>
+
+                <TextBox Margin="10" materialDesign:HintAssist.Hint="Usuario" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Champagne &amp; Limousines" FontSize="18"/>
+                <PasswordBox Margin="10" materialDesign:HintAssist.Hint="Contraseña" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" FontFamily="Champagne &amp; Limousines" FontSize="18"/>
             </StackPanel>
         </Border>
         <!--#endregion-->
+        <Border Grid.Row="2" >
+            <Button Name="btnIniciar" Width="150" HorizontalAlignment="Center"  Content="Iniciar Sesion" Background="#FFC107" Click="BtnIniciar_Click"/>
+
+        </Border>
     </Grid>
 </Window>
