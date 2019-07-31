@@ -49,5 +49,31 @@ namespace MultiRepuestos
             ventana.Show();
             this.Close();
         }
+
+        private void BtnMostrarPwd_Click(object sender, RoutedEventArgs e)
+        {
+            pwbMostrarContraseña.Text = pwbContraseña.Password;
+
+            pwbContraseña.Visibility = Visibility.Collapsed;
+            pwbMostrarContraseña.Visibility = Visibility.Visible;
+            
+
+            btnMostrarPwd.Visibility = Visibility.Hidden;
+            btnOcultarPwd.Visibility = Visibility.Visible;
+        }
+
+        private void BtnOcultarPwd_Click(object sender, RoutedEventArgs e)
+        {
+           
+            pwbContraseña.Visibility = Visibility.Visible;
+            pwbMostrarContraseña.Visibility = Visibility.Collapsed;
+            
+
+            btnMostrarPwd.Visibility = Visibility.Visible;
+            btnOcultarPwd.Visibility = Visibility.Hidden;
+           
+        }
+
+      
     }
 }

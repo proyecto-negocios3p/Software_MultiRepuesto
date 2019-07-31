@@ -32,22 +32,27 @@ namespace MultiRepuestos.View
 
         private void BtnMin_Click(object sender, RoutedEventArgs e)
         {
-
+           WindowState= WindowState.Minimized;
         }
 
         private void BtnMax_Click(object sender, RoutedEventArgs e)
         {
+            WindowState = WindowState.Maximized;
+            btnMax.Visibility = Visibility.Collapsed;
+            btnRest.Visibility = Visibility.Visible;
 
         }
 
         private void BtnCerrar_Click(object sender, RoutedEventArgs e)
         {
-
+            Application.Current.Shutdown();
         }
 
         private void BtnRest_Click(object sender, RoutedEventArgs e)
         {
-
+            WindowState = WindowState.Normal;
+            btnRest.Visibility = Visibility.Collapsed;
+            btnMax.Visibility = Visibility.Visible;
         }
 
         private void B1_MouseEnter(object sender, MouseEventArgs e)

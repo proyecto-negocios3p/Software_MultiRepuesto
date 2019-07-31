@@ -47,7 +47,7 @@
                     <materialDesign:PackIcon Kind="WindowMaximize" Foreground="White"/>
                 </Button>
                 <Button Name="btnRest" Width="auto" Height="auto" BorderThickness="0" Background="Transparent" Click="BtnRest_Click" Visibility="Collapsed">
-                    <materialDesign:PackIcon Kind="WindowMaximize" Foreground="White"/>
+                    <materialDesign:PackIcon Kind="WindowRestore" Foreground="White"/>
                 </Button>
                 <Button Name="btnCerrar" Width="auto" Height="auto" BorderThickness="0" Background="Transparent" Click="BtnCerrar_Click">
                     <materialDesign:PackIcon Kind="WindowClose" Foreground="White" />
