@@ -34,12 +34,17 @@ namespace MultiRepuestos
 
         private void BtnMin_Click(object sender, RoutedEventArgs e)
         {
-
+            WindowState = WindowState.Minimized;
         }
 
         private void BtnCerrar_Click(object sender, RoutedEventArgs e)
         {
+            Application.Current.Shutdown();
+        }
 
+        private void BtnIniciar_Click(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }
