@@ -59,13 +59,15 @@
             <StackPanel VerticalAlignment="Center" Margin="20" Width="280">
                 <Label Content="LOGIN" HorizontalAlignment="Center"  Margin="10" Foreground="Gray" FontSize="18"/>
 
-                <TextBox Margin="10" materialDesign:HintAssist.Hint="Usuario" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Champagne &amp; Limousines" FontSize="18"/>
-                <PasswordBox Margin="10" materialDesign:HintAssist.Hint="Contraseña" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" FontFamily="Champagne &amp; Limousines" FontSize="18"/>
+                <TextBox Name="txtUsuario" Margin="10" materialDesign:HintAssist.Hint="Usuario" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="18"/>
+                <PasswordBox Visibility="Visible" Name="pwbContraseña" Margin="10" Height="auto" materialDesign:HintAssist.Hint="Contraseña" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" FontSize="18"/>
+                <TextBox Visibility="Collapsed" Name="pwbMostrarContraseña" Margin="10" Height="auto" materialDesign:HintAssist.Hint="Contraseña" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  FontSize="18"/>
+
             </StackPanel>
         </Border>
         <!--#endregion-->
         <Border Grid.Row="2" >
-            <Button Name="btnIniciar" Width="150" HorizontalAlignment="Center" Background="#FFC107" Click="BtnIniciar_Click">
+            <Button Name="btnIniciar" Width="150" HorizontalAlignment="Center" Background="#FFC107" Click="BtnIniciar_Click" IsDefault="True" >
                 <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="Login" Width="auto" Height="auto"/>
                     <TextBlock Margin="4,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center">Iniciar Sesion</TextBlock>
@@ -73,5 +75,11 @@
             </Button>
 
         </Border>
+        <Button ToolTip="Mostrar Contraseña" Name="btnMostrarPwd" Visibility="Visible" HorizontalAlignment="Center" Width="auto" Height="auto" Grid.Column="0" Background="Transparent" Margin="243,319.6,45.4,60" Grid.Row="1" Click="BtnMostrarPwd_Click" BorderThickness="0">
+            <materialDesign:PackIcon Kind="Eye" Foreground="Black"  Height="25" Width="25" Margin="1"/>
+        </Button>
+        <Button ToolTip="Ocultar Contraseña"  Name="btnOcultarPwd" Visibility="Hidden" HorizontalAlignment="Center" Width="auto" Height="auto" Grid.Column="0" Background="Transparent" Margin="243,319.6,45.4,60" Grid.Row="1" Click="BtnOcultarPwd_Click" BorderThickness="0">
+            <materialDesign:PackIcon Kind="EyeOff" Foreground="Black" Height="25" Width="25" Margin="1"/>
+        </Button>
     </Grid>
 </Window>
