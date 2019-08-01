@@ -1,0 +1,64 @@
+﻿<Window x:Class="MultiRepuestos.View.Crear_Planilla"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MultiRepuestos.View"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="Crear_Planilla"  Height="500" Width="850" WindowStartupLocation="CenterScreen" WindowStyle="None" FontFamily="Roboto Black">
+    <Grid>
+
+        <!--#region Columnas y filas-->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="60"/>
+        </Grid.RowDefinitions>
+        <!--#endregion-->
+
+        <!--#region Fondo-->
+        <Border Name="PanelFondo" Grid.Row="0"  Grid.Column="0" Grid.RowSpan="4" Grid.ColumnSpan="3" MouseLeftButtonDown="PanelFondo_MouseLeftButtonDown">
+            <Rectangle>
+                <Rectangle.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#03A9F4"/>
+                        <GradientStop Color="#212121" Offset="1"/>
+                        <GradientStop Color="#0288D1" Offset="0.546"/>
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+        </Border>
+        <!--#endregion-->
+
+        <!--#region Barra Superior-->
+
+        <Border Grid.Row="0" Grid.Column="3">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Name="btnMin" Width="auto" Height="auto" BorderThickness="0" Background="Transparent" Click="BtnMin_Click">
+                    <materialDesign:PackIcon Kind="WindowMinimize" Foreground="White"/>
+                </Button>
+                
+                <Button Name="btnRest" Width="auto" Height="auto" BorderThickness="0" Background="Transparent" Click="BtnRest_Click" Visibility="Collapsed">
+                    <materialDesign:PackIcon Kind="WindowRestore" Foreground="White"/>
+                </Button>
+                <Button Name="btnCerrar" Width="auto" Height="auto" BorderThickness="0" Background="Transparent" Click="BtnCerrar_Click">
+                    <materialDesign:PackIcon Kind="WindowClose" Foreground="White" />
+                </Button>
+            </StackPanel>
+        </Border>
+        <!--#endregion-->
+
+        
+        
+        
+        
+        
+    </Grid>
+</Window>

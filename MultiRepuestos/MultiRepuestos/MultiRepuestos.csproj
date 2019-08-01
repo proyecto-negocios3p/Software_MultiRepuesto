@@ -38,8 +38,8 @@
     <Reference Include="MaterialDesignColors, Version=1.2.1.376, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialDesignColors.1.2.1-ci376\lib\net45\MaterialDesignColors.dll</HintPath>
     </Reference>
-    <Reference Include="MaterialDesignThemes.Wpf, Version=3.0.0.376, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MaterialDesignThemes.3.0.0-ci376\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
+    <Reference Include="MaterialDesignThemes.Wpf, Version=2.6.0.325, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignThemes.2.6.0\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -61,6 +61,21 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="View\Crear_Planilla.xaml.cs">
+      <DependentUpon>Crear_Planilla.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Ventana_IHSS.xaml.cs">
+      <DependentUpon>Ventana_IHSS.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Ventana_Pago_Extra.xaml.cs">
+      <DependentUpon>Ventana_Pago_Extra.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Ventana_Pago_Hora.xaml.cs">
+      <DependentUpon>Ventana_Pago_Hora.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Ventana_RAP.xaml.cs">
+      <DependentUpon>Ventana_RAP.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\WindowContenedorPrincipal.xaml.cs">
       <DependentUpon>WindowContenedorPrincipal.xaml</DependentUpon>
     </Compile>
@@ -76,6 +91,26 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\Crear_Planilla.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Ventana_IHSS.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Ventana_Pago_Extra.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Ventana_Pago_Hora.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Ventana_RAP.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\WindowContenedorPrincipal.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
