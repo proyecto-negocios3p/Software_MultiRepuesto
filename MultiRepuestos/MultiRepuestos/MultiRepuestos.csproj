@@ -35,11 +35,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MaterialDesignColors, Version=1.2.0.325, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MaterialDesignColors.1.2.0\lib\net45\MaterialDesignColors.dll</HintPath>
+    <Reference Include="MaterialDesignColors, Version=1.2.1.376, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignColors.1.2.1-ci376\lib\net45\MaterialDesignColors.dll</HintPath>
     </Reference>
-    <Reference Include="MaterialDesignThemes.Wpf, Version=2.6.0.325, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MaterialDesignThemes.2.6.0\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
+    <Reference Include="MaterialDesignThemes.Wpf, Version=3.0.0.376, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignThemes.3.0.0-ci376\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -61,6 +61,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="View\WindowContenedorPrincipal.xaml.cs">
+      <DependentUpon>WindowContenedorPrincipal.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -73,6 +76,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\WindowContenedorPrincipal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -97,12 +104,36 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Resource Include="Fonts\Roboto\Roboto-Black.ttf" />
+    <Resource Include="Fonts\Roboto\Roboto-BlackItalic.ttf" />
+    <Resource Include="Fonts\Roboto\Roboto-Bold.ttf" />
+    <Resource Include="Fonts\Roboto\Roboto-BoldItalic.ttf" />
+    <Resource Include="Fonts\Roboto\Roboto-Italic.ttf" />
+    <Resource Include="Fonts\Roboto\Roboto-Light.ttf" />
+    <Resource Include="Fonts\Roboto\Roboto-LightItalic.ttf" />
+    <Resource Include="Fonts\Roboto\Roboto-Medium.ttf" />
+    <Resource Include="Fonts\Roboto\Roboto-MediumItalic.ttf" />
+    <Resource Include="Fonts\Roboto\Roboto-Regular.ttf" />
+    <Resource Include="Fonts\Roboto\Roboto-Thin.ttf" />
+    <Resource Include="Fonts\Roboto\Roboto-ThinItalic.ttf" />
+    <Resource Include="Fonts\Roboto\RobotoCondensed-Bold.ttf" />
+    <Resource Include="Fonts\Roboto\RobotoCondensed-BoldItalic.ttf" />
+    <Resource Include="Fonts\Roboto\RobotoCondensed-Italic.ttf" />
+    <Resource Include="Fonts\Roboto\RobotoCondensed-Light.ttf" />
+    <Resource Include="Fonts\Roboto\RobotoCondensed-LightItalic.ttf" />
+    <Resource Include="Fonts\Roboto\RobotoCondensed-Regular.ttf" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Assets\home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Sql\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -6,34 +6,80 @@
         xmlns:local="clr-namespace:MultiRepuestos"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="MainWindow" Height="500" Width="350" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None" FontFamily="Segoe UI Emoji">
+        Title="MainWindow" Height="500" Width="350" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None" FontFamily="Roboto Black" Background="Transparent">
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="60"/>
+        </Grid.RowDefinitions>
+        
 
-        <Rectangle Height="280" VerticalAlignment="Top">
-            <Rectangle.Fill>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#FF2281D1"/>
-                    <GradientStop Color="#FF34268A" Offset="1"/>
-                    <GradientStop Color="#FF33288B" Offset="0.546"/>
-                </LinearGradientBrush>
-            </Rectangle.Fill>
-        </Rectangle>
+        
+        <!--#region Fondo de Pantalla y Funcion para mover-->
+        <Border Grid.Row="0" Grid.RowSpan="3" Name="LoginBorder" MouseLeftButtonDown="LoginBorder_MouseLeftButtonDown">
+            <Rectangle Height="auto">
+                <Rectangle.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFC107"/>
+                        <GradientStop Color="#0288D1" Offset="1"/>
+                        <GradientStop Color="#0288D1" Offset="0.546"/>
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+        </Border>
+        <!--#endregion-->
+        <!--#region Barra Superior-->
 
-        <Rectangle Width="280" Height="240" VerticalAlignment="Bottom" Margin="0,80" RadiusY="10" RadiusX="10" Fill="White">
-            <Rectangle.Effect>
-                <DropShadowEffect BlurRadius="15" Direction="0" RenderingBias="Quality" ShadowDepth="1" Color="#FFBBBBBB"/>
-            </Rectangle.Effect>
-        </Rectangle>
-        <Grid VerticalAlignment="Bottom" Margin="35,80" Height="240">
-            <Label Content="LOGIN" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="5" Foreground="Gray" FontSize="18"/>
-            <StackPanel VerticalAlignment="Center" Margin="15">
-                <TextBox Margin="0,10" materialDesign:HintAssist.Hint="Usuario" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Champagne &amp; Limousines" FontSize="18"/>
-                <PasswordBox Margin="0,10" materialDesign:HintAssist.Hint="Contraseña" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" FontFamily="Champagne &amp; Limousines" FontSize="18"/>
+        <Border Grid.Row="0">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Name="btnMin" Width="auto" Height="auto" BorderThickness="0" Background="Transparent" Click="BtnMin_Click">
+                    <materialDesign:PackIcon Kind="WindowMinimize" Foreground="White"/>
+                </Button>
+                <Button Name="btnCerrar" Width="auto" Height="auto" BorderThickness="0" Background="Transparent" Click="BtnCerrar_Click">
+                    <materialDesign:PackIcon Kind="WindowClose" Foreground="White" />
+                </Button>
             </StackPanel>
-        </Grid>
-        <Button Width="150" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,65" Content="LOGIN"/>
+        </Border>
+        <!--#endregion-->
+        <!--#region Panel Informacion-->
+       <Border Grid.Row="1" Height="auto">
+           <StackPanel Orientation="Vertical">
+                <Image Grid.Row="1" Source="Assets/Logo.png" Width="auto" Height="150" VerticalAlignment="Top" />
+                <Rectangle Width="280" Height="240" Margin="10" RadiusY="10" RadiusX="10" Fill="White">
+                    <Rectangle.Effect>
+                        <DropShadowEffect BlurRadius="15" Direction="0" RenderingBias="Quality" ShadowDepth="1" Color="#FFBBBBBB"/>
+                    </Rectangle.Effect>
+                </Rectangle>
 
-        <Image Source="Assets/home.png" Width="100" Height="100" VerticalAlignment="Top" Margin="30"/>
+            </StackPanel>
+       </Border>
+        <Border Grid.Row="1"  Margin="0,135,0,0">
+            <StackPanel VerticalAlignment="Center" Margin="20" Width="280">
+                <Label Content="LOGIN" HorizontalAlignment="Center"  Margin="10" Foreground="Gray" FontSize="18"/>
+
+                <TextBox Name="txtUsuario" Margin="10" materialDesign:HintAssist.Hint="Usuario" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="18"/>
+                <PasswordBox Visibility="Visible" Name="pwbContraseña" Margin="10" Height="auto" materialDesign:HintAssist.Hint="Contraseña" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" FontSize="18"/>
+                <TextBox Visibility="Collapsed" Name="pwbMostrarContraseña" Margin="10" Height="auto" materialDesign:HintAssist.Hint="Contraseña" Style="{StaticResource MaterialDesignFloatingHintTextBox}"  FontSize="18"/>
+
+            </StackPanel>
+        </Border>
+        <!--#endregion-->
+        <Border Grid.Row="2" >
+            <Button Name="btnIniciar" Width="150" HorizontalAlignment="Center" Background="#FFC107" Click="BtnIniciar_Click" IsDefault="True" >
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="Login" Width="auto" Height="auto"/>
+                    <TextBlock Margin="4,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center">Iniciar Sesion</TextBlock>
+                </StackPanel>
+            </Button>
+
+        </Border>
+        <Button ToolTip="Mostrar Contraseña" Name="btnMostrarPwd" Visibility="Visible" HorizontalAlignment="Center" Width="auto" Height="auto" Grid.Column="0" Background="Transparent" Margin="243,319.6,45.4,60" Grid.Row="1" Click="BtnMostrarPwd_Click" BorderThickness="0">
+            <materialDesign:PackIcon Kind="Eye" Foreground="Black"  Height="25" Width="25" Margin="1"/>
+        </Button>
+        <Button ToolTip="Ocultar Contraseña"  Name="btnOcultarPwd" Visibility="Hidden" HorizontalAlignment="Center" Width="auto" Height="auto" Grid.Column="0" Background="Transparent" Margin="243,319.6,45.4,60" Grid.Row="1" Click="BtnOcultarPwd_Click" BorderThickness="0">
+            <materialDesign:PackIcon Kind="EyeOff" Foreground="Black" Height="25" Width="25" Margin="1"/>
+        </Button>
     </Grid>
 </Window>
