@@ -66,8 +66,8 @@
         <TextBox Grid.Column="1" Grid.Row="2"  Margin="40" Name="txtNombre" materialDesign:HintAssist.Hint="Nombre" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Roboto" FontSize="18" VerticalAlignment="Center"/>
         <TextBox Grid.Column="0" Grid.Row="3"  Margin="40" Name="txtApellido" materialDesign:HintAssist.Hint="Apellido" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Roboto" FontSize="18" VerticalAlignment="Center"/>
         <TextBox Grid.Column="1" Grid.Row="3"  Margin="40" Name="txtCorreo" materialDesign:HintAssist.Hint="Correo" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Roboto" FontSize="18" VerticalAlignment="Center"/>
-        <TextBox Grid.Column="0" Grid.Row="4"  Margin="40" Name="txtFechaIngreso" materialDesign:HintAssist.Hint="Fecha de Ingreso" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Roboto" FontSize="18" VerticalAlignment="Center"/>
-        <TextBox Grid.Column="1" Grid.Row="4"  Margin="40" Name="txtSueldoBase" materialDesign:HintAssist.Hint="Sueldo Base" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Roboto" FontSize="18" VerticalAlignment="Center"/>
+        <TextBox Grid.Column="0" Grid.Row="4"  Margin="40" Name="txtFechaIngreso" materialDesign:HintAssist.Hint="Fecha de ingreso" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Roboto" FontSize="18" VerticalAlignment="Center"/>
+        <TextBox Grid.Column="1" Grid.Row="4"  Margin="40" Name="txtSueldoBase" materialDesign:HintAssist.Hint="Sueldo base" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Roboto" FontSize="18" VerticalAlignment="Center"/>
 
         <Button Grid.Column="0" Grid.Row="5" Name="btnAceptar" Width="250" Height="60" HorizontalAlignment="Center" Background="#FFC107" Click="BtnAceptar_Click"  IsDefault="True" FontSize="32" Margin="60,0,0,0">
             <StackPanel Orientation="Horizontal">

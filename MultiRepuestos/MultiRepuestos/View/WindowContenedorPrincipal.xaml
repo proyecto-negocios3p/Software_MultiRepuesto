@@ -83,10 +83,10 @@
                         <materialDesign:PackIcon HorizontalAlignment="Center" Kind="People" Foreground="White" Width="30" Height="30"/>
                         <TextBlock FontSize="20" HorizontalAlignment="Center">Empleados</TextBlock>
                     </StackPanel>
-                    <Button Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5" Name="btnAgregarEmpleado" Click="BtnAgregarEmpleado_Click">Agregar Empleado</Button>
-                    <Button Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5">Opcion 2</Button>
-                    <Button Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5">Opcion 3</Button>
-                    <Button Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5">Opcion 4</Button>
+                    <Button Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5" Name="btnAgregarEmpleado" Click="BtnAgregarEmpleado_Click">Agregar empleado</Button>
+                    <Button Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5">Actualizar empleado</Button>
+                    <Button Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5">Listar empleados</Button>
+                    <Button Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5">Dar de baja a empleados</Button>
 
                 </StackPanel>
             </Grid>
@@ -110,14 +110,14 @@
                 <StackPanel Orientation="Vertical" VerticalAlignment="Bottom" Margin="15,0,15,13">
 
                     <materialDesign:PackIcon HorizontalAlignment="Center" Kind="Clock" Foreground="White" Width="100" Height="100"/>
-                    <TextBlock FontSize="30" HorizontalAlignment="Center">Control de Horas</TextBlock>
+                    <TextBlock FontSize="30" HorizontalAlignment="Center">Control de horas</TextBlock>
                 </StackPanel>
             </Grid>
             <Grid Name="B2_Estado2" Grid.Row="1" Grid.Column="0" Margin="5" Visibility="Collapsed">
                 <StackPanel Orientation="Vertical">
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon HorizontalAlignment="Center" Kind="People" Foreground="White" Width="30" Height="30"/>
-                        <TextBlock FontSize="20" HorizontalAlignment="Center">Control de Horas</TextBlock>
+                        <TextBlock FontSize="20" HorizontalAlignment="Center">Control de horas</TextBlock>
                     </StackPanel>
                     <Button Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5">Opcion 1</Button>
                     <Button Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5">Opcion 2</Button>
@@ -182,14 +182,14 @@
                 <StackPanel Orientation="Vertical" VerticalAlignment="Bottom" Margin="15,0,15,13">
 
                     <materialDesign:PackIcon HorizontalAlignment="Center" Kind="Resume" Foreground="White" Width="100" Height="100"/>
-                    <TextBlock FontSize="30" HorizontalAlignment="Center">Planillas Mensuales</TextBlock>
+                    <TextBlock FontSize="30" HorizontalAlignment="Center">Planillas mensuales</TextBlock>
                 </StackPanel>
             </Grid>
             <Grid Name="B4_Estado2" Grid.Row="1" Grid.Column="0" Margin="5" Visibility="Collapsed">
                 <StackPanel Orientation="Vertical">
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon HorizontalAlignment="Center" Kind="Resume" Foreground="White" Width="30" Height="30"/>
-                        <TextBlock FontSize="20" HorizontalAlignment="Center">Planillas Mensuales</TextBlock>
+                        <TextBlock FontSize="20" HorizontalAlignment="Center">Planillas mensuales</TextBlock>
                     </StackPanel>
                     <Button Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5">Opcion 1</Button>
                     <Button Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5">Opcion 2</Button>
@@ -218,14 +218,14 @@
                 <StackPanel Orientation="Vertical" VerticalAlignment="Bottom" Margin="15,0,15,13">
 
                     <materialDesign:PackIcon HorizontalAlignment="Center" Kind="Gear" Foreground="White" Width="100" Height="100"/>
-                    <TextBlock FontSize="30" HorizontalAlignment="Center">Configuracion</TextBlock>
+                    <TextBlock FontSize="30" HorizontalAlignment="Center">Configuración</TextBlock>
                 </StackPanel>
             </Grid>
             <Grid Name="B5_Estado2" Grid.Row="1" Grid.Column="0" Margin="5" Visibility="Collapsed">
                 <StackPanel Orientation="Vertical">
                     <StackPanel Orientation="Horizontal">
                         <materialDesign:PackIcon HorizontalAlignment="Center" Kind="Gear" Foreground="White" Width="30" Height="30"/>
-                        <TextBlock FontSize="20" HorizontalAlignment="Center">Configuracion</TextBlock>
+                        <TextBlock FontSize="20" HorizontalAlignment="Center">Configuración</TextBlock>
                     </StackPanel>
                     <Button Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5">Opcion 1</Button>
                     <Button Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5">Opcion 2</Button>
@@ -243,7 +243,7 @@
         <Button Grid.Row="4" Grid.Column="3" Name="btnCerrarSesion" Width="auto" HorizontalAlignment="Center" VerticalAlignment="Center"  Background="#FFC107" Click="BtnCerrarSesion_Click">
             <StackPanel Orientation="Horizontal">
                 <materialDesign:PackIcon Kind="Logout" Width="auto" Height="auto"/>
-                <TextBlock Margin="4,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center">Cerrar Sesion</TextBlock>
+                <TextBlock Margin="4,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center">Cerrar Sesión</TextBlock>
             </StackPanel>
         </Button>
       
