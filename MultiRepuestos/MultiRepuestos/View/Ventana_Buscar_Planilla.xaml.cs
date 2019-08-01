@@ -15,13 +15,18 @@ using System.Windows.Shapes;
 namespace MultiRepuestos.View
 {
     /// <summary>
-    /// Lógica de interacción para Crear_Planilla.xaml
+    /// Lógica de interacción para Ventana_Buscar_Planilla.xaml
     /// </summary>
-    public partial class Crear_Planilla : Window
+    public partial class Ventana_Buscar_Planilla : Window
     {
-        public Crear_Planilla()
+        public Ventana_Buscar_Planilla()
         {
             InitializeComponent();
+        }
+
+        private void Btnenlistar_Click(object sender, RoutedEventArgs e)
+        {
+            
         }
 
         private void BtnCerrar_Click(object sender, RoutedEventArgs e)
@@ -29,19 +34,9 @@ namespace MultiRepuestos.View
             this.Close();
         }
 
-        
-
         private void BtnMin_Click(object sender, RoutedEventArgs e)
         {
             WindowState = WindowState.Minimized;
-        }
-
-        
-
-        private void Btnnuevo_Click_1(object sender, RoutedEventArgs e)
-        {
-            txthorasextras.Text = string.Empty;
-            txthorasfaltadas.Text = string.Empty;
         }
     }
 }

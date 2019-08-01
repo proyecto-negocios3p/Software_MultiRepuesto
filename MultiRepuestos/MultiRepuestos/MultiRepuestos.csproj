@@ -43,6 +43,8 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -52,17 +54,25 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="UIAutomationProvider" />
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="View\Actualizar.xaml.cs">
+      <DependentUpon>Actualizar.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Crear_Planilla.xaml.cs">
       <DependentUpon>Crear_Planilla.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Ventana_Buscar_Planilla.xaml.cs">
+      <DependentUpon>Ventana_Buscar_Planilla.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Ventana_IHSS.xaml.cs">
       <DependentUpon>Ventana_IHSS.xaml</DependentUpon>
@@ -91,7 +101,15 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\Actualizar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Crear_Planilla.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Ventana_Buscar_Planilla.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

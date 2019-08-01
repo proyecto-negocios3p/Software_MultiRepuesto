@@ -161,5 +161,17 @@ namespace MultiRepuestos.View
             Crear_Planilla c = new Crear_Planilla();
             c.Show();
         }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            Ventana_Buscar_Planilla buscar = new Ventana_Buscar_Planilla();
+            buscar.Show();
+        }
+
+        private void Button_Click_5(object sender, RoutedEventArgs e)
+        {
+            Actualizar ac = new Actualizar();
+            ac.Show();
+        }
     }
 }

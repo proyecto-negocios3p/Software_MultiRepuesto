@@ -192,8 +192,8 @@
                         <TextBlock FontSize="20" HorizontalAlignment="Center">Planillas Mensuales</TextBlock>
                     </StackPanel>
                     <Button Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5" Click="Button_Click_3">Crear</Button>
-                    <Button Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5">Buscar</Button>
-                    <Button Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5">Actualizar</Button>
+                    <Button Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5" Click="Button_Click_4">Buscar</Button>
+                    <Button Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5" Click="Button_Click_5">Actualizar</Button>
 
 
                 </StackPanel>
