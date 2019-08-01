@@ -45,7 +45,7 @@
                     <materialDesign:PackIcon Kind="WindowMinimize" Foreground="White"/>
                 </Button>
 
-             
+
                 <Button Name="btnCerrar" Width="auto" Height="auto" BorderThickness="0" Background="Transparent" Click="BtnCerrar_Click">
                     <materialDesign:PackIcon Kind="WindowClose" Foreground="White" />
                 </Button>
@@ -55,12 +55,27 @@
 
 
         <TextBlock FontSize="30" HorizontalAlignment="Left" Margin="52.2,30,0,151" Width="196" Grid.Column="1" Grid.RowSpan="2" >Crear Planilla</TextBlock>
-        <TextBlock FontSize="30" HorizontalAlignment="Center" Margin="76,56.6,75.8,94" Grid.Row="1" Width="129" >Nombre:</TextBlock>
-        <TextBlock FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Margin="76,130.6,108.8,35"  >Sueldo:</TextBlock>
-        <TextBox FontSize="30" VerticalAlignment="Top" HorizontalAlignment="Center" Grid.Row="1" x:Name="lblnombre"  Width="261" Margin="10.2,56.6,10.4,0" Grid.Column="1"  />
-        <TextBox FontSize="30" VerticalAlignment="Top" HorizontalAlignment="Center" Grid.Row="1" x:Name="lblsueldo"  Width="261" Margin="10.2,130.6,10.4,0" Grid.Column="1"  />
-        <DataGrid x:Name="dgllenar" Margin="76,180.6,71.2,55.6" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="3"/>
-        <Button Background="#FFC107" Grid.Column="1" Grid.Row="2" Height="50" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="0.2,0,10.4,39.6" VerticalAlignment="Bottom" Grid.RowSpan="2" FontSize="30">Guardar</Button>
+        <TextBlock FontSize="30" HorizontalAlignment="Center" Margin="38,102.6,113.8,48" Grid.Row="1" Width="129" >Nombre:</TextBlock>
+        <TextBlock FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Margin="145.2,102.6,39.4,62" Grid.Column="1"  >Sueldo:</TextBlock>
+
+        <TextBlock FontSize="30" Margin="38,176.6,154.8,160.6" Grid.Row="1" Grid.RowSpan="2" >IHSS:</TextBlock>
+
+        <TextBlock FontSize="30" Grid.Column="1" Margin="146.2,176.6,57.4,160.6" Grid.Row="1" Grid.RowSpan="2"  >RAP:</TextBlock>
+        <ListBox x:Name="listboxRAP" Background="Beige" FontSize="30" Grid.Column="1" Margin="269.2,161.6,32.2,191.6" Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="2" Cursor="Hand" />
+
+        <TextBlock FontSize="30" Margin="38,46,18.8,116.6" Grid.Row="2"  >Hora(s) Extra(s):</TextBlock>
+
+
+
+
+        <Button x:Name="btnguardar" Background="#FFC107" Grid.Column="1" Grid.Row="2" Height="50" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="218.2,0,73.2,39.6" VerticalAlignment="Bottom" Grid.RowSpan="2" FontSize="30" Grid.ColumnSpan="2">Guardar</Button>
+        <Button x:Name="btnnuevo" Background="#FFC107" Grid.Row="2" Height="50" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3"  VerticalAlignment="Bottom" Grid.RowSpan="2" FontSize="30" Grid.ColumnSpan="2" Margin="73,0,207.4,39.6" Click="Btnnuevo_Click">Nuevo</Button>
+        <ListBox x:Name="listboxnombre" Background="Beige" FontSize="30" Margin="172,88.6,159.4,63" Grid.Row="1" Grid.ColumnSpan="2" Cursor="Hand" />
+        <ListBox x:Name="listboxsueldo" Background="Beige" FontSize="30" Margin="269.2,88.6,32.2,63" Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="1" Cursor="Hand" />
+        <ListBox x:Name="listboxIHSS" Background="Beige" FontSize="30" Margin="172,161.6,159.4,191.6" Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="2" Cursor="Hand" />
+        <TextBox x:Name="txthorasextras" Background="Beige" FontSize="30" Margin="262,35,159.4,116.6" Grid.Row="2" Grid.ColumnSpan="2" Cursor="Pen" />
+        <TextBlock FontSize="30" Margin="146.2,46,174.2,116.6" Grid.Row="2" Grid.ColumnSpan="2" Grid.Column="1"  ><Run Text="Hora(s) Faltada(s):"/></TextBlock>
+        <TextBox x:Name="txthorasfaltadas" Background="Beige" FontSize="30" Grid.Column="2" Margin="130.6,35,32.2,116.6" Grid.Row="2" Cursor="Pen" />
 
 
 

@@ -35,5 +35,11 @@ namespace MultiRepuestos.View
         {
             WindowState = WindowState.Minimized;
         }
+
+        private void Btnnuevo_Click(object sender, RoutedEventArgs e)
+        {
+            txthorasextras.Text = string.Empty;
+            txthorasfaltadas.Text = string.Empty;
+        }
     }
 }
