@@ -131,5 +131,47 @@ namespace MultiRepuestos.View
             B5_Estado2.Visibility = Visibility.Collapsed;
             Thread.Sleep(20);
         }
+
+        private void Button_ClickIHSS(object sender, RoutedEventArgs e)
+        {
+            Ventana_IHSS h = new Ventana_IHSS();
+            h.Show();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Ventana_RAP r = new Ventana_RAP();
+            r.Show();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Ventana_Pago_Hora ph = new Ventana_Pago_Hora();
+            ph.Show();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            Ventana_Pago_Extra ex = new Ventana_Pago_Extra();
+            ex.Show();
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            Crear_Planilla c = new Crear_Planilla();
+            c.Show();
+        }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            Ventana_Buscar_Planilla buscar = new Ventana_Buscar_Planilla();
+            buscar.Show();
+        }
+
+        private void Button_Click_5(object sender, RoutedEventArgs e)
+        {
+            Actualizar ac = new Actualizar();
+            ac.Show();
+        }
     }
 }
