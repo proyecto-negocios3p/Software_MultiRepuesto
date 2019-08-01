@@ -29,7 +29,9 @@ namespace MultiRepuestos.View
             this.Close();
         }
 
-        private void BtnRest_Click(object sender, RoutedEventArgs e)
+        
+
+        private void BtnMin_Click(object sender, RoutedEventArgs e)
         {
             WindowState = WindowState.Minimized;
         }

@@ -155,5 +155,11 @@ namespace MultiRepuestos.View
             Ventana_Pago_Extra ex = new Ventana_Pago_Extra();
             ex.Show();
         }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            Crear_Planilla c = new Crear_Planilla();
+            c.Show();
+        }
     }
 }
