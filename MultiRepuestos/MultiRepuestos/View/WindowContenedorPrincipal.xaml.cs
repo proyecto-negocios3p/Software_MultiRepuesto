@@ -131,5 +131,12 @@ namespace MultiRepuestos.View
             B5_Estado2.Visibility = Visibility.Collapsed;
             Thread.Sleep(20);
         }
+
+        private void BtnAgregarEmpleado_Click(object sender, RoutedEventArgs e)
+        {
+            WindowAgregarEmpleado ventana = new WindowAgregarEmpleado();
+            ventana.Show();
+            this.Close();
+        }
     }
 }
