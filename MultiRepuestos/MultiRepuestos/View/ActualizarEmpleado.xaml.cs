@@ -15,19 +15,20 @@ using System.Windows.Shapes;
 namespace MultiRepuestos.View
 {
     /// <summary>
-    /// Lógica de interacción para WindowAgregarEmpleado.xaml
+    /// Lógica de interacción para ActualizarEmpleado.xaml
     /// </summary>
-    public partial class WindowAgregarEmpleado : Window
+    public partial class ActualizarEmpleado : Window
     {
-        public WindowAgregarEmpleado()
+        public ActualizarEmpleado()
         {
             InitializeComponent();
         }
 
-        private void BarraSuperior_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void BtnMin_Click(object sender, RoutedEventArgs e)
         {
-            DragMove();
+            WindowState = WindowState.Minimized;
         }
+
         private void BtnMax_Click(object sender, RoutedEventArgs e)
         {
             WindowState = WindowState.Maximized;
@@ -44,11 +45,6 @@ namespace MultiRepuestos.View
 
         private void BtnCerrar_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
-        }
-
-        private void BtnMin_Click(object sender, RoutedEventArgs e)
-        {
             WindowContenedorPrincipal ventana = new WindowContenedorPrincipal();
             ventana.Show();
             this.Close();
@@ -63,6 +59,5 @@ namespace MultiRepuestos.View
         {
 
         }
-
     }
 }

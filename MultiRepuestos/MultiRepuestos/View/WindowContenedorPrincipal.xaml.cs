@@ -137,6 +137,15 @@ namespace MultiRepuestos.View
             WindowAgregarEmpleado ventana = new WindowAgregarEmpleado();
             ventana.Show();
             this.Close();
+
+
+        }
+
+        private void BtnActualizar_Click(object sender, RoutedEventArgs e)
+        {
+            ActualizarEmpleado ventana = new ActualizarEmpleado();
+            ventana.Show();
+            this.Close();
         }
     }
 }
