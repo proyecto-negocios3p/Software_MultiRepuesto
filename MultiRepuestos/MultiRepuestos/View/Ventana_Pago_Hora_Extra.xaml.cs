@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace MultiRepuestos.View
 {
     /// <summary>
-    /// Lógica de interacción para Ventana_Pago_Hora.xaml
+    /// Lógica de interacción para Ventana_Pago_Hora_Extra.xaml
     /// </summary>
-    public partial class Ventana_Pago_Hora : Window
+    public partial class Ventana_Pago_Hora_Extra : Window
     {
-        public Ventana_Pago_Hora()
+        public Ventana_Pago_Hora_Extra()
         {
             InitializeComponent();
         }
