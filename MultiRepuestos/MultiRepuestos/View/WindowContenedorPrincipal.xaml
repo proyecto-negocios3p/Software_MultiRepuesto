@@ -85,7 +85,7 @@
                     </StackPanel>
                     <Button Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5" Name="btnAgregarEmpleado" Click="BtnAgregarEmpleado_Click">Agregar empleado</Button>
                     <Button Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5" Name="btnActualizar" Click="BtnActualizar_Click" >Actualizar empleado</Button>
-                    <Button Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5">Listar empleados</Button>
+                    <Button Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5" Name="btnListarEmpleados" Click="BtnListarEmpleados_Click">Listar empleados</Button>
                     <Button Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5">Dar de baja a empleados</Button>
 
                 </StackPanel>

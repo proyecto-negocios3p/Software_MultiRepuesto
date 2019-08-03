@@ -147,5 +147,12 @@ namespace MultiRepuestos.View
             ventana.Show();
             this.Close();
         }
+
+        private void BtnListarEmpleados_Click(object sender, RoutedEventArgs e)
+        {
+            WindowListarEmpleados ventana = new WindowListarEmpleados();
+            ventana.Show();
+            this.Close();
+        }
     }
 }
