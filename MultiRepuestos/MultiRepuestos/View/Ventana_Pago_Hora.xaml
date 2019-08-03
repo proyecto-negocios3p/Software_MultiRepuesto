@@ -6,38 +6,21 @@
         xmlns:local="clr-namespace:MultiRepuestos.View"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="Ventana_Pago_Hora" Height="400" Width="400" WindowStartupLocation="CenterScreen" WindowStyle="None" FontFamily="Roboto Black">
+        Title="Pago Hora" Height="350" Width="250" WindowStartupLocation="CenterScreen" WindowStyle="None" FontFamily="Roboto Black">
     <Grid>
 
 
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
+
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
+
         </Grid.RowDefinitions>
 
-        <Border Name="PanelFondo" Grid.Row="0"  Grid.Column="0" Grid.RowSpan="4" Grid.ColumnSpan="3" >
-            <Rectangle Margin="0,0,-0.4,-0.4">
-                <Rectangle.Fill>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="#03A9F4"/>
-                        <GradientStop Color="#212121" Offset="1"/>
-                        <GradientStop Color="#0288D1" Offset="0.546"/>
-                    </LinearGradientBrush>
-                </Rectangle.Fill>
-            </Rectangle>
-        </Border>
 
-
-
-
-        <Border Grid.Row="0" Grid.Column="3">
+        <Border Grid.Row="0" Grid.Column="3" Background="#03A9F4">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 <Button Click="BtnMin_Click" Name="btnMin" Width="auto" Height="auto" BorderThickness="0" Background="Transparent" >
                     <materialDesign:PackIcon Kind="WindowMinimize" Foreground="White"/>
@@ -52,13 +35,23 @@
             </StackPanel>
         </Border>
 
-        <TextBlock Grid.ColumnSpan="3" FontSize="30" HorizontalAlignment="Center" Margin="108,30,93.6,0.4" Grid.RowSpan="2" >Pago Por Hora</TextBlock>
-        <TextBlock FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Grid.Column="1"  >123</TextBlock>
-        <Button Background="#FFC107" Grid.Column="1" Grid.Row="2" Height="50" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5" VerticalAlignment="Bottom">Actualizar</Button>
-        <TextBox FontSize="30" VerticalAlignment="Top" HorizontalAlignment="Center" Grid.Row="1" x:Name="lblIHSS"  Width="125" Grid.ColumnSpan="3" Margin="124,151.6,119.6,0" Grid.RowSpan="2"/>
+        <Border Grid.Row="1">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock FontSize="30" Margin="10">Pago por hora</TextBlock>
 
+            </StackPanel>
+        </Border>
 
+        <Border Grid.Row="2">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
 
+                <TextBlock Name="lbPagoHora" FontSize="30" Margin="10" TextAlignment="Center">0</TextBlock>
+                <TextBox  FontSize="30" Name="txtPagoHora" Height="auto" Width="150"></TextBox>
 
+            </StackPanel>
+        </Border>
+        <Border Grid.Row="3">
+            <Button FontSize="30" Width="180" Height="50" Content="Actualizar" Background="#FFC107" materialDesign:ShadowAssist.ShadowDepth="Depth3"></Button>
+        </Border>
     </Grid>
 </Window>

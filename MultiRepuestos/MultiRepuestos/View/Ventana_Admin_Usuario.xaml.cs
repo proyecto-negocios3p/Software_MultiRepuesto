@@ -15,23 +15,30 @@ using System.Windows.Shapes;
 namespace MultiRepuestos.View
 {
     /// <summary>
-    /// Lógica de interacción para Ventana_Pago_Extra.xaml
+    /// Lógica de interacción para Ventana_Admin_Usuario.xaml
     /// </summary>
-    public partial class Ventana_Pago_Extra : Window
+    public partial class Ventana_Admin_Usuario : Window
     {
-        public Ventana_Pago_Extra()
+        public Ventana_Admin_Usuario()
         {
             InitializeComponent();
         }
 
         private void BtnCerrar_Click(object sender, RoutedEventArgs e)
         {
+            WindowContenedorPrincipal ventana =new WindowContenedorPrincipal();
+            ventana.Show();
             this.Close();
         }
 
         private void BtnMin_Click(object sender, RoutedEventArgs e)
         {
             WindowState = WindowState.Minimized;
+        }
+
+        private void BarraBusperior_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
         }
     }
 }
