@@ -70,6 +70,9 @@
     <Compile Include="View\WindowContenedorPrincipal.xaml.cs">
       <DependentUpon>WindowContenedorPrincipal.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\WindowDarDeBajaEmpleado.xaml.cs">
+      <DependentUpon>WindowDarDeBajaEmpleado.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\WindowListarEmpleados.xaml.cs">
       <DependentUpon>WindowListarEmpleados.xaml</DependentUpon>
     </Compile>
@@ -94,6 +97,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\WindowContenedorPrincipal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\WindowDarDeBajaEmpleado.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -154,5 +154,12 @@ namespace MultiRepuestos.View
             ventana.Show();
             this.Close();
         }
+
+        private void BtnDarDeBaja_Click(object sender, RoutedEventArgs e)
+        {
+            WindowDarDeBajaEmpleado ventana = new WindowDarDeBajaEmpleado();
+            ventana.Show();
+            this.Close();
+        }
     }
 }
