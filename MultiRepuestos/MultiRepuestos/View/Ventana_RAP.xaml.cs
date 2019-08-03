@@ -23,7 +23,6 @@ namespace MultiRepuestos.View
         {
             InitializeComponent();
         }
-
         private void BtnCerrar_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
@@ -33,5 +32,6 @@ namespace MultiRepuestos.View
         {
             WindowState = WindowState.Minimized;
         }
+
     }
 }
