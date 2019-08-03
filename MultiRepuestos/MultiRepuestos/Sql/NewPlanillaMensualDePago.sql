@@ -174,3 +174,77 @@ CREATE TABLE Planilla.PrestacionLaboralEmbarazo
 
 );
 GO
+
+--REFERENCIAS
+
+--Paso 16 Empleado.CodigoCargo a Cargo.Codigo
+ALTER TABLE Planilla.Empleado
+	ADD CONSTRAINT
+		FK_Planilla_Empleado$Genera$CodigoCargo
+		FOREIGN KEY (CodigoCargo) REFERENCES Planilla.Cargo(Codigo)
+		ON UPDATE NO ACTION 
+		ON DELETE NO ACTION
+GO
+
+--paso 17 TelefonoEmplead.IdentidadEmpleado a Identidad.Empleado 
+ALTER TABLE Planilla.TelefonoEmpleado
+	ADD CONSTRAINT
+	FK_Planilla_TelefonoEmpleado$Genera$IdentidadEmpleado
+	FOREIGN KEY (IdentidadEmpleado) REFERENCES Planilla.Empleado(Identidad)
+	ON UPDATE NO ACTION
+	ON DELETE NO ACTION 
+GO
+
+--Paso 18 HoraFaltada.IdentidadEmpleado a Empleado.Identidad
+ALTER TABLE Planilla.HoraFaltada
+	ADD CONSTRAINT
+	FK_Planilla_HoraFaltada$Genera$IdentidadEmpleado
+	FOREIGN KEY (IdentidadEmpleado) REFERENCES Planilla.Empleado(Identidad)
+	ON UPDATE NO ACTION
+	ON DELETE NO ACTION
+GO
+
+-- Paso 19 HoraExtra.IdentidadEmpleado a Empleado.Identidad
+ALTER TABLE Planilla.HoraExtra
+	ADD CONSTRAINT 
+	FK_Planilla_HoraExtra$Genera$IdentidadEmpleado
+	FOREIGN KEY (IdentidadEmpleado)  REFERENCES Planilla.Empleado(Identidad)
+	ON UPDATE NO ACTION
+	ON DELETE NO ACTION
+GO
+
+-- Paso 20 HoraExtra.CodigoPorcentajeHoraExtra a Codigo.PorcentajeHoraExtra 
+ALTER TABLE Planilla.HoraExtra
+	ADD CONSTRAINT
+	FK_Planilla_HoraExtra$Genera$CodigoPorcentajeHoraExtra
+	FOREIGN KEY (CodigoPorcentajeHoraExtra) REFERENCES Planilla.PorcentajeHoraExtra(Codigo)
+	ON UPDATE NO ACTION 
+	ON DELETE NO ACTION
+GO
+
+--Paso 21 PrestacionLaboral.IdentidadEmpleado a Identidad.Empleado
+ALTER TABLE Planilla.PrestacionLaboral
+	ADD CONSTRAINT
+	FK_Planilla_PrestacionLaboral$Genera$IdentidadEmpleado
+	FOREIGN KEY (IdentidadEmpleado) REFERENCES Planilla.Empleado(Identidad)
+	ON UPDATE NO ACTION
+	ON DELETE NO ACTION
+GO
+
+--Paso 22 PrestacionLaboralEmbarazo.CodigoPrestacionLaboral a Codigo.PrestacionLaboral
+ALTER TABLE Planilla.PrestacionLaboralEmbarazo
+	ADD CONSTRAINT 
+	FK_Planilla_PrestacionLaboralEmbarazo$Genera$CodigoPrestacionLaboral
+	FOREIGN KEY (Codigo) REFERENCES Planilla.PrestacionLaboral(Codigo)
+	ON UPDATE NO ACTION
+	ON DELETE NO ACTION
+GO
+
+--Paso 23 PlanillaFinal.IdentidadEmpleado a Identidad.Empleado
+ALTER TABLE Planilla.PlanillaFinal
+	ADD CONSTRAINT 
+	FK_Planilla_PlanillaFinal$Genera$IdentidadEmpleado
+	FOREIGN KEY (IdentidadEmpleado) REFERENCES Planilla.Empleado(Identidad)
+	ON UPDATE NO ACTION
+	ON DELETE NO ACTION
+GO
