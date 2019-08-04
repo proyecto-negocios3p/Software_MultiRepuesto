@@ -65,14 +65,31 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-
     <Compile Include="View\ActualizarEmpleado.xaml.cs">
       <DependentUpon>ActualizarEmpleado.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\ControlHora\AgregarHoraExtraTrabajada.xaml.cs">
+      <DependentUpon>AgregarHoraExtraTrabajada.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ControlHora\AgregarHoraFaltada.xaml.cs">
+      <DependentUpon>AgregarHoraFaltada.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ControlHora\AgregarHoraTrabajada.xaml.cs">
+      <DependentUpon>AgregarHoraTrabajada.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ControlHora\ListarHoras.xaml.cs">
+      <DependentUpon>ListarHoras.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Msg.xaml.cs">
+      <DependentUpon>Msg.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Planilla\Buscar_Planilla.xaml.cs">
+      <DependentUpon>Buscar_Planilla.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\WindowAgregarEmpleado.xaml.cs">
       <DependentUpon>WindowAgregarEmpleado.xaml</DependentUpon>
-     </Compile>
-    <Compile Include="View\Crear_Planilla.xaml.cs">
+    </Compile>
+    <Compile Include="View\Planilla\Crear_Planilla.xaml.cs">
       <DependentUpon>Crear_Planilla.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Ventana_Admin_Usuario.xaml.cs">
@@ -121,40 +138,63 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\ControlHora\AgregarHoraExtraTrabajada.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ControlHora\AgregarHoraFaltada.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ControlHora\AgregarHoraTrabajada.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ControlHora\ListarHoras.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Msg.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Planilla\Buscar_Planilla.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\WindowAgregarEmpleado.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-	
-    <Page Include="View\Crear_Planilla.xaml">
+    <Page Include="View\Planilla\Crear_Planilla.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-	  <Page Include="View\Ventana_Admin_Usuario.xaml">
+    <Page Include="View\Ventana_Admin_Usuario.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-	  <Page Include="View\Ventana_Buscar_Planilla.xaml">
+    <Page Include="View\Ventana_Buscar_Planilla.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-	  <Page Include="View\Ventana_IHSS.xaml">
+    <Page Include="View\Ventana_IHSS.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-	  <Page Include="View\Ventana_Pago_Hora.xaml">
+    <Page Include="View\Ventana_Pago_Hora.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-	  <Page Include="View\Ventana_Pago_Hora_Extra.xaml">
+    <Page Include="View\Ventana_Pago_Hora_Extra.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-	  <Page Include="View\Ventana_RAP.xaml">
+    <Page Include="View\Ventana_RAP.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-	  <Page Include="View\Verificar_Empleado.xaml">
+    <Page Include="View\Verificar_Empleado.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -222,7 +262,9 @@
   <ItemGroup>
     <Resource Include="Assets\Logo.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="View\Reportes\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Sql\NewPlanillaMensualDePago.sql" />
   </ItemGroup>
