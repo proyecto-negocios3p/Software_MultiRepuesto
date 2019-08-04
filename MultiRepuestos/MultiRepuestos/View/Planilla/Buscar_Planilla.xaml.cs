@@ -23,5 +23,36 @@ namespace MultiRepuestos.View.Planilla
         {
             InitializeComponent();
         }
+
+        private void BarraSuperior_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
+        }
+
+        private void BtnMin_Click(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
+        }
+
+        private void BtnMax_Click(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Maximized;
+            btnMax.Visibility = Visibility.Collapsed;
+            btnRest.Visibility = Visibility.Visible;
+        }
+
+        private void BtnRest_Click(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Normal;
+            btnRest.Visibility = Visibility.Collapsed;
+            btnMax.Visibility = Visibility.Visible;
+        }
+
+        private void BtnCerrar_Click(object sender, RoutedEventArgs e)
+        {
+            WindowContenedorPrincipal ventana = new WindowContenedorPrincipal();
+            ventana.Show();
+            this.Close();
+        }
     }
 }

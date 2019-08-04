@@ -217,7 +217,9 @@ namespace MultiRepuestos.View
 
         private void BtnPlanillaBuscar_Click_1(object sender, RoutedEventArgs e)
         {
-
+            Buscar_Planilla ventana = new Buscar_Planilla();
+            ventana.Show();
+            this.Close();
         }
     }
 }
