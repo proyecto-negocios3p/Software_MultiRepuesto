@@ -80,9 +80,6 @@
     <Compile Include="View\ControlHora\ListarHoras.xaml.cs">
       <DependentUpon>ListarHoras.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Msg.xaml.cs">
-      <DependentUpon>Msg.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\Planilla\Buscar_Planilla.xaml.cs">
       <DependentUpon>Buscar_Planilla.xaml</DependentUpon>
     </Compile>
@@ -151,10 +148,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ControlHora\ListarHoras.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\Msg.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
