@@ -6,21 +6,26 @@
         xmlns:local="clr-namespace:MultiRepuestos.View"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="Cargo" Height="350" Width="250" WindowStartupLocation="CenterScreen" WindowStyle="None" FontFamily="Roboto Black">
+        Title="Cargo" Height="400" Width="450" WindowStartupLocation="CenterScreen" WindowStyle="None" FontFamily="Roboto Black">
     <Grid>
 
 
 
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
+            <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
 
         </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
 
 
-        <Border Grid.Row="0" Grid.Column="3" Background="#03A9F4">
+        <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Background="#03A9F4">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 <Button Click="BtnMin_Click" Name="btnMin" Width="auto" Height="auto" BorderThickness="0" Background="Transparent" >
                     <materialDesign:PackIcon Kind="WindowMinimize" Foreground="White"/>
@@ -35,23 +40,40 @@
             </StackPanel>
         </Border>
 
-        <Border Grid.Row="1">
+        <Border Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
             <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <TextBlock FontSize="30" Margin="10">Pago por hora</TextBlock>
-
+                <TextBlock FontSize="30" Margin="10">Cargo</TextBlock>
+          
             </StackPanel>
         </Border>
 
         <Border Grid.Row="2">
             <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
 
-                <TextBlock Name="lbPagoHora" FontSize="30" Margin="10" TextAlignment="Center">0</TextBlock>
-                <TextBox  FontSize="30" Name="txtPagoHora" Height="auto" Width="150"></TextBox>
+                <ComboBox Name="cbCargo" Width="auto" Height="auto" FontSize="30" Margin="10" materialDesign:HintAssist.Hint="Cargos"></ComboBox>
+
 
             </StackPanel>
         </Border>
-        <Border Grid.Row="3">
-            <Button x:Name="btnActualizar" Click="BtnActualizar_Click" FontSize="30" Width="180" Height="50" Content="Actualizar" Background="#FFC107" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="32,27,31.2,27.8"></Button>
+        
+        <Border Grid.Row="4" Margin="10">
+            <Button x:Name="btnActualizar" Click="BtnActualizar_Click" FontSize="30" Width="auto" Height="auto" Content="Actualizar" Background="#FFC107" materialDesign:ShadowAssist.ShadowDepth="Depth3" ></Button>
+        </Border>
+
+        <Border Grid.Row="2" Grid.Column="1">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                <TextBox Name="txtCodigo" Width="auto" Height="auto" FontSize="30" Margin="10" materialDesign:HintAssist.Hint="Codigo"></TextBox>
+
+
+            </StackPanel>
+        </Border>
+        <Border Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBox Name="txtNombre" Width="auto" Height="auto" FontSize="30" Margin="10" materialDesign:HintAssist.Hint="Nombre del cargo"></TextBox>
+
+        </Border>
+        <Border Grid.Row="4" Grid.Column="1" Margin="10">
+            <Button x:Name="btnAgregar" Click="BtnAgregar_Click" FontSize="30" Width="auto" Height="auto" Content="Agregar" Background="#FFC107" materialDesign:ShadowAssist.ShadowDepth="Depth3" ></Button>
         </Border>
     </Grid>
 </Window>

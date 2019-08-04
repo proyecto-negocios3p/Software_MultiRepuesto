@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,16 +22,16 @@ namespace MultiRepuestos.View
     /// </summary>
     public partial class Ventana_Admin_Usuario : Window
     {
+
         LinqToSqlDataClassesDataContext dataContext;
+        SqlConnection conexion = new SqlConnection("Data Source = (local)\\SQLEXPRESS; Initial Catalog = PlanillaDePagoMensual; Integrated Security = True");
+
+        private DataTable tabla;
 
         public Ventana_Admin_Usuario()
         {
             InitializeComponent();
-            // El string de conexión
-            string connectionString = ConfigurationManager.ConnectionStrings["MultiRepuestos.Properties.Settings.PlanillaDePagoMensualConnectionString"].ConnectionString;
-
-            // Conectar Linq con el string de conexión
-            dataContext = new LinqToSqlDataClassesDataContext(connectionString);
+    
         }
 
         private void BtnCerrar_Click(object sender, RoutedEventArgs e)
@@ -51,22 +53,43 @@ namespace MultiRepuestos.View
 
         public void ListarEmpleados()
         {
-            //var Lista = (from E in dataContext.Empleado  select E).ToList();
-            var Lista = from e in dataContext.Empleado
-                                 // where client.direccion == txtBuscar.Text
-                                  select new { e.Nombre ,e.Identidad };
-            dgEmpleados.ItemsSource = Lista.ToList();
-            //MessageBox.Show(Lista.ToString());
-
-
-
-            dgEmpleados.ItemsSource = Lista;
+            mostrarEmpleados();
             
         }
 
         private void BtnActualizarLista_Click(object sender, RoutedEventArgs e)
         {
             ListarEmpleados();
+        }
+        private void mostrarEmpleados()
+        {
+            tabla = new DataTable();
+            try
+            {
+                conexion.Open();
+                string query = "SELECT * FROM Planilla.Empleado";
+                SqlDataAdapter adapter = new SqlDataAdapter(query, conexion);
+                using (adapter)
+                {
+                    adapter.Fill(tabla);
+                    dgEmpleados.DisplayMemberPath = "Nombre";
+                    
+                    dgEmpleados.SelectedValuePath = "Identidad";
+                    dgEmpleados.ItemsSource = tabla.DefaultView;
+                    conexion.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+
+
+
+        }
+        private void BuscarEmpleado()
+        {
+
         }
     }
 }
