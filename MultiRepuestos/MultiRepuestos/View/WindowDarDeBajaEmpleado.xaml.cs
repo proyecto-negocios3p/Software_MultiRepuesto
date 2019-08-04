@@ -54,5 +54,15 @@ namespace MultiRepuestos.View
             btnRest.Visibility = Visibility.Collapsed;
             btnMax.Visibility = Visibility.Visible;
         }
+
+        private void BtnCancelar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnAceptar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

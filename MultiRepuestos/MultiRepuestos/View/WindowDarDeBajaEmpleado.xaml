@@ -8,24 +8,22 @@
         mc:Ignorable="d"
         Title="WindowDarDeBajaEmpleado"  Height="620" Width="900" WindowStartupLocation="CenterScreen" WindowStyle="None" FontFamily="Roboto Black">
     <Grid>
-        <!--#region Columnas-->
-
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
             <RowDefinition Height="60"/>
-            <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="auto"/>
-
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="150"/>
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        <!--#endregion-->
+
 
         <!--#region Barra Superior-->
-        <Border Grid.Row="0" Grid.Column="0" Background="#03A9F4" Grid.ColumnSpan="2" Name="barraSuperior" MouseLeftButtonDown="BarraSuperior_MouseLeftButtonDown">
+        <Border Grid.Row="0" Grid.Column="0" Background="#03A9F4" Grid.ColumnSpan="2">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 <Button Name="btnMin" Width="auto" Height="auto" BorderThickness="0" Background="Transparent" Click="BtnMin_Click">
                     <materialDesign:PackIcon Kind="WindowMinimize" Foreground="White"/>
@@ -36,49 +34,45 @@
                 <Button Name="btnRest" Width="auto" Height="auto" BorderThickness="0" Background="Transparent" Click="BtnRest_Click"  Visibility="Collapsed">
                     <materialDesign:PackIcon Kind="WindowRestore" Foreground="White"/>
                 </Button>
-                <Button Name="btnCerrar" Width="auto" Height="auto" BorderThickness="0" Background="Transparent" Click="BtnCerrar_Click">
+                <Button Name="btnCerrar" Width="auto" Height="auto" BorderThickness="0" Background="Transparent" Click="BtnCerrar_Click" >
                     <materialDesign:PackIcon Kind="WindowClose" Foreground="White"/>
                 </Button>
             </StackPanel>
         </Border>
         <!--#endregion-->
 
-        <Border Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="10">
-            <TextBlock FontSize="35" Foreground="#03A9F4" HorizontalAlignment="Center">Dar de baja a empleados</TextBlock>
-        </Border>
+        <!--#region Ingreso de datos-->
+        <Label Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Content="Dar de baja a empleados" Foreground="#03A9F4" FontSize="32" HorizontalAlignment="Center" Margin="0,10,0,0"/>
 
-        <Border Grid.Row="2" Grid.Column="0" Grid.RowSpan="2" Margin="15">
-            <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
-                <TextBlock FontSize="30" TextAlignment="Center" Margin="5">Empleados</TextBlock>
-                <DataGrid Background="LightGray" Foreground="Black" Width="250" Height="450"></DataGrid>
+        <ComboBox Grid.Column="0" Grid.Row="2"  Margin="40" Name="txtNombre" materialDesign:HintAssist.Hint="Nombre" materialDesign:HintAssist.IsFloating="True" Style="{StaticResource MaterialDesignFloatingHintComboBox}" FontFamily="Roboto" FontSize="18" VerticalAlignment="Center">
+            <ComboBoxItem Content="op1"/>
+        </ComboBox>
+        <TextBox Grid.Column="1" Grid.Row="2"  Margin="40" Name="txtApellido" materialDesign:HintAssist.Hint="Apellido" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Roboto" FontSize="18" VerticalAlignment="Center"/>
+
+        <TextBox Grid.Column="0" Grid.Row="3"  Margin="40" Name="txtIdentidad" materialDesign:HintAssist.Hint="Identidad" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Roboto" FontSize="18" VerticalAlignment="Center"/>
+        <TextBox Grid.Column="1" Grid.Row="3"  Margin="40" Name="txtUsuario" materialDesign:HintAssist.Hint="Usuario" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Roboto" FontSize="18" VerticalAlignment="Center"/>
+        
+        <ComboBox Grid.Column="0" Grid.Row="4"  Margin="40" Name="cmbMotivo" materialDesign:HintAssist.Hint="Motivo" materialDesign:HintAssist.IsFloating="True" Style="{StaticResource MaterialDesignFloatingHintComboBox}" FontFamily="Roboto" FontSize="18" VerticalAlignment="Center">
+            <ComboBoxItem Content="op1"/>
+        </ComboBox>
+
+        <!--#region -->
+
+        <!--#region Botones-->
+        <Button Grid.Column="0" Grid.Row="5" Name="btnAceptar" Width="250" Height="60" HorizontalAlignment="Center" Background="#FFC107" Click="BtnAceptar_Click"  IsDefault="True" FontSize="32" Margin="60,0,0,0" materialDesign:ShadowAssist.ShadowDepth="Depth3">
+            <StackPanel Orientation="Horizontal">
+                <materialDesign:PackIcon Kind="AccountAdd" Width="auto" Height="auto" Margin="0,0,5,0"/>
+                <TextBlock Margin="4,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center">Aceptar</TextBlock>
             </StackPanel>
-        </Border>
-        <Border Grid.Row="4" Margin="10">
-            <Button FontSize="25" Width="auto" Height="auto" Content="Actualizar Lista" Background="#FFC107" materialDesign:ShadowAssist.ShadowDepth="Depth3"></Button>
-        </Border>
-        <Border Grid.Row="2" Grid.Column="2" Margin="10">
-            <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
-                <TextBlock FontSize="20" TextAlignment="Center" Margin="15">Información empleado</TextBlock>
-                <TextBox Width="auto" Height="auto"  materialDesign:HintAssist.Hint="Identidad" materialDesign:HintAssist.IsFloating="True" FontSize="20" Margin="10" IsEnabled="False" HorizontalAlignment="Center"></TextBox>
-                <StackPanel Orientation="Horizontal">
-                    <TextBox Width="auto" Height="auto" materialDesign:HintAssist.Hint="Nombre" materialDesign:HintAssist.IsFloating="True" FontSize="20" Margin="10" IsEnabled="False" ></TextBox>
-                    <TextBox Width="auto" Height="auto" materialDesign:HintAssist.Hint="Apellido" FontSize="20" materialDesign:HintAssist.IsFloating="True" Margin="50 10 10 10" IsEnabled="False"></TextBox>
-                </StackPanel>
+        </Button>
 
+        <Button Grid.Column="1" Grid.Row="5" Name="btnCancelar" Width="250" Height="60" HorizontalAlignment="Center" Background="#FFC107" Click="BtnCancelar_Click"  IsDefault="True" FontSize="32" Margin="0,0,60,0"  materialDesign:ShadowAssist.ShadowDepth="Depth3">
+            <StackPanel Orientation="Horizontal">
+                <materialDesign:PackIcon Kind="Cancel" Width="auto" Height="auto" Margin="0,0,5,0"/>
+                <TextBlock Margin="4,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center">Cancelar</TextBlock>
             </StackPanel>
-
-        </Border>
-        <Border Grid.Row="3" Grid.RowSpan="2" Grid.Column="2" Margin="10">
-            <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
-                <TextBlock FontSize="30" TextAlignment="Center" Margin="15">Usuario del empleado</TextBlock>
-
-                <TextBox Width="auto" Height="auto"  materialDesign:HintAssist.Hint="Usuario" materialDesign:HintAssist.IsFloating="True" FontSize="20" Margin="10" IsEnabled="False" HorizontalAlignment="Center"></TextBox>
-                <StackPanel Orientation="Vertical" Margin="60">
-                    <Button FontSize="25" Width="auto" Height="auto" Content="Dar de baja" Background="#FFC107" materialDesign:ShadowAssist.ShadowDepth="Depth3"></Button>
-
-                </StackPanel>
-            </StackPanel>
-        </Border>
+        </Button>
+        <!--#region-->
 
     </Grid>
 </Window>
