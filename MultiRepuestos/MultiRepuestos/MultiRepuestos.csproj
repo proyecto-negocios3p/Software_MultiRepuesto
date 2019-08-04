@@ -122,10 +122,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\WindowAgregarEmpleado.xaml">
-    <Page Include="View\Crear_Planilla.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Crear_Planilla.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
