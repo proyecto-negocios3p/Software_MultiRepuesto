@@ -51,7 +51,7 @@
             </StackPanel>
         </Border>
         <Border Grid.Row="3">
-            <Button FontSize="30" Width="180" Height="50" Content="Actualizar" Background="#FFC107" materialDesign:ShadowAssist.ShadowDepth="Depth3"></Button>
+            <Button x:Name="btnActualizar" Click="BtnActualizar_Click" FontSize="30" Width="180" Height="50" Content="Actualizar" Background="#FFC107" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="32,27,31.2,27.8"></Button>
         </Border>
     </Grid>
 </Window>

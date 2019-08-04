@@ -43,6 +43,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
@@ -67,6 +68,16 @@
     </ApplicationDefinition>
     <Compile Include="View\ActualizarEmpleado.xaml.cs">
       <DependentUpon>ActualizarEmpleado.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\conexionlinqIHSS.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>conexionlinqIHSS.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ConexionLinqRAP.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ConexionLinqRAP.dbml</DependentUpon>
     </Compile>
     <Compile Include="View\ControlHora\AgregarHoraExtraTrabajada.xaml.cs">
       <DependentUpon>AgregarHoraExtraTrabajada.xaml</DependentUpon>
@@ -234,6 +245,22 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="View\conexionlinqIHSS.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>conexionlinqIHSS.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="View\conexionlinqIHSS.dbml.layout">
+      <DependentUpon>conexionlinqIHSS.dbml</DependentUpon>
+    </None>
+    <None Include="View\ConexionLinqRAP.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>ConexionLinqRAP.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="View\ConexionLinqRAP.dbml.layout">
+      <DependentUpon>ConexionLinqRAP.dbml</DependentUpon>
+    </None>
     <Resource Include="Fonts\Roboto\Roboto-Black.ttf" />
     <Resource Include="Fonts\Roboto\Roboto-BlackItalic.ttf" />
     <Resource Include="Fonts\Roboto\Roboto-Bold.ttf" />
@@ -267,6 +294,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Sql\NewPlanillaMensualDePago.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
