@@ -65,6 +65,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+
+    <Compile Include="View\ActualizarEmpleado.xaml.cs">
+      <DependentUpon>ActualizarEmpleado.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\WindowAgregarEmpleado.xaml.cs">
+      <DependentUpon>WindowAgregarEmpleado.xaml</DependentUpon>
+     </Compile>
     <Compile Include="View\Crear_Planilla.xaml.cs">
       <DependentUpon>Crear_Planilla.xaml</DependentUpon>
     </Compile>
@@ -92,6 +99,12 @@
     <Compile Include="View\WindowContenedorPrincipal.xaml.cs">
       <DependentUpon>WindowContenedorPrincipal.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\WindowDarDeBajaEmpleado.xaml.cs">
+      <DependentUpon>WindowDarDeBajaEmpleado.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\WindowListarEmpleados.xaml.cs">
+      <DependentUpon>WindowListarEmpleados.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -104,39 +117,56 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\ActualizarEmpleado.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\WindowAgregarEmpleado.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+	
     <Page Include="View\Crear_Planilla.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Ventana_Admin_Usuario.xaml">
+	  <Page Include="View\Ventana_Admin_Usuario.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Ventana_Buscar_Planilla.xaml">
+	  <Page Include="View\Ventana_Buscar_Planilla.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Ventana_IHSS.xaml">
+	  <Page Include="View\Ventana_IHSS.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Ventana_Pago_Hora.xaml">
+	  <Page Include="View\Ventana_Pago_Hora.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Ventana_Pago_Hora_Extra.xaml">
+	  <Page Include="View\Ventana_Pago_Hora_Extra.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Ventana_RAP.xaml">
+	  <Page Include="View\Ventana_RAP.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Verificar_Empleado.xaml">
+	  <Page Include="View\Verificar_Empleado.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\WindowContenedorPrincipal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\WindowDarDeBajaEmpleado.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\WindowListarEmpleados.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

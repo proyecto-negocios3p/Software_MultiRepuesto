@@ -133,54 +133,79 @@ namespace MultiRepuestos.View
             Thread.Sleep(20);
         }
 
-
-        private void BtnPlanillaCrear_Click(object sender, RoutedEventArgs e)
+        private void BtnAgregarEmpleado_Click(object sender, RoutedEventArgs e)
         {
-            Crear_Planilla ventana = new Crear_Planilla();
-            ventana.Show();
-        }
-
-        private void BtnPlanillaBuscar_Click(object sender, RoutedEventArgs e)
-        {
-            Ventana_Buscar_Planilla ventana = new Ventana_Buscar_Planilla();
-            ventana.Show();
-        }
-
-        private void BtnConfIHSS_Click(object sender, RoutedEventArgs e)
-        {
-            Ventana_IHSS ventana = new Ventana_IHSS();
-            ventana.Show();
-            ventana.Owner = this;
-
-        }
-
-        private void BtnConfRAP_Click(object sender, RoutedEventArgs e)
-        {
-            Ventana_RAP ventana = new Ventana_RAP();
-            ventana.Show();
-            ventana.Owner = this;
-        }
-
-        private void BtnConfPagoPorHora_Click(object sender, RoutedEventArgs e)
-        {
-            Ventana_Pago_Hora ventana = new Ventana_Pago_Hora();
-            ventana.Show();
-            ventana.Owner = this;
-        }
-
-        private void BtnConfPagoPorHoraExtra_Click(object sender, RoutedEventArgs e)
-        {
-            Ventana_Pago_Hora_Extra ventana = new Ventana_Pago_Hora_Extra();
-            ventana.Show();
-            ventana.Owner = this;
-        }
-
-        private void BtnAdmiUsuario_Click(object sender, RoutedEventArgs e)
-        {
-           Verificar_Empleado ventana = new Verificar_Empleado();
+            WindowAgregarEmpleado ventana = new WindowAgregarEmpleado();
             ventana.Show();
             this.Close();
-            
+
+
         }
+
+        private void BtnActualizar_Click(object sender, RoutedEventArgs e)
+        {
+            ActualizarEmpleado ventana = new ActualizarEmpleado();
+            ventana.Show();
+            this.Close();
+        }
+
+        private void BtnListarEmpleados_Click(object sender, RoutedEventArgs e)
+        {
+            WindowListarEmpleados ventana = new WindowListarEmpleados();
+            ventana.Show();
+            this.Close();
+        }
+
+        private void BtnDarDeBaja_Click(object sender, RoutedEventArgs e)
+        {
+            WindowDarDeBajaEmpleado ventana = new WindowDarDeBajaEmpleado();
+            ventana.Show();
+            this.Close();
+
+
+        }
+            private void BtnPlanillaBuscar_Click(object sender, RoutedEventArgs e)
+            {
+                Ventana_Buscar_Planilla ventana = new Ventana_Buscar_Planilla();
+                ventana.Show();
+            }
+
+            private void BtnConfIHSS_Click(object sender, RoutedEventArgs e)
+            {
+                Ventana_IHSS ventana = new Ventana_IHSS();
+                ventana.Show();
+                ventana.Owner = this;
+
+            }
+
+            private void BtnConfRAP_Click(object sender, RoutedEventArgs e)
+            {
+                Ventana_RAP ventana = new Ventana_RAP();
+                ventana.Show();
+                ventana.Owner = this;
+            }
+
+            private void BtnConfPagoPorHora_Click(object sender, RoutedEventArgs e)
+            {
+                Ventana_Pago_Hora ventana = new Ventana_Pago_Hora();
+                ventana.Show();
+                ventana.Owner = this;
+            }
+
+            private void BtnConfPagoPorHoraExtra_Click(object sender, RoutedEventArgs e)
+            {
+                Ventana_Pago_Hora_Extra ventana = new Ventana_Pago_Hora_Extra();
+                ventana.Show();
+                ventana.Owner = this;
+            }
+
+            private void BtnAdmiUsuario_Click(object sender, RoutedEventArgs e)
+            {
+                Verificar_Empleado ventana = new Verificar_Empleado();
+                ventana.Show();
+                this.Close();
+
+            }
+        
     }
 }
