@@ -115,6 +115,9 @@
     <Compile Include="View\Planilla\Buscar_Planilla.xaml.cs">
       <DependentUpon>Buscar_Planilla.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Ventana_Usuario.xaml.cs">
+      <DependentUpon>Ventana_Usuario.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\WindowAgregarEmpleado.xaml.cs">
       <DependentUpon>WindowAgregarEmpleado.xaml</DependentUpon>
     </Compile>
@@ -130,8 +133,8 @@
     <Compile Include="View\Ventana_IHSS.xaml.cs">
       <DependentUpon>Ventana_IHSS.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Ventana_Pago_Hora.xaml.cs">
-      <DependentUpon>Ventana_Pago_Hora.xaml</DependentUpon>
+    <Compile Include="View\Ventana_Cargo.xaml.cs">
+      <DependentUpon>Ventana_Cargo.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Ventana_Pago_Hora_Extra.xaml.cs">
       <DependentUpon>Ventana_Pago_Hora_Extra.xaml</DependentUpon>
@@ -187,6 +190,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Ventana_Usuario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\WindowAgregarEmpleado.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -207,7 +214,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Ventana_Pago_Hora.xaml">
+    <Page Include="View\Ventana_Cargo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -320,7 +327,6 @@
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
-
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
       <Visible>False</Visible>
@@ -333,6 +339,5 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
