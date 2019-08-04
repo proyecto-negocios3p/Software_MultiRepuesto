@@ -71,6 +71,7 @@
     </Compile>
     <Compile Include="View\WindowAgregarEmpleado.xaml.cs">
       <DependentUpon>WindowAgregarEmpleado.xaml</DependentUpon>
+     </Compile>
     <Compile Include="View\Crear_Planilla.xaml.cs">
       <DependentUpon>Crear_Planilla.xaml</DependentUpon>
     </Compile>
