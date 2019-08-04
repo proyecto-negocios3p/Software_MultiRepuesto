@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,11 +20,23 @@ namespace MultiRepuestos.View
     /// </summary>
     public partial class Verificar_Empleado : Window
     {
+        LinqToSqlDataClassesDataContext dataContext;
+
+
         public Verificar_Empleado()
         {
-            InitializeComponent();
-        }
-        private void BtnCerrar_Click(object sender, RoutedEventArgs e)
+            
+                InitializeComponent();
+
+                // El string de conexión
+                string connectionString = ConfigurationManager.ConnectionStrings["MultiRepuestos.Properties.Settings.PlanillaDePagoMensualConnectionString"].ConnectionString;
+
+                // Conectar Linq con el string de conexión
+                dataContext = new LinqToSqlDataClassesDataContext(connectionString);
+
+            }
+
+            private void BtnCerrar_Click(object sender, RoutedEventArgs e)
         {
            
             WindowContenedorPrincipal ventana = new WindowContenedorPrincipal();
@@ -38,10 +51,32 @@ namespace MultiRepuestos.View
 
         private void BtnAceptar_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+
+                var User = (from c in dataContext.Usuario where c.Usuario1 == txtUser.Text select c).ToList();
+                var contra = (from c in dataContext.Usuario where c.Contraseña == pwdContra.Password select c).ToList();
+
+
+                if (contra.Count > 0 && User.Count > 0)
+                {
+
+                    Ventana_Admin_Usuario ventana = new Ventana_Admin_Usuario();
+                    ventana.Show();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Los Datos Ingresados son incorrectos");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+
            
-            Ventana_Admin_Usuario ventana = new Ventana_Admin_Usuario();
-            ventana.Show();
-            this.Close();
         }
     }
 }

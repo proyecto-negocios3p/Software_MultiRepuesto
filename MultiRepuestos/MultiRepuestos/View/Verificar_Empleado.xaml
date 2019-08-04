@@ -42,8 +42,8 @@
             <Border Grid.Row="1">
                 <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <TextBlock TextAlignment="Center" FontSize="25">Verificar identidad</TextBlock>
-                    <TextBox Width="auto" Height="auto" FontSize="30" materialDesign:HintAssist.Hint="Usuario" materialDesign:HintAssist.IsFloating="True" HorizontalAlignment="Center" Margin="15"></TextBox>
-                    <TextBox Width="auto" Height="auto" FontSize="30" materialDesign:HintAssist.Hint="Contraseña" materialDesign:HintAssist.IsFloating="True" HorizontalAlignment="Center" Margin="15"></TextBox>
+                    <TextBox   Name="txtUser" Width="auto" Height="auto" FontSize="30" materialDesign:HintAssist.Hint="Usuario" materialDesign:HintAssist.IsFloating="True" HorizontalAlignment="Center" Margin="15"></TextBox>
+                    <PasswordBox Name="pwdContra"  Width="auto" Height="auto" FontSize="30" materialDesign:HintAssist.Hint="Contraseña" materialDesign:HintAssist.IsFloating="True" HorizontalAlignment="Center" Margin="15"></PasswordBox>
 
 
                 </StackPanel>

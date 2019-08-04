@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,14 +20,25 @@ namespace MultiRepuestos
     /// <summary>
     /// Lógica de interacción para MainWindow.xaml
     /// </summary>
+    /// 
+   
     public partial class MainWindow : Window
     {
+        LinqToSqlDataClassesDataContext dataContext;
+
         public MainWindow()
         {
             InitializeComponent();
+
+            // El string de conexión
+            string connectionString = ConfigurationManager.ConnectionStrings["MultiRepuestos.Properties.Settings.PlanillaDePagoMensualConnectionString"].ConnectionString;
+
+            // Conectar Linq con el string de conexión
+            dataContext = new LinqToSqlDataClassesDataContext(connectionString);
+
         }
 
-      
+
 
         private void LoginBorder_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
@@ -45,9 +57,35 @@ namespace MultiRepuestos
 
         private void BtnIniciar_Click(object sender, RoutedEventArgs e)
         {
-            WindowContenedorPrincipal ventana = new WindowContenedorPrincipal();
-            ventana.Show();
-            this.Close();
+
+
+            try
+            {
+           
+                var User = (from c in dataContext.Usuario where c.Usuario1 == txtUsuario.Text  select c).ToList();
+                var contra = (from c in dataContext.Usuario where c.Contraseña == pwbContraseña.Password select c).ToList();
+
+              
+                if(contra.Count>0 &&User.Count>0)
+                { 
+                
+                    WindowContenedorPrincipal ventana = new WindowContenedorPrincipal();
+                    ventana.Show();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Los Datos Ingresados son incorrectos");
+                }
+               
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            
+           
+           
         }
 
         private void BtnMostrarPwd_Click(object sender, RoutedEventArgs e)
