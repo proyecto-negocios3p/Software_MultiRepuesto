@@ -122,9 +122,9 @@
                         <TextBlock FontSize="20" HorizontalAlignment="Center">Control de horas</TextBlock>
                     </StackPanel>
                     <Button Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5" Name="agregarHorasExtra" Click="AgregarHorasExtra_Click" >Agregar horas extra</Button>
-                    <Button Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5">Agregar horas faltadas</Button>
-                    <Button Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5">Opcion 3</Button>
-                    <Button Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5">Opcion 4</Button>
+                    <Button Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5" Name="agregarHorasFaltadas" Click="AgregarHorasFaltadas_Click" >Agregar horas faltadas</Button>
+                    <Button Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5" Name="agregarHorasTrabajadas" Click="AgregarHorasTrabajadas_Click">Agregar horas trabajadas</Button>
+                    <Button Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5" Name="listarHoras" Click="ListarHoras_Click">Listar Horas</Button>
 
                 </StackPanel>
             </Grid>

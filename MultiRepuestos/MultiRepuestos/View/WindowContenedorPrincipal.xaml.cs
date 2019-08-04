@@ -137,6 +137,8 @@ namespace MultiRepuestos.View
             Thread.Sleep(20);
         }
 
+        // Módulo de empleados 
+        // Agregar empleado
         private void BtnAgregarEmpleado_Click(object sender, RoutedEventArgs e)
         {
             WindowAgregarEmpleado ventana = new WindowAgregarEmpleado();
@@ -146,6 +148,7 @@ namespace MultiRepuestos.View
 
         }
 
+        // Actualizar empleados
         private void BtnActualizar_Click(object sender, RoutedEventArgs e)
         {
             ActualizarEmpleado ventana = new ActualizarEmpleado();
@@ -153,6 +156,7 @@ namespace MultiRepuestos.View
             this.Close();
         }
 
+        // Listar empleados
         private void BtnListarEmpleados_Click(object sender, RoutedEventArgs e)
         {
             WindowListarEmpleados ventana = new WindowListarEmpleados();
@@ -160,6 +164,7 @@ namespace MultiRepuestos.View
             this.Close();
         }
 
+        // Darde baja a empleados
         private void BtnDarDeBaja_Click(object sender, RoutedEventArgs e)
         {
             WindowDarDeBajaEmpleado ventana = new WindowDarDeBajaEmpleado();
@@ -168,6 +173,8 @@ namespace MultiRepuestos.View
 
 
         }
+        // Fin módulo de empleados 
+
             private void BtnPlanillaBuscar_Click(object sender, RoutedEventArgs e)
             {
                 Ventana_Buscar_Planilla ventana = new Ventana_Buscar_Planilla();
@@ -225,11 +232,37 @@ namespace MultiRepuestos.View
             this.Close();
         }
 
+        // Módulo de Control de horas
+        // Agregar horas extra
         private void AgregarHorasExtra_Click(object sender, RoutedEventArgs e)
         {
             AgregarHoraExtraTrabajada ventana = new AgregarHoraExtraTrabajada();
             ventana.Show();
-            this.Close();
+            ventana.Owner = this;
+        }
+
+        // Agregar horas faltadas
+        private void AgregarHorasFaltadas_Click(object sender, RoutedEventArgs e)
+        {
+            AgregarHoraFaltada ventana = new AgregarHoraFaltada();
+            ventana.Show();
+            ventana.Owner = this;
+        }
+
+        // Agregar horas trabajadas
+        private void AgregarHorasTrabajadas_Click(object sender, RoutedEventArgs e)
+        {
+            AgregarHoraTrabajada ventana = new AgregarHoraTrabajada();
+            ventana.Show();
+            ventana.Owner = this;
+        }
+
+        // Listar horas 
+        private void ListarHoras_Click(object sender, RoutedEventArgs e)
+        {
+            ListarHoras ventana = new ListarHoras();
+            ventana.Show();
+            ventana.Owner = this;
         }
     }
 }
