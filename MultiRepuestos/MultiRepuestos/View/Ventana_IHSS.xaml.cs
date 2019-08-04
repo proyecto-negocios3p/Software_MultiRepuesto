@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Data.SqlClient;
 
 namespace MultiRepuestos.View
 {
@@ -19,9 +20,11 @@ namespace MultiRepuestos.View
     /// </summary>
     public partial class Ventana_IHSS : Window
     {
+        SqlConnection sqlconnection;
         public Ventana_IHSS()
         {
             InitializeComponent();
+            Mostrar();
         }
 
         private void BtnCerrar_Click(object sender, RoutedEventArgs e)
@@ -34,8 +37,33 @@ namespace MultiRepuestos.View
             WindowState = WindowState.Minimized;
         }
 
-        
+        private void BtnActualizar_Click(object sender, RoutedEventArgs e)
+        {
+            
+            
+            if (txtIHSS.Text == string.Empty)
+            {
+                MessageBox.Show("Debe ingresar el IHSS");
 
-        
+            }
+            else
+            {
+                 var db  = new conexionlinqIHSSDataContext();
+                var IH = (from a in db.IHSS where a.SalarioTecho == a.SalarioTecho select a).Single();
+
+                IH.SalarioTecho = Convert.ToDecimal(txtIHSS.Text);
+                db.SubmitChanges();
+                MessageBox.Show("Se ah actualizado con exito");
+                Mostrar();
+            }
+        }
+
+        private void Mostrar()
+        {
+            var db = new conexionlinqIHSSDataContext();
+            var IH = (from a in db.IHSS where a.SalarioTecho == a.SalarioTecho select a).Single();
+            txtIHSSMostrar.Text = IH.SalarioTecho.ToString();
+            
+        }
     }
 }
