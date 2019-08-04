@@ -74,6 +74,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>conexionlinqIHSS.dbml</DependentUpon>
     </Compile>
+    <Compile Include="View\ConexionLinqRAP.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ConexionLinqRAP.dbml</DependentUpon>
+    </Compile>
     <Compile Include="View\ControlHora\AgregarHoraExtraTrabajada.xaml.cs">
       <DependentUpon>AgregarHoraExtraTrabajada.xaml</DependentUpon>
     </Compile>
@@ -247,6 +252,14 @@
     </None>
     <None Include="View\conexionlinqIHSS.dbml.layout">
       <DependentUpon>conexionlinqIHSS.dbml</DependentUpon>
+    </None>
+    <None Include="View\ConexionLinqRAP.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>ConexionLinqRAP.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="View\ConexionLinqRAP.dbml.layout">
+      <DependentUpon>ConexionLinqRAP.dbml</DependentUpon>
     </None>
     <Resource Include="Fonts\Roboto\Roboto-Black.ttf" />
     <Resource Include="Fonts\Roboto\Roboto-BlackItalic.ttf" />

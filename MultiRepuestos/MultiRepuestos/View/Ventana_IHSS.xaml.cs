@@ -20,7 +20,7 @@ namespace MultiRepuestos.View
     /// </summary>
     public partial class Ventana_IHSS : Window
     {
-        SqlConnection sqlconnection;
+        
         public Ventana_IHSS()
         {
             InitializeComponent();
@@ -54,6 +54,7 @@ namespace MultiRepuestos.View
                 IH.SalarioTecho = Convert.ToDecimal(txtIHSS.Text);
                 db.SubmitChanges();
                 MessageBox.Show("Se ah actualizado con exito");
+                txtIHSS.Text = string.Empty;
                 Mostrar();
             }
         }

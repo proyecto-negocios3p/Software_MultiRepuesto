@@ -22,6 +22,8 @@ namespace MultiRepuestos.View
         public Ventana_RAP()
         {
             InitializeComponent();
+
+            Mostrar();
         }
         private void BtnCerrar_Click(object sender, RoutedEventArgs e)
         {
@@ -33,5 +35,31 @@ namespace MultiRepuestos.View
             WindowState = WindowState.Minimized;
         }
 
+        private void BtnActualizar_Click(object sender, RoutedEventArgs e)
+        {
+            if (txtRAP.Text == string.Empty)
+            {
+                MessageBox.Show("Debe ingresar el RAP");
+
+            }
+            else
+            {
+                var db = new ConexionLinqRAPDataContext();
+                var IH = (from a in db.RAP where a.Techo == a.Techo select a).Single();
+
+                IH.Techo = Convert.ToDecimal(txtRAP.Text);
+                db.SubmitChanges();
+                MessageBox.Show("Se ah actualizado con exito");
+                txtRAP.Text = string.Empty;
+                Mostrar();
+            }
+        }
+
+        private void Mostrar()
+        {
+            var db = new ConexionLinqRAPDataContext();
+            var IH = (from a in db.RAP where a.Techo == a.Techo select a).Single();
+            lbRAP.Text = IH.Techo.ToString();
+        }
     }
 }
