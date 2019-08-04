@@ -23,5 +23,15 @@ namespace MultiRepuestos.View.ControlHora
         {
             InitializeComponent();
         }
+
+        private void BtnMin_Click(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
+        }
+
+        private void BtnCerrar_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

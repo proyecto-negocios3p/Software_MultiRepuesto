@@ -121,10 +121,10 @@
                         <materialDesign:PackIcon HorizontalAlignment="Center" Kind="People" Foreground="White" Width="30" Height="30"/>
                         <TextBlock FontSize="20" HorizontalAlignment="Center">Control de horas</TextBlock>
                     </StackPanel>
-                    <Button Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5">Opcion 1</Button>
-                    <Button Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5">Opcion 2</Button>
-                    <Button Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5">Opcion 3</Button>
-                    <Button Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5">Opcion 4</Button>
+                    <Button Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5" Name="agregarHorasExtra" Click="AgregarHorasExtra_Click" >Agregar horas extra</Button>
+                    <Button Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5" Name="agregarHorasFaltadas" Click="AgregarHorasFaltadas_Click" >Agregar horas faltadas</Button>
+                    <Button Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5" Name="agregarHorasTrabajadas" Click="AgregarHorasTrabajadas_Click">Agregar horas trabajadas</Button>
+                    <Button Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5" Name="listarHoras" Click="ListarHoras_Click">Listar Horas</Button>
 
                 </StackPanel>
             </Grid>
@@ -196,8 +196,8 @@
                         <TextBlock FontSize="20" HorizontalAlignment="Center">Planillas mensuales</TextBlock>
 
                     </StackPanel>
-                    <Button Name="btnPlanillaCrear" Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5" >Crear</Button>
-                    <Button Name="btnPlanillaBuscar" Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5" >Buscar</Button>
+                    <Button Name="btnPlanillaCrear" Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5" Click="BtnPlanillaCrear_Click">Crear</Button>
+                    <Button Name="btnPlanillaBuscar" Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5" Click="BtnPlanillaBuscar_Click_1">Buscar</Button>
                     <!--<Button Name="btnPlanillaActualizar" Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5" Click="BtnPlanillaActualizar_Click">Actualizar</Button>-->
 
 
