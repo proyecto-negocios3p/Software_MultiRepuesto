@@ -121,8 +121,8 @@
                         <materialDesign:PackIcon HorizontalAlignment="Center" Kind="People" Foreground="White" Width="30" Height="30"/>
                         <TextBlock FontSize="20" HorizontalAlignment="Center">Control de horas</TextBlock>
                     </StackPanel>
-                    <Button Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5">Opcion 1</Button>
-                    <Button Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5">Opcion 2</Button>
+                    <Button Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5" Name="agregarHorasExtra" Click="AgregarHorasExtra_Click" >Agregar horas extra</Button>
+                    <Button Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5">Agregar horas faltadas</Button>
                     <Button Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5">Opcion 3</Button>
                     <Button Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5">Opcion 4</Button>
 

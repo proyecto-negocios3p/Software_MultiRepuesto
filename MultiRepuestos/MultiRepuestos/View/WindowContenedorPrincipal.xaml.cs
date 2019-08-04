@@ -12,7 +12,10 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+// Agregando los namespaces necesarios
 using MultiRepuestos.View.Planilla;
+using MultiRepuestos.View.ControlHora;
+
 
 namespace MultiRepuestos.View
 {
@@ -218,6 +221,13 @@ namespace MultiRepuestos.View
         private void BtnPlanillaBuscar_Click_1(object sender, RoutedEventArgs e)
         {
             Buscar_Planilla ventana = new Buscar_Planilla();
+            ventana.Show();
+            this.Close();
+        }
+
+        private void AgregarHorasExtra_Click(object sender, RoutedEventArgs e)
+        {
+            AgregarHoraExtraTrabajada ventana = new AgregarHoraExtraTrabajada();
             ventana.Show();
             this.Close();
         }
