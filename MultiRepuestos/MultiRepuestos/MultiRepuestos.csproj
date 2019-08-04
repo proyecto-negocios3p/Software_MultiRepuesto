@@ -43,6 +43,8 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -52,20 +54,46 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="UIAutomationProvider" />
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+
     <Compile Include="View\ActualizarEmpleado.xaml.cs">
       <DependentUpon>ActualizarEmpleado.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\WindowAgregarEmpleado.xaml.cs">
       <DependentUpon>WindowAgregarEmpleado.xaml</DependentUpon>
+    <Compile Include="View\Crear_Planilla.xaml.cs">
+      <DependentUpon>Crear_Planilla.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Ventana_Admin_Usuario.xaml.cs">
+      <DependentUpon>Ventana_Admin_Usuario.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Ventana_Buscar_Planilla.xaml.cs">
+      <DependentUpon>Ventana_Buscar_Planilla.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Ventana_IHSS.xaml.cs">
+      <DependentUpon>Ventana_IHSS.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Ventana_Pago_Hora.xaml.cs">
+      <DependentUpon>Ventana_Pago_Hora.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Ventana_Pago_Hora_Extra.xaml.cs">
+      <DependentUpon>Ventana_Pago_Hora_Extra.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Ventana_RAP.xaml.cs">
+      <DependentUpon>Ventana_RAP.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Verificar_Empleado.xaml.cs">
+      <DependentUpon>Verificar_Empleado.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\WindowContenedorPrincipal.xaml.cs">
       <DependentUpon>WindowContenedorPrincipal.xaml</DependentUpon>
@@ -93,6 +121,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\WindowAgregarEmpleado.xaml">
+    <Page Include="View\Crear_Planilla.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -160,8 +192,9 @@
   <ItemGroup>
     <Resource Include="Assets\Logo.png" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Sql\" />
+    <Content Include="Sql\NewPlanillaMensualDePago.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

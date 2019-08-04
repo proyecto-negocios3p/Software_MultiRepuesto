@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:MultiRepuestos.View"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="WindowContenedorPrincipal" Height="500" Width="850" WindowStartupLocation="CenterScreen" WindowStyle="None" FontFamily="Roboto Black">
+        Title="WindowContenedorPrincipal" Height="620" Width="900" WindowStartupLocation="CenterScreen" WindowStyle="None" FontFamily="Roboto Black">
     <Grid>
         <!--#region Columnas y filas-->
         <Grid.ColumnDefinitions>
@@ -21,7 +21,7 @@
             <RowDefinition Height="60"/>
         </Grid.RowDefinitions>
         <!--#endregion-->
-        
+
         <!--#region Fondo-->
         <Border Name="PanelFondo" Grid.Row="0"  Grid.Column="0" Grid.RowSpan="4" Grid.ColumnSpan="3" MouseLeftButtonDown="PanelFondo_MouseLeftButtonDown">
             <Rectangle>
@@ -35,7 +35,7 @@
             </Rectangle>
         </Border>
         <!--#endregion-->
-        
+
         <!--#region Barra Superior-->
 
         <Border Grid.Row="0" Grid.Column="3">
@@ -55,9 +55,9 @@
             </StackPanel>
         </Border>
         <!--#endregion-->
-        
+
         <!--#region MenuPrincipal-->
-        
+
         <!--#region B1-->
         <Grid Name="B1" Grid.Row="1" Grid.Column="0" Margin="10" Visibility="Visible" MouseEnter="B1_MouseEnter" MouseLeave="B1_MouseLeave">
             <Rectangle>
@@ -110,7 +110,9 @@
                 <StackPanel Orientation="Vertical" VerticalAlignment="Bottom" Margin="15,0,15,13">
 
                     <materialDesign:PackIcon HorizontalAlignment="Center" Kind="Clock" Foreground="White" Width="100" Height="100"/>
+
                     <TextBlock FontSize="30" HorizontalAlignment="Center">Control de horas</TextBlock>
+
                 </StackPanel>
             </Grid>
             <Grid Name="B2_Estado2" Grid.Row="1" Grid.Column="0" Margin="5" Visibility="Collapsed">
@@ -181,20 +183,23 @@
             <Grid Name="B4_Estado1">
                 <StackPanel Orientation="Vertical" VerticalAlignment="Bottom" Margin="15,0,15,13">
 
-                    <materialDesign:PackIcon HorizontalAlignment="Center" Kind="Resume" Foreground="White" Width="100" Height="100"/>
+               <materialDesign:PackIcon HorizontalAlignment="Center" Kind="Resume" Foreground="White" Width="100" Height="100"/>
                     <TextBlock FontSize="30" HorizontalAlignment="Center">Planillas mensuales</TextBlock>
+
                 </StackPanel>
             </Grid>
             <Grid Name="B4_Estado2" Grid.Row="1" Grid.Column="0" Margin="5" Visibility="Collapsed">
                 <StackPanel Orientation="Vertical">
                     <StackPanel Orientation="Horizontal">
+
                         <materialDesign:PackIcon HorizontalAlignment="Center" Kind="Resume" Foreground="White" Width="30" Height="30"/>
                         <TextBlock FontSize="20" HorizontalAlignment="Center">Planillas mensuales</TextBlock>
+
                     </StackPanel>
-                    <Button Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5">Opcion 1</Button>
-                    <Button Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5">Opcion 2</Button>
-                    <Button Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5">Opcion 3</Button>
-                    <Button Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5">Opcion 4</Button>
+                    <Button Name="btnPlanillaCrear" Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5" Click="BtnPlanillaCrear_Click">Crear</Button>
+                    <Button Name="btnPlanillaBuscar" Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5" Click="BtnPlanillaBuscar_Click">Buscar</Button>
+                    <!--<Button Name="btnPlanillaActualizar" Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5" Click="BtnPlanillaActualizar_Click">Actualizar</Button>-->
+
 
                 </StackPanel>
             </Grid>
@@ -227,10 +232,11 @@
                         <materialDesign:PackIcon HorizontalAlignment="Center" Kind="Gear" Foreground="White" Width="30" Height="30"/>
                         <TextBlock FontSize="20" HorizontalAlignment="Center">Configuración</TextBlock>
                     </StackPanel>
-                    <Button Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5">Opcion 1</Button>
-                    <Button Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5">Opcion 2</Button>
-                    <Button Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5">Opcion 3</Button>
-                    <Button Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5">Opcion 4</Button>
+                    <Button Name="btnConfIHSS" Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5" Click="BtnConfIHSS_Click">IHSS</Button>
+                    <Button Name="btnConfRAP" Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5" Click="BtnConfRAP_Click">RAP</Button>
+                    <Button Name="btnConfPagoPorHora" Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5" Click="BtnConfPagoPorHora_Click">Pago Por Hora</Button>
+                    <Button Name="btnConfPagoPorHoraExtra" Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5" Click="BtnConfPagoPorHoraExtra_Click">Pago Por Hora Extra</Button>
+                    <Button Name="btnAdmiUsuario" Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5" Click="BtnAdmiUsuario_Click">Administrar Usuarios</Button>
 
                 </StackPanel>
             </Grid>
@@ -240,12 +246,12 @@
         <!--#endregion-->
 
 
-        <Button Grid.Row="4" Grid.Column="3" Name="btnCerrarSesion" Width="auto" HorizontalAlignment="Center" VerticalAlignment="Center"  Background="#FFC107" Click="BtnCerrarSesion_Click">
+        <Button Grid.Row="3" Grid.Column="2" Name="btnCerrarSesion" Width="auto" HorizontalAlignment="Center" VerticalAlignment="Center"  Background="#FFC107" Click="BtnCerrarSesion_Click">
             <StackPanel Orientation="Horizontal">
                 <materialDesign:PackIcon Kind="Logout" Width="auto" Height="auto"/>
                 <TextBlock Margin="4,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center">Cerrar Sesión</TextBlock>
             </StackPanel>
         </Button>
-      
+
     </Grid>
 </Window>

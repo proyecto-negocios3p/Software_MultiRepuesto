@@ -45,7 +45,8 @@ namespace MultiRepuestos.View
 
         private void BtnCerrar_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+         
+          Application.Current.Shutdown();
         }
 
         private void BtnRest_Click(object sender, RoutedEventArgs e)
@@ -160,6 +161,55 @@ namespace MultiRepuestos.View
             WindowDarDeBajaEmpleado ventana = new WindowDarDeBajaEmpleado();
             ventana.Show();
             this.Close();
+
+
+        private void BtnPlanillaCrear_Click(object sender, RoutedEventArgs e)
+        {
+            Crear_Planilla ventana = new Crear_Planilla();
+            ventana.Show();
+        }
+
+        private void BtnPlanillaBuscar_Click(object sender, RoutedEventArgs e)
+        {
+            Ventana_Buscar_Planilla ventana = new Ventana_Buscar_Planilla();
+            ventana.Show();
+        }
+
+        private void BtnConfIHSS_Click(object sender, RoutedEventArgs e)
+        {
+            Ventana_IHSS ventana = new Ventana_IHSS();
+            ventana.Show();
+            ventana.Owner = this;
+
+        }
+
+        private void BtnConfRAP_Click(object sender, RoutedEventArgs e)
+        {
+            Ventana_RAP ventana = new Ventana_RAP();
+            ventana.Show();
+            ventana.Owner = this;
+        }
+
+        private void BtnConfPagoPorHora_Click(object sender, RoutedEventArgs e)
+        {
+            Ventana_Pago_Hora ventana = new Ventana_Pago_Hora();
+            ventana.Show();
+            ventana.Owner = this;
+        }
+
+        private void BtnConfPagoPorHoraExtra_Click(object sender, RoutedEventArgs e)
+        {
+            Ventana_Pago_Hora_Extra ventana = new Ventana_Pago_Hora_Extra();
+            ventana.Show();
+            ventana.Owner = this;
+        }
+
+        private void BtnAdmiUsuario_Click(object sender, RoutedEventArgs e)
+        {
+           Verificar_Empleado ventana = new Verificar_Empleado();
+            ventana.Show();
+            this.Close();
+
         }
     }
 }
