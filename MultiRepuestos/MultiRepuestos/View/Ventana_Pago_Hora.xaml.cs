@@ -32,5 +32,10 @@ namespace MultiRepuestos.View
         {
             WindowState = WindowState.Minimized;
         }
+
+        private void BtnActualizar_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
     }
 }
