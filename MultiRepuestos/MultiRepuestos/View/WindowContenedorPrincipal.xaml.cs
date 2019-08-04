@@ -133,6 +133,35 @@ namespace MultiRepuestos.View
             Thread.Sleep(20);
         }
 
+        private void BtnAgregarEmpleado_Click(object sender, RoutedEventArgs e)
+        {
+            WindowAgregarEmpleado ventana = new WindowAgregarEmpleado();
+            ventana.Show();
+            this.Close();
+
+
+        }
+
+        private void BtnActualizar_Click(object sender, RoutedEventArgs e)
+        {
+            ActualizarEmpleado ventana = new ActualizarEmpleado();
+            ventana.Show();
+            this.Close();
+        }
+
+        private void BtnListarEmpleados_Click(object sender, RoutedEventArgs e)
+        {
+            WindowListarEmpleados ventana = new WindowListarEmpleados();
+            ventana.Show();
+            this.Close();
+        }
+
+        private void BtnDarDeBaja_Click(object sender, RoutedEventArgs e)
+        {
+            WindowDarDeBajaEmpleado ventana = new WindowDarDeBajaEmpleado();
+            ventana.Show();
+            this.Close();
+
 
         private void BtnPlanillaCrear_Click(object sender, RoutedEventArgs e)
         {
@@ -180,7 +209,7 @@ namespace MultiRepuestos.View
            Verificar_Empleado ventana = new Verificar_Empleado();
             ventana.Show();
             this.Close();
-            
+
         }
     }
 }
