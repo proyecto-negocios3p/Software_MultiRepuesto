@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,9 +20,16 @@ namespace MultiRepuestos.View
     /// </summary>
     public partial class Ventana_Admin_Usuario : Window
     {
+        LinqToSqlDataClassesDataContext dataContext;
+
         public Ventana_Admin_Usuario()
         {
             InitializeComponent();
+            // El string de conexión
+            string connectionString = ConfigurationManager.ConnectionStrings["MultiRepuestos.Properties.Settings.PlanillaDePagoMensualConnectionString"].ConnectionString;
+
+            // Conectar Linq con el string de conexión
+            dataContext = new LinqToSqlDataClassesDataContext(connectionString);
         }
 
         private void BtnCerrar_Click(object sender, RoutedEventArgs e)
@@ -39,6 +47,26 @@ namespace MultiRepuestos.View
         private void BarraBusperior_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             DragMove();
+        }
+
+        public void ListarEmpleados()
+        {
+            //var Lista = (from E in dataContext.Empleado  select E).ToList();
+            var Lista = from e in dataContext.Empleado
+                                 // where client.direccion == txtBuscar.Text
+                                  select new { e.Nombre ,e.Identidad };
+            dgEmpleados.ItemsSource = Lista.ToList();
+            //MessageBox.Show(Lista.ToString());
+
+
+
+            dgEmpleados.ItemsSource = Lista;
+            
+        }
+
+        private void BtnActualizarLista_Click(object sender, RoutedEventArgs e)
+        {
+            ListarEmpleados();
         }
     }
 }
