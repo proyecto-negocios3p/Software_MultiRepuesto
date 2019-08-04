@@ -141,7 +141,8 @@ CREATE TABLE Planilla.Usuario
 	Usuario VARCHAR(25)  NOT NULL,
 	Contraseña VARCHAR(25)  NOT NULL,
 	IdentidadEmpleado CHAR(15) NULL,
-	Fecha DATETIME NULL DEFAULT GETDATE()
+	Fecha DATETIME NULL DEFAULT GETDATE(),
+	Estado BIT NULL DEFAULT 1, --1 ES ACTIVO, 2 ES INATIVO
 
 );
 GO
@@ -247,4 +248,42 @@ ALTER TABLE Planilla.PlanillaFinal
 	FOREIGN KEY (IdentidadEmpleado) REFERENCES Planilla.Empleado(Identidad)
 	ON UPDATE NO ACTION
 	ON DELETE NO ACTION
+GO
+
+
+--Constraint para verificar datos
+-- Paso 24 Constrian para la tabla Empleado
+ALTER TABLE Planilla.Empleado WITH CHECK 
+	ADD CONSTRAINT CHK_FormatoDeIdentidad$Para$Empleado_Identidad
+		CHECK(Identidad LIKE'[0-9][0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]-[0-9][0-9][0-9][0-9][0-9]')
+GO
+-- Paso 25 Constrian para la tabla TelefonoEmpleado
+ALTER TABLE Planilla.TelefonoEmpleado WITH CHECK 
+	ADD CONSTRAINT CHK_FormatoDeIdentidad$Para$TelefonoEmpleado_IdentidadEmpleado
+		CHECK(IdentidadEmpleado LIKE'[0-9][0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]-[0-9][0-9][0-9][0-9][0-9]')
+GO
+-- Paso 26 Constrian para la tabla HoraFaltada
+ALTER TABLE Planilla.HoraFaltada WITH CHECK 
+	ADD CONSTRAINT CHK_FormatoDeIdentidad$Para$HoraFaltada_IdentidadEmpleado
+		CHECK(IdentidadEmpleado LIKE'[0-9][0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]-[0-9][0-9][0-9][0-9][0-9]')
+GO
+-- Paso 27 Constrian para la tabla HoraExtra
+ALTER TABLE Planilla.HoraExtra WITH CHECK 
+	ADD CONSTRAINT CHK_FormatoDeIdentidad$Para$HoraExtra_IdentidadEmpleado
+		CHECK(IdentidadEmpleado LIKE'[0-9][0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]-[0-9][0-9][0-9][0-9][0-9]')
+GO
+-- Paso 28 Constrian para la tabla PrestacionLaboral
+ALTER TABLE Planilla.PrestacionLaboral WITH CHECK 
+	ADD CONSTRAINT CHK_FormatoDeIdentidad$Para$PrestacionLaboral_IdentidadEmpleado
+		CHECK(IdentidadEmpleado LIKE'[0-9][0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]-[0-9][0-9][0-9][0-9][0-9]')
+GO
+-- Paso 29 Constrian para la tabla PrestacionLaboralEmbarazo
+ALTER TABLE Planilla.PrestacionLaboralEmbarazo WITH CHECK 
+	ADD CONSTRAINT CHK_FormatoDeIdentidad$Para$PrestacionLaboralEmbarazo_IdentidadEmpleado
+		CHECK(IdentidadEmpleado LIKE'[0-9][0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]-[0-9][0-9][0-9][0-9][0-9]')
+GO
+-- Paso 30 Constrian para la tabla planillaFinal
+ALTER TABLE Planilla.PlanillaFinal WITH CHECK 
+	ADD CONSTRAINT CHK_FormatoDeIdentidad$Para$PlanillaFinal_IdentidadEmpleado
+		CHECK(IdentidadEmpleado LIKE'[0-9][0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]-[0-9][0-9][0-9][0-9][0-9]')
 GO
