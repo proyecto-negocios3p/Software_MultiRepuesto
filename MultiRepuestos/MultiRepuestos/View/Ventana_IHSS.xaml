@@ -48,13 +48,13 @@
         <Border Grid.Row="2">
             <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
                 
-                <TextBlock FontSize="30" Margin="10" TextAlignment="Center">0</TextBlock>
+                <TextBlock x:Name="txtIHSSMostrar" FontSize="30" Margin="10" TextAlignment="Center">0</TextBlock>
                 <TextBox FontSize="30" Name="txtIHSS" Height="auto" Width="150"></TextBox>
 
             </StackPanel>
         </Border>
         <Border Grid.Row="3">
-            <Button FontSize="30" Width="180" Height="50" Content="Actualizar" Background="#FFC107" materialDesign:ShadowAssist.ShadowDepth="Depth3"></Button> 
+            <Button x:Name="btnActualizar" FontSize="30" Width="180" Height="50" Content="Actualizar" Background="#FFC107" materialDesign:ShadowAssist.ShadowDepth="Depth3" Click="BtnActualizar_Click"></Button> 
         </Border>
     </Grid>
 </Window>

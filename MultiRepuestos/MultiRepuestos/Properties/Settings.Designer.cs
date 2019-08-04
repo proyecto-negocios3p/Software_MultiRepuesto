@@ -26,8 +26,10 @@ namespace MultiRepuestos.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-J4NHS3J\\SQLEXPRESS;Initial Catalog=PlanillaDePagoMensual;Inte" +
             "grated Security=True")]
+
         public string PlanillaDePagoMensualConnectionString {
             get {
                 return ((string)(this["PlanillaDePagoMensualConnectionString"]));
