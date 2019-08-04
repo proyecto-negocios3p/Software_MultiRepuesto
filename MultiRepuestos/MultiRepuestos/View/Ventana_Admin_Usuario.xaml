@@ -47,7 +47,7 @@
         <Border Grid.Row="2" Grid.Column="0" Grid.RowSpan="2" Margin="15">
             <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
                 <TextBlock FontSize="30" TextAlignment="Center" Margin="5">Empleados</TextBlock>
-                <ListView Name="dgEmpleados" Background="LightGray" Foreground="Black" Width="250" Height="450"></ListView>
+                <ListBox Name="dgEmpleados" Background="LightGray" Foreground="Black" Width="250" Height="450" SelectionChanged="DgEmpleados_SelectionChanged"></ListBox>
             </StackPanel>
         </Border>
         <Border Grid.Row="4" Margin="10">

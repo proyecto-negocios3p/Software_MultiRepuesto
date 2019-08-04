@@ -31,7 +31,8 @@ namespace MultiRepuestos.View
         public Ventana_Admin_Usuario()
         {
             InitializeComponent();
-    
+            dataContext = new LinqToSqlDataClassesDataContext(conexion);
+
         }
 
         private void BtnCerrar_Click(object sender, RoutedEventArgs e)
@@ -72,7 +73,7 @@ namespace MultiRepuestos.View
                 using (adapter)
                 {
                     adapter.Fill(tabla);
-                    dgEmpleados.DisplayMemberPath = "Nombre";
+                    dgEmpleados.DisplayMemberPath = "Identidad";
                     
                     dgEmpleados.SelectedValuePath = "Identidad";
                     dgEmpleados.ItemsSource = tabla.DefaultView;
@@ -89,7 +90,38 @@ namespace MultiRepuestos.View
         }
         private void BuscarEmpleado()
         {
+            string id = dgEmpleados.SelectedValue.ToString();
+            MessageBox.Show(id.ToString());
+            try
+            {
 
+                var User = (from u in dataContext.Usuario
+                            where u.IdentidadEmpleado == id
+                            select u).First();
+
+
+                var Emp = (from e in dataContext.Empleado
+                           where e.Identidad == id
+                           select e).First();
+
+                txtUser.Text = User.Usuario1;
+                txtContra.Text = User.Contraseña;
+
+                txtIdentidad.Text = Emp.Identidad;
+                txtNombre.Text = Emp.Nombre;
+                txtApellido.Text = Emp.Apellido;
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void DgEmpleados_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            BuscarEmpleado();
         }
     }
 }
