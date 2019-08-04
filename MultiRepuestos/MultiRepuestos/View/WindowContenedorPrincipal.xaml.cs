@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MultiRepuestos.View.Planilla;
 
 namespace MultiRepuestos.View
 {
@@ -206,6 +207,17 @@ namespace MultiRepuestos.View
                 this.Close();
 
             }
-        
+
+        private void BtnPlanillaCrear_Click(object sender, RoutedEventArgs e)
+        {
+            Crear_Planilla ventana = new Crear_Planilla();
+            ventana.Show();
+            this.Close();
+        }
+
+        private void BtnPlanillaBuscar_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
