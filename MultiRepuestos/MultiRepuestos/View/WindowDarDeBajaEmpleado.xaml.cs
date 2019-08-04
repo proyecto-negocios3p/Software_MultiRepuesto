@@ -29,6 +29,18 @@ namespace MultiRepuestos.View
             DragMove();
         }
 
+        private void BtnCerrar_Click(object sender, RoutedEventArgs e)
+        {
+            WindowContenedorPrincipal ventana = new WindowContenedorPrincipal();
+            ventana.Show();
+            this.Close();
+        }
+
+        private void BtnMin_Click(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
+        }
+
         private void BtnMax_Click(object sender, RoutedEventArgs e)
         {
             WindowState = WindowState.Maximized;
@@ -41,18 +53,6 @@ namespace MultiRepuestos.View
             WindowState = WindowState.Normal;
             btnRest.Visibility = Visibility.Collapsed;
             btnMax.Visibility = Visibility.Visible;
-        }
-
-        private void BtnCerrar_Click(object sender, RoutedEventArgs e)
-        {
-            Application.Current.Shutdown();
-        }
-
-        private void BtnMin_Click(object sender, RoutedEventArgs e)
-        {
-            WindowContenedorPrincipal ventana = new WindowContenedorPrincipal();
-            ventana.Show();
-            this.Close();
         }
     }
 }

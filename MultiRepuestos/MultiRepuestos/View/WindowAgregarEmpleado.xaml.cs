@@ -44,14 +44,14 @@ namespace MultiRepuestos.View
 
         private void BtnCerrar_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            WindowContenedorPrincipal ventana = new WindowContenedorPrincipal();
+            ventana.Show();
+            this.Close();
         }
 
         private void BtnMin_Click(object sender, RoutedEventArgs e)
         {
-            WindowContenedorPrincipal ventana = new WindowContenedorPrincipal();
-            ventana.Show();
-            this.Close();
+            WindowState = WindowState.Minimized;
         }
 
         private void BtnAceptar_Click(object sender, RoutedEventArgs e)
