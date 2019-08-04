@@ -56,14 +56,14 @@
         <!--#region -->
 
         <!--#region Botones-->
-        <Button Grid.Column="0" Grid.Row="6" Name="btnAceptar" Width="250" Height="60" HorizontalAlignment="Center" Background="#FFC107" Click="BtnAceptar_Click"  IsDefault="True" FontSize="32" Margin="60,0,0,0"  materialDesign:ShadowAssist.ShadowDepth="Depth3">
+        <Button Grid.Column="0" Grid.Row="6" Name="btnGenerar" Width="250" Height="60" HorizontalAlignment="Center" Background="#FFC107" IsDefault="True" FontSize="32" Margin="60,0,0,0"  materialDesign:ShadowAssist.ShadowDepth="Depth3" Click="BtnGenerar_Click">
             <StackPanel Orientation="Horizontal">
                 <materialDesign:PackIcon Kind="Resume" Width="auto" Height="auto" Margin="0,0,5,0"/>
                 <TextBlock Margin="4,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center">Generar</TextBlock>
             </StackPanel>
         </Button>
 
-        <Button Grid.Column="1" Grid.Row="6" Name="btnCancelar" Width="250" Height="60" HorizontalAlignment="Center" Background="#FFC107" Click="BtnCancelar_Click"  IsDefault="True" FontSize="32" Margin="0,0,60,0"  materialDesign:ShadowAssist.ShadowDepth="Depth3">
+        <Button Grid.Column="1" Grid.Row="6" Name="btnCancelar" Width="250" Height="60" HorizontalAlignment="Center" Background="#FFC107"  IsDefault="True" FontSize="32" Margin="0,0,60,0"  materialDesign:ShadowAssist.ShadowDepth="Depth3" Click="BtnCancelar_Click" >
             <StackPanel Orientation="Horizontal">
                 <materialDesign:PackIcon Kind="Cancel" Width="auto" Height="auto" Margin="0,0,5,0"/>
                 <TextBlock Margin="4,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center">Cancelar</TextBlock>
