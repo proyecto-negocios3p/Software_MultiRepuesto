@@ -62,7 +62,7 @@ namespace MultiRepuestos.View
         private void Mostrar()
         {
             var db = new conexionlinqIHSSDataContext();
-            var IH = (from a in db.IHSS where a.SalarioTecho == a.SalarioTecho select a).Single();
+            var IH = (from a in db.IHSS select a).First();
             txtIHSSMostrar.Text = IH.SalarioTecho.ToString();
             
         }

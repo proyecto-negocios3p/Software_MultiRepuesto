@@ -249,6 +249,14 @@ ALTER TABLE Planilla.PlanillaFinal
 	ON UPDATE NO ACTION
 	ON DELETE NO ACTION
 GO
+--Paso 23.1 Empleado.IdentidadEmpleado a Empleado.Identidad
+ALTER TABLE Planilla.Usuario
+	ADD CONSTRAINT
+		FK_Planilla_Usuario$Genera$IdentidadEmpleado
+		FOREIGN KEY (IdentidadEmpleado) REFERENCES Planilla.Empleado(Identidad)
+		ON UPDATE NO ACTION 
+		ON DELETE NO ACTION
+GO
 
 
 --Constraint para verificar datos
