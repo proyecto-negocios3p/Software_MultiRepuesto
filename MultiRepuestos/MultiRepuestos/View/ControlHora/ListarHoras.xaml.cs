@@ -39,7 +39,25 @@ namespace MultiRepuestos.View.ControlHora
 
         private void ListarTipoHora()
         {
-          
+            tabla = new DataTable();
+            try
+            {
+                conexion.Open();
+                string query = "SELECT * FROM Planilla.PorcentajeHoraExtra";
+                SqlDataAdapter adapter = new SqlDataAdapter(query, conexion);
+                using (adapter)
+                {
+                    adapter.Fill(tabla);
+                    cbTipo.DisplayMemberPath = "TipoHora";
+                    cbTipo.SelectedValuePath = "Codigo";
+                    cbTipo.ItemsSource = tabla.DefaultView;
+                    conexion.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         private void ListarEmpleados()
@@ -71,8 +89,11 @@ namespace MultiRepuestos.View.ControlHora
             try
             {
                 conexion.Open();
-                string query = "SELECT E.Identidad, E.Nombre, E.Apellido, C.Nombre AS Cargo, E.Genero, E.Fecha, E.SueldoOrdinario AS Sueldo, E.NivelAcademico FROM Planilla.Empleado AS E INNER JOIN Planilla.Cargo AS C ON E.CodigoCargo=C.Codigo";
-                SqlDataAdapter adapter = new SqlDataAdapter(query, conexion);
+                string query = "SELECT E.Identidad, E.Nombre, E.Apellido,H.TotalHora AS Horas,H.Fecha FROM Planilla.Empleado AS E INNER JOIN Planilla.HoraExtra AS H ON E.Identidad =H.IdentidadEmpleado WHERE @id=H.IdentidadEmpleado AND @tipo=H.CodigoPorcentajeHoraExtra";
+                SqlCommand sqlCommand = new SqlCommand(query, conexion);
+                SqlDataAdapter adapter = new SqlDataAdapter(sqlCommand);
+                sqlCommand.Parameters.AddWithValue("@id", cbIdentidad.SelectedValue.ToString());
+                sqlCommand.Parameters.AddWithValue("@Tipo", cbTipo.SelectedValue.ToString());
                 using (adapter)
                 {
                     adapter.Fill(tabla);
@@ -116,6 +137,27 @@ namespace MultiRepuestos.View.ControlHora
             WindowContenedorPrincipal ventana = new WindowContenedorPrincipal();
             ventana.Show();
             this.Close();
+        }
+
+        private void BtnListar_Click(object sender, RoutedEventArgs e)
+        {
+            if (cbIdentidad.SelectedValue == null && cbTipo.SelectedValue == null)
+            {
+                MessageBox.Show("Debe seleccionar un empleado y un tipo de hora");
+            }
+            else if (cbIdentidad.SelectedValue == null)
+            {
+                MessageBox.Show("Debe seleccionar un empleado");
+            }
+            else if (cbTipo.SelectedValue == null)
+            {
+                MessageBox.Show("Debe seleccionar un tipo de hora");
+            }
+            else
+            {
+                MostrarHoras();
+            }
+           
         }
     }
 }
