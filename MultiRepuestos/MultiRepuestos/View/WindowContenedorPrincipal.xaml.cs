@@ -203,12 +203,7 @@ namespace MultiRepuestos.View
                 ventana.Owner = this;
             }
 
-            private void BtnConfPagoPorHoraExtra_Click(object sender, RoutedEventArgs e)
-            {
-                Ventana_Pago_Hora_Extra ventana = new Ventana_Pago_Hora_Extra();
-                ventana.Show();
-                ventana.Owner = this;
-            }
+         
 
             private void BtnAdmiUsuario_Click(object sender, RoutedEventArgs e)
             {
