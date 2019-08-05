@@ -49,8 +49,13 @@
             <TextBox Name="txtMotivo" FontSize="16" FontFamily="Roboto" Margin="10,0,10,0" VerticalAlignment="Center"/>
         </StackPanel>
 
+        <Button FontSize="20" Grid.Column="0" Grid.Row="5" Background="#FFC107" materialDesign:ShadowAssist.ShadowDepth="Depth3" Height="Auto" Margin="20,10,20,10" Name="btnAceptar" Click="BtnAceptar_Click">
+            <StackPanel Orientation="Horizontal">
+                <materialDesign:PackIcon Kind="AccountAdd" Width="auto" Height="auto" Margin="0,0,5,0"/>
+                <TextBlock Margin="4,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center">Aceptar</TextBlock>
+            </StackPanel>
+        </Button>
 
-
-        <Button FontSize="20" Grid.Column="0" Grid.Row="5" Content="Aceptar" Background="#FFC107" materialDesign:ShadowAssist.ShadowDepth="Depth3" Height="Auto" Margin="20,10,20,10" Name="btnAceptar" Click="BtnAceptar_Click"/>
+        
     </Grid>
 </Window>

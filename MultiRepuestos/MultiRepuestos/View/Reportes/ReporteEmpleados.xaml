@@ -36,7 +36,7 @@
                 </Button>
             </StackPanel>
         </Border >
-        <TextBlock Grid.Row="2" FontSize="30" HorizontalAlignment="Center" Foreground="#03A9F4" Margin="10"> Reporte Empleado</TextBlock>
+        <TextBlock Grid.Row="2" FontSize="30" HorizontalAlignment="Center" Foreground="#03A9F4" Margin="10"> Reporte empleado</TextBlock>
         <DataGrid Grid.Row="3"  Name="dgEmpleados" Width="auto" Height="auto"></DataGrid>
     </Grid>
 </Window>

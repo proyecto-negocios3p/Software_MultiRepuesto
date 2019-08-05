@@ -38,7 +38,7 @@
 
         <StackPanel Grid.Row="3" Grid.Column="0" Orientation="Vertical">
 
-            <ComboBox Grid.Column="0" Grid.Row="2"  Margin="0,0,0,0" Name="cmbHora" materialDesign:HintAssist.Hint="Tipo de Hora" materialDesign:HintAssist.IsFloating="True" Style="{StaticResource MaterialDesignFloatingHintComboBox}" FontFamily="Roboto" FontSize="18" VerticalAlignment="Center"/>
+            <ComboBox Grid.Column="0" Grid.Row="2"  Margin="5,0,5,0" Name="cmbHora" materialDesign:HintAssist.Hint="Tipo de Hora" materialDesign:HintAssist.IsFloating="True" Style="{StaticResource MaterialDesignFloatingHintComboBox}" FontFamily="Roboto" FontSize="18" VerticalAlignment="Center"/>
         </StackPanel>
 
         <StackPanel Grid.Row="4" Grid.Column="0" Orientation="Vertical">
@@ -46,8 +46,11 @@
             <TextBox Name="txtHora" FontSize="14" FontFamily="Roboto" Margin="70,0,70,0"/>
         </StackPanel>
 
-       
-
-        <Button FontSize="20" Grid.Column="0" Grid.Row="5" Content="Aceptar" Background="#FFC107" materialDesign:ShadowAssist.ShadowDepth="Depth3" Height="Auto" Margin="20,10,20,10" Name="btnAceptar" Click="BtnAceptar_Click"></Button>
+        <Button FontSize="20" Grid.Column="0" Grid.Row="5" Background="#FFC107" materialDesign:ShadowAssist.ShadowDepth="Depth3" Height="Auto" Margin="20,10,20,10" Name="btnAceptar" Click="BtnAceptar_Click">
+            <StackPanel Orientation="Horizontal">
+                <materialDesign:PackIcon Kind="AccountAdd" Width="auto" Height="auto" Margin="0,0,5,0"/>
+                <TextBlock Margin="4,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center">Aceptar</TextBlock>
+            </StackPanel>
+        </Button>
     </Grid>
 </Window>

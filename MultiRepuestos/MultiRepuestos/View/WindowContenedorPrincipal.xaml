@@ -123,7 +123,7 @@
                     </StackPanel>
                     <Button Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5" Name="agregarHorasExtra" Click="AgregarHorasExtra_Click" >Agregar horas extra</Button>
                     <Button Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5" Name="agregarHorasFaltadas" Click="AgregarHorasFaltadas_Click" >Agregar horas faltadas</Button>
-                    <Button Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5" Name="listarHoras" Click="ListarHoras_Click">Listar Horas</Button>
+                    <Button Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5" Name="listarHoras" Click="ListarHoras_Click">Listar horas</Button>
 
                 </StackPanel>
             </Grid>
@@ -234,7 +234,7 @@
                     <Button Name="btnConfIHSS" Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5" Click="BtnConfIHSS_Click">IHSS</Button>
                     <Button Name="btnConfRAP" Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5" Click="BtnConfRAP_Click">RAP</Button>
                     <Button Name="btnConfPagoPorHora" Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5" Click="BtnConfPagoPorHora_Click">Cargo</Button>
-                    <Button Name="btnAdmiUsuario" Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5" Click="BtnAdmiUsuario_Click">Administrar Usuarios</Button>
+                    <Button Name="btnAdmiUsuario" Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5" Click="BtnAdmiUsuario_Click">Administrar usuarios</Button>
 
                 </StackPanel>
             </Grid>
