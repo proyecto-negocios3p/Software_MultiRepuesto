@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,9 +22,18 @@ namespace MultiRepuestos.View
     /// </summary>
     public partial class Ventana_Pago_Hora : Window
     {
+        LinqToSqlDataClassesDataContext dataContext;
+        SqlConnection conexion = new SqlConnection("Data Source = (local)\\SQLEXPRESS; Initial Catalog = PlanillaDePagoMensual; Integrated Security = True");
+
+        private DataTable tabla;
+        // SqlConnection = new SqlConnection(connectionString);
+      
         public Ventana_Pago_Hora()
         {
             InitializeComponent();
+             dataContext = new LinqToSqlDataClassesDataContext(conexion);
+            txtCodigo.IsEnabled = false;
+            mostrarCargos();
         }
         private void BtnCerrar_Click(object sender, RoutedEventArgs e)
         {
@@ -35,7 +47,109 @@ namespace MultiRepuestos.View
 
         private void BtnActualizar_Click(object sender, RoutedEventArgs e)
         {
-            
+            if (cbCargo.SelectedValue == null)
+            {
+                MessageBox.Show("Debes escoger un cargo antes de actualizarlo.");
+                
+            }
+            else
+            {
+                try
+                {
+                    string query = "UPDATE Planilla.Cargo SET Nombre=@Nom WHERE Codigo = @CodId";
+
+                    SqlCommand sqlCommand = new SqlCommand(query, conexion);
+
+                    conexion.Open();
+
+                    sqlCommand.Parameters.AddWithValue("@Nom", txtNombre.Text);
+                   // sqlCommand.Parameters.AddWithValue("@Cod", txtCodigo.Text);
+                    sqlCommand.Parameters.AddWithValue("@CodId", cbCargo.SelectedValue.ToString());
+                    sqlCommand.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+                finally
+                {
+                    conexion.Close();
+                    mostrarCargos();
+                    txtCodigo.Text = String.Empty;
+                    txtNombre.Text = String.Empty;
+                }
+            }
+        }
+
+        private void BtnAgregar_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                dataContext.Cargo.InsertOnSubmit(new Cargo { Codigo = txtCodigo.Text,Nombre=txtNombre.Text,Fecha= DateTime.Now });
+    
+                dataContext.SubmitChanges();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void mostrarCargos()
+        {
+            tabla = new DataTable();
+            try
+            {
+                conexion.Open();
+                string query = "SELECT * FROM Planilla.Cargo";
+                SqlDataAdapter adapter = new SqlDataAdapter(query, conexion);
+                using (adapter)
+                {
+                   
+                    adapter.Fill(tabla);
+                    cbCargo.DisplayMemberPath = "Nombre";
+                    cbCargo.SelectedValuePath = "Codigo";
+                    cbCargo.ItemsSource = tabla.DefaultView;
+                    conexion.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        
+        
+
+        }
+
+        private void CbCargo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+            if (cbCargo.SelectedItem == null)
+            {
+
+            }
+            else
+            {
+                try
+                {
+                    string id = cbCargo.SelectedValue.ToString();
+                    //  MessageBox.Show(id);
+                    var Cargo = (from c in dataContext.Cargo
+                                 where c.Codigo == id
+                                 select c).Single();
+
+                    txtCodigo.Text = Cargo.Codigo;
+                    txtNombre.Text = Cargo.Nombre;
+
+
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+            }
         }
     }
 }

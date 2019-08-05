@@ -30,9 +30,6 @@ namespace MultiRepuestos
 		
     #region Definiciones de métodos de extensibilidad
     partial void OnCreated();
-    partial void InsertUsuario(Usuario instance);
-    partial void UpdateUsuario(Usuario instance);
-    partial void DeleteUsuario(Usuario instance);
     partial void InsertTelefonoEmpleado(TelefonoEmpleado instance);
     partial void UpdateTelefonoEmpleado(TelefonoEmpleado instance);
     partial void DeleteTelefonoEmpleado(TelefonoEmpleado instance);
@@ -66,6 +63,9 @@ namespace MultiRepuestos
     partial void InsertPrestacionLaboralEmbarazo(PrestacionLaboralEmbarazo instance);
     partial void UpdatePrestacionLaboralEmbarazo(PrestacionLaboralEmbarazo instance);
     partial void DeletePrestacionLaboralEmbarazo(PrestacionLaboralEmbarazo instance);
+    partial void InsertUsuario(Usuario instance);
+    partial void UpdateUsuario(Usuario instance);
+    partial void DeleteUsuario(Usuario instance);
     #endregion
 		
 		public LinqToSqlDataClassesDataContext() : 
@@ -96,14 +96,6 @@ namespace MultiRepuestos
 				base(connection, mappingSource)
 		{
 			OnCreated();
-		}
-		
-		public System.Data.Linq.Table<Usuario> Usuario
-		{
-			get
-			{
-				return this.GetTable<Usuario>();
-			}
 		}
 		
 		public System.Data.Linq.Table<TelefonoEmpleado> TelefonoEmpleado
@@ -193,186 +185,12 @@ namespace MultiRepuestos
 				return this.GetTable<PrestacionLaboralEmbarazo>();
 			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="Planilla.Usuario")]
-	public partial class Usuario : INotifyPropertyChanging, INotifyPropertyChanged
-	{
 		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Codigo;
-		
-		private string _Usuario1;
-		
-		private string _Contraseña;
-		
-		private string _IdentidadEmpleado;
-		
-		private System.Nullable<System.DateTime> _Fecha;
-		
-		private System.Nullable<bool> _Estado;
-		
-    #region Definiciones de métodos de extensibilidad
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnCodigoChanging(int value);
-    partial void OnCodigoChanged();
-    partial void OnUsuario1Changing(string value);
-    partial void OnUsuario1Changed();
-    partial void OnContraseñaChanging(string value);
-    partial void OnContraseñaChanged();
-    partial void OnIdentidadEmpleadoChanging(string value);
-    partial void OnIdentidadEmpleadoChanged();
-    partial void OnFechaChanging(System.Nullable<System.DateTime> value);
-    partial void OnFechaChanged();
-    partial void OnEstadoChanging(System.Nullable<bool> value);
-    partial void OnEstadoChanged();
-    #endregion
-		
-		public Usuario()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codigo", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Codigo
+		public System.Data.Linq.Table<Usuario> Usuario
 		{
 			get
 			{
-				return this._Codigo;
-			}
-			set
-			{
-				if ((this._Codigo != value))
-				{
-					this.OnCodigoChanging(value);
-					this.SendPropertyChanging();
-					this._Codigo = value;
-					this.SendPropertyChanged("Codigo");
-					this.OnCodigoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="Usuario", Storage="_Usuario1", DbType="VarChar(25) NOT NULL", CanBeNull=false)]
-		public string Usuario1
-		{
-			get
-			{
-				return this._Usuario1;
-			}
-			set
-			{
-				if ((this._Usuario1 != value))
-				{
-					this.OnUsuario1Changing(value);
-					this.SendPropertyChanging();
-					this._Usuario1 = value;
-					this.SendPropertyChanged("Usuario1");
-					this.OnUsuario1Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Contraseña", DbType="VarChar(25) NOT NULL", CanBeNull=false)]
-		public string Contraseña
-		{
-			get
-			{
-				return this._Contraseña;
-			}
-			set
-			{
-				if ((this._Contraseña != value))
-				{
-					this.OnContraseñaChanging(value);
-					this.SendPropertyChanging();
-					this._Contraseña = value;
-					this.SendPropertyChanged("Contraseña");
-					this.OnContraseñaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdentidadEmpleado", DbType="Char(15)")]
-		public string IdentidadEmpleado
-		{
-			get
-			{
-				return this._IdentidadEmpleado;
-			}
-			set
-			{
-				if ((this._IdentidadEmpleado != value))
-				{
-					this.OnIdentidadEmpleadoChanging(value);
-					this.SendPropertyChanging();
-					this._IdentidadEmpleado = value;
-					this.SendPropertyChanged("IdentidadEmpleado");
-					this.OnIdentidadEmpleadoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Fecha", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Fecha
-		{
-			get
-			{
-				return this._Fecha;
-			}
-			set
-			{
-				if ((this._Fecha != value))
-				{
-					this.OnFechaChanging(value);
-					this.SendPropertyChanging();
-					this._Fecha = value;
-					this.SendPropertyChanged("Fecha");
-					this.OnFechaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Estado", DbType="Bit")]
-		public System.Nullable<bool> Estado
-		{
-			get
-			{
-				return this._Estado;
-			}
-			set
-			{
-				if ((this._Estado != value))
-				{
-					this.OnEstadoChanging(value);
-					this.SendPropertyChanging();
-					this._Estado = value;
-					this.SendPropertyChanged("Estado");
-					this.OnEstadoChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+				return this.GetTable<Usuario>();
 			}
 		}
 	}
@@ -696,6 +514,8 @@ namespace MultiRepuestos
 		
 		private EntitySet<PrestacionLaboral> _PrestacionLaboral;
 		
+		private EntitySet<Usuario> _Usuario;
+		
 		private EntityRef<Cargo> _Cargo;
 		
     #region Definiciones de métodos de extensibilidad
@@ -729,6 +549,7 @@ namespace MultiRepuestos
 			this._HoraFaltada = new EntitySet<HoraFaltada>(new Action<HoraFaltada>(this.attach_HoraFaltada), new Action<HoraFaltada>(this.detach_HoraFaltada));
 			this._PlanillaFinal = new EntitySet<PlanillaFinal>(new Action<PlanillaFinal>(this.attach_PlanillaFinal), new Action<PlanillaFinal>(this.detach_PlanillaFinal));
 			this._PrestacionLaboral = new EntitySet<PrestacionLaboral>(new Action<PrestacionLaboral>(this.attach_PrestacionLaboral), new Action<PrestacionLaboral>(this.detach_PrestacionLaboral));
+			this._Usuario = new EntitySet<Usuario>(new Action<Usuario>(this.attach_Usuario), new Action<Usuario>(this.detach_Usuario));
 			this._Cargo = default(EntityRef<Cargo>);
 			OnCreated();
 		}
@@ -982,6 +803,19 @@ namespace MultiRepuestos
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Empleado_Usuario", Storage="_Usuario", ThisKey="Identidad", OtherKey="IdentidadEmpleado")]
+		public EntitySet<Usuario> Usuario
+		{
+			get
+			{
+				return this._Usuario;
+			}
+			set
+			{
+				this._Usuario.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Cargo_Empleado", Storage="_Cargo", ThisKey="CodigoCargo", OtherKey="Codigo", IsForeignKey=true)]
 		public Cargo Cargo
 		{
@@ -1091,6 +925,18 @@ namespace MultiRepuestos
 		}
 		
 		private void detach_PrestacionLaboral(PrestacionLaboral entity)
+		{
+			this.SendPropertyChanging();
+			entity.Empleado = null;
+		}
+		
+		private void attach_Usuario(Usuario entity)
+		{
+			this.SendPropertyChanging();
+			entity.Empleado = this;
+		}
+		
+		private void detach_Usuario(Usuario entity)
 		{
 			this.SendPropertyChanging();
 			entity.Empleado = null;
@@ -2718,6 +2564,229 @@ namespace MultiRepuestos
 						this._Codigo = default(int);
 					}
 					this.SendPropertyChanged("PrestacionLaboral");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="Planilla.Usuario")]
+	public partial class Usuario : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Codigo;
+		
+		private string _Usuario1;
+		
+		private string _Contraseña;
+		
+		private string _IdentidadEmpleado;
+		
+		private System.Nullable<System.DateTime> _Fecha;
+		
+		private System.Nullable<bool> _Estado;
+		
+		private EntityRef<Empleado> _Empleado;
+		
+    #region Definiciones de métodos de extensibilidad
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnCodigoChanging(int value);
+    partial void OnCodigoChanged();
+    partial void OnUsuario1Changing(string value);
+    partial void OnUsuario1Changed();
+    partial void OnContraseñaChanging(string value);
+    partial void OnContraseñaChanged();
+    partial void OnIdentidadEmpleadoChanging(string value);
+    partial void OnIdentidadEmpleadoChanged();
+    partial void OnFechaChanging(System.Nullable<System.DateTime> value);
+    partial void OnFechaChanged();
+    partial void OnEstadoChanging(System.Nullable<bool> value);
+    partial void OnEstadoChanged();
+    #endregion
+		
+		public Usuario()
+		{
+			this._Empleado = default(EntityRef<Empleado>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Codigo", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Codigo
+		{
+			get
+			{
+				return this._Codigo;
+			}
+			set
+			{
+				if ((this._Codigo != value))
+				{
+					this.OnCodigoChanging(value);
+					this.SendPropertyChanging();
+					this._Codigo = value;
+					this.SendPropertyChanged("Codigo");
+					this.OnCodigoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="Usuario", Storage="_Usuario1", DbType="VarChar(25) NOT NULL", CanBeNull=false)]
+		public string Usuario1
+		{
+			get
+			{
+				return this._Usuario1;
+			}
+			set
+			{
+				if ((this._Usuario1 != value))
+				{
+					this.OnUsuario1Changing(value);
+					this.SendPropertyChanging();
+					this._Usuario1 = value;
+					this.SendPropertyChanged("Usuario1");
+					this.OnUsuario1Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Contraseña", DbType="VarChar(25) NOT NULL", CanBeNull=false)]
+		public string Contraseña
+		{
+			get
+			{
+				return this._Contraseña;
+			}
+			set
+			{
+				if ((this._Contraseña != value))
+				{
+					this.OnContraseñaChanging(value);
+					this.SendPropertyChanging();
+					this._Contraseña = value;
+					this.SendPropertyChanged("Contraseña");
+					this.OnContraseñaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdentidadEmpleado", DbType="Char(15)")]
+		public string IdentidadEmpleado
+		{
+			get
+			{
+				return this._IdentidadEmpleado;
+			}
+			set
+			{
+				if ((this._IdentidadEmpleado != value))
+				{
+					if (this._Empleado.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnIdentidadEmpleadoChanging(value);
+					this.SendPropertyChanging();
+					this._IdentidadEmpleado = value;
+					this.SendPropertyChanged("IdentidadEmpleado");
+					this.OnIdentidadEmpleadoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Fecha", DbType="DateTime")]
+		public System.Nullable<System.DateTime> Fecha
+		{
+			get
+			{
+				return this._Fecha;
+			}
+			set
+			{
+				if ((this._Fecha != value))
+				{
+					this.OnFechaChanging(value);
+					this.SendPropertyChanging();
+					this._Fecha = value;
+					this.SendPropertyChanged("Fecha");
+					this.OnFechaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Estado", DbType="Bit")]
+		public System.Nullable<bool> Estado
+		{
+			get
+			{
+				return this._Estado;
+			}
+			set
+			{
+				if ((this._Estado != value))
+				{
+					this.OnEstadoChanging(value);
+					this.SendPropertyChanging();
+					this._Estado = value;
+					this.SendPropertyChanged("Estado");
+					this.OnEstadoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Empleado_Usuario", Storage="_Empleado", ThisKey="IdentidadEmpleado", OtherKey="Identidad", IsForeignKey=true)]
+		public Empleado Empleado
+		{
+			get
+			{
+				return this._Empleado.Entity;
+			}
+			set
+			{
+				Empleado previousValue = this._Empleado.Entity;
+				if (((previousValue != value) 
+							|| (this._Empleado.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Empleado.Entity = null;
+						previousValue.Usuario.Remove(this);
+					}
+					this._Empleado.Entity = value;
+					if ((value != null))
+					{
+						value.Usuario.Add(this);
+						this._IdentidadEmpleado = value.Identidad;
+					}
+					else
+					{
+						this._IdentidadEmpleado = default(string);
+					}
+					this.SendPropertyChanged("Empleado");
 				}
 			}
 		}

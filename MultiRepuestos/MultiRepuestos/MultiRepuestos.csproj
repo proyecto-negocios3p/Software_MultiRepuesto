@@ -60,6 +60,9 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Data.SqlClient, Version=4.5.0.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SqlClient.4.6.1\lib\net461\System.Data.SqlClient.dll</HintPath>
+    </Reference>
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
@@ -89,16 +92,6 @@
     </Compile>
     <Compile Include="View\ActualizarEmpleado.xaml.cs">
       <DependentUpon>ActualizarEmpleado.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\conexionlinqIHSS.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>conexionlinqIHSS.dbml</DependentUpon>
-    </Compile>
-    <Compile Include="View\ConexionLinqRAP.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ConexionLinqRAP.dbml</DependentUpon>
     </Compile>
     <Compile Include="View\ControlHora\AgregarHoraExtraTrabajada.xaml.cs">
       <DependentUpon>AgregarHoraExtraTrabajada.xaml</DependentUpon>
@@ -135,9 +128,6 @@
     </Compile>
     <Compile Include="View\Ventana_Cargo.xaml.cs">
       <DependentUpon>Ventana_Cargo.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\Ventana_Pago_Hora_Extra.xaml.cs">
-      <DependentUpon>Ventana_Pago_Hora_Extra.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Ventana_RAP.xaml.cs">
       <DependentUpon>Ventana_RAP.xaml</DependentUpon>
@@ -218,10 +208,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Ventana_Pago_Hora_Extra.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="View\Ventana_RAP.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -273,22 +259,6 @@
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="View\conexionlinqIHSS.dbml">
-      <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>conexionlinqIHSS.designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="View\conexionlinqIHSS.dbml.layout">
-      <DependentUpon>conexionlinqIHSS.dbml</DependentUpon>
-    </None>
-    <None Include="View\ConexionLinqRAP.dbml">
-      <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>ConexionLinqRAP.designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="View\ConexionLinqRAP.dbml.layout">
-      <DependentUpon>ConexionLinqRAP.dbml</DependentUpon>
     </None>
     <Resource Include="Fonts\Roboto\Roboto-Black.ttf" />
     <Resource Include="Fonts\Roboto\Roboto-BlackItalic.ttf" />

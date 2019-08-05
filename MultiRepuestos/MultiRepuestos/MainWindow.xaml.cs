@@ -35,6 +35,7 @@ namespace MultiRepuestos
 
             // Conectar Linq con el string de conexión
             dataContext = new LinqToSqlDataClassesDataContext(connectionString);
+           
 
         }
 
@@ -58,17 +59,23 @@ namespace MultiRepuestos
         private void BtnIniciar_Click(object sender, RoutedEventArgs e)
         {
 
+            BuscarUsuarios();
 
+
+        }
+
+        private void IniciarSession()
+        {
             try
             {
-           
-                var User = (from c in dataContext.Usuario where c.Usuario1 == txtUsuario.Text  select c).ToList();
+
+                var User = (from c in dataContext.Usuario where c.Usuario1 == txtUsuario.Text select c).ToList();
                 var contra = (from c in dataContext.Usuario where c.Contraseña == pwbContraseña.Password select c).ToList();
 
-              
-                if(contra.Count>0 &&User.Count>0)
-                { 
-                
+
+                if (contra.Count > 0 && User.Count > 0)
+                {
+
                     WindowContenedorPrincipal ventana = new WindowContenedorPrincipal();
                     ventana.Show();
                     this.Close();
@@ -77,15 +84,12 @@ namespace MultiRepuestos
                 {
                     MessageBox.Show("Los Datos Ingresados son incorrectos");
                 }
-               
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
-            
-           
-           
         }
 
         private void BtnMostrarPwd_Click(object sender, RoutedEventArgs e)
@@ -110,6 +114,21 @@ namespace MultiRepuestos
             btnMostrarPwd.Visibility = Visibility.Visible;
             btnOcultarPwd.Visibility = Visibility.Hidden;
            
+        }
+        private void BuscarUsuarios()
+        {
+            var User = (from c in dataContext.Usuario select c).ToList();
+            if (User.Count > 0)
+            {
+                IniciarSession();
+            }
+            else
+            {
+                string id = null;
+                Ventana_Usuario ventana = new Ventana_Usuario(id);
+                ventana.Owner = this;
+                ventana.Show();
+            }
         }
 
       

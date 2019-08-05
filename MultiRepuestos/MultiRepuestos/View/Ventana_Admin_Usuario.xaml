@@ -47,7 +47,7 @@
         <Border Grid.Row="2" Grid.Column="0" Grid.RowSpan="2" Margin="15">
             <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
                 <TextBlock FontSize="30" TextAlignment="Center" Margin="5">Empleados</TextBlock>
-                <ListView Name="dgEmpleados" Background="LightGray" Foreground="Black" Width="250" Height="450"></ListView>
+                <ListBox Name="dgEmpleados" Background="LightGray" Foreground="Black" Width="250" Height="450" SelectionChanged="DgEmpleados_SelectionChanged"></ListBox>
             </StackPanel>
         </Border>
         <Border Grid.Row="4" Margin="10">
@@ -73,7 +73,7 @@
                 <TextBox Name="txtContra" Width="auto" Height="auto" FontSize="30" materialDesign:HintAssist.Hint="Contraseña" materialDesign:HintAssist.IsFloating="True" HorizontalAlignment="Center"></TextBox>
 
                 <StackPanel Orientation="Vertical" Margin="60">
-                    <Button Name="btnActualizar" FontSize="25" Width="auto" Height="auto" Content="Actualizar" Background="#FFC107" materialDesign:ShadowAssist.ShadowDepth="Depth3"></Button>
+                    <Button Name="btnActualizar" FontSize="25" Width="auto" Height="auto" Content="Actualizar" Background="#FFC107" materialDesign:ShadowAssist.ShadowDepth="Depth3" Click="BtnActualizar_Click"></Button>
 
                 </StackPanel>
             </StackPanel>
