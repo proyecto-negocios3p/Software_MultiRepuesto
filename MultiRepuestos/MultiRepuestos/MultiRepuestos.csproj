@@ -99,14 +99,8 @@
     <Compile Include="View\ControlHora\AgregarHoraFaltada.xaml.cs">
       <DependentUpon>AgregarHoraFaltada.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\ControlHora\AgregarHoraTrabajada.xaml.cs">
-      <DependentUpon>AgregarHoraTrabajada.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\ControlHora\ListarHoras.xaml.cs">
       <DependentUpon>ListarHoras.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\Planilla\Buscar_Planilla.xaml.cs">
-      <DependentUpon>Buscar_Planilla.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Ventana_Usuario.xaml.cs">
       <DependentUpon>Ventana_Usuario.xaml</DependentUpon>
@@ -168,15 +162,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\ControlHora\AgregarHoraTrabajada.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="View\ControlHora\ListarHoras.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\Planilla\Buscar_Planilla.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
