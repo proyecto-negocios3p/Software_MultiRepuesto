@@ -301,3 +301,276 @@ VALUES 	('HD','Hora diurna'),
 		('HN','Hora nocturna'),
 		('HM','Hora mixta')
 GO
+
+--Inicio de Triggers
+
+-- TRIGGER 1: Calcula el IHSS, RAP y los inserta en la planilla final
+-- para luego actualizar el sueldo neto en la planilla final.
+
+CREATE TRIGGER CalculoIHSSyRAP
+ON Planilla.Empleado
+AFTER INSERT AS
+BEGIN
+	SET NOCOUNT ON
+	-- En caso de que el cliente haya modificado el conteo
+	-- de fila para filas insertadas o actualizadas por el trigger
+	SET ROWCOUNT 0
+
+	-- Variable que contiene el mensaje de error
+	DECLARE @msg VARCHAR(2000),
+		    -- Filas afectadas por el trigger
+			@Techo DECIMAL(10,2) =(SELECT Techo FROM Planilla.RAP),
+			@Identidad CHAR(15) =(SELECT Identidad FROM inserted),
+			@SueldoOrdinario DECIMAL(10,2)=(SELECT SueldoOrdinario FROM inserted),
+			@RAP DECIMAL(10,2),
+			@MaternidadYGastosMedicos DECIMAL(10,2) =(SELECT GastosMedicos FROM Planilla.IHSS),
+			@SalarioTecho DECIMAL(10,2) =(SELECT SalarioTecho FROM Planilla.IHSS),
+			@IHSS DECIMAL(10,2),
+			@CalculoPrimerTecho DECIMAL(10,2),
+			@CalculoSegundoTecho DECIMAL(10,2),
+			@HorasFaltadas DECIMAL(10,2),
+			@Horasextra DECIMAL(10,2),
+			@SueldoNeto DECIMAL(10,2),
+			@rowsAffected INT = (SELECT COUNT(*) FROM inserted)
+
+	-- Si no existen filas afectadas no hay necesidad de continuar
+	IF @rowsAffected = 0 RETURN;
+
+	BEGIN TRY
+		-- [sección de validación]
+		
+		IF (@SueldoOrdinario>@Techo)
+		BEGIN 
+		SET @RAP=((@SueldoOrdinario-@Techo)*0.015)
+	
+		
+		END
+
+		IF (@SueldoOrdinario<@Techo)
+		BEGIN 
+		SET @RAP=(0)
+		
+		END
+
+		--Entra cuando el sueldo ordinario sea menor que el salario techo
+		--y sabemos por ley  que se calculara un 5% del salario ordinario
+		IF (@SueldoOrdinario<@SalarioTecho)
+		BEGIN 
+		SET @IHSS=(0.05*@SueldoOrdinario)
+	
+
+		END
+		
+		--Entra cuando el sueldo Ordinario es mayor al primer techo y si este cumple se calcula el 2.5%
+		--luego verifica si el sueldo ordinario es menor que el segundo techo, si esta condicion cumple
+		--toma el sueldo ordinario y lo multiplica por el 2.5 
+			IF (@SueldoOrdinario>@SalarioTecho)
+		BEGIN 
+		SET @CalculoPrimerTecho=(0.025*@SalarioTecho)
+	
+				IF (@SueldoOrdinario<@MaternidadYGastosMedicos)
+					BEGIN
+					SET @CalculoSegundoTecho=(0.025*@SueldoOrdinario)
+				
+					END
+		SET @IHSS=(@CalculoPrimerTecho+@CalculoSegundoTecho)
+	
+
+		END
+		--Entra cuando el sueldo ordinario es mayor a los techos calculados por ley
+		--entonces evalua si el sueldo ordinario es mayor que el primer techo(salariotecho)
+		--si la condicion se cumple se multiplica por el 2.5%, despues entra a evaluar si el sueldo 
+		--ordinario es mayor que el segundotecho(maternidadygastosmedicos) si la condicion se cumple
+		--se multiplica sueldo ordinario por el 2.5
+
+		 IF (@SueldoOrdinario>@SalarioTecho)
+		BEGIN 
+		SET @CalculoPrimerTecho=(0.025*@SalarioTecho)
+		
+			IF(@SueldoOrdinario>@MaternidadYGastosMedicos)
+			BEGIN
+			SET @CalculoSegundoTecho=(0.025*@MaternidadYGastosMedicos)
+			
+			END
+			SET @IHSS=(@CalculoPrimerTecho+@CalculoSegundoTecho)
+			END
+
+			-- Ingresamos los datos calculados en el trigger anteriormente a la planilla fonal
+
+
+        INSERT INTO Planilla.PlanillaFinal(IdentidadEmpleado,CodigoPlanillaFinal,IHSS,RAP,SueldoOrdinario)
+		VALUES 	(@Identidad,GETDATE(),@IHSS,@RAP,@SueldoOrdinario)
+
+		
+		SET @HorasFaltadas=(SELECT HorasFaltadas FROM Planilla.PlanillaFinal WHERE IdentidadEmpleado=@Identidad )
+		SET @HorasExtra=(SELECT HorasExtras FROM Planilla.PlanillaFinal WHERE IdentidadEmpleado=@Identidad )
+		SET @SueldoNeto= (((((@SueldoOrdinario)-@IHSS)-@RAP)-(ISNULL(@HorasFaltadas,0))+(ISNULL(@HorasExtra,0))))
+
+
+		UPDATE Planilla.PlanillaFinal
+		SET PlanillaFinal.SueldoNeto = @SueldoNeto
+		 WHERE PlanillaFinal.IdentidadEmpleado=@Identidad;
+				-- [sección de modificacion]
+
+			END TRY
+			BEGIN CATCH
+				IF @@TRANCOUNT > 0
+					ROLLBACK TRANSACTION;
+
+					THROW;
+			END CATCH
+END
+GO
+
+
+
+-- TRIGGER 2: Calcula las horas faltadas de un empleado y actualiza el sueldo neto en la planilla final.
+CREATE TRIGGER CalculoHorasFaltadas
+ON Planilla.HoraFaltada
+AFTER INSERT AS
+BEGIN
+	SET NOCOUNT ON
+	-- En caso de que el cliente haya modificado el conteo
+	-- de fila para filas insertadas o actualizadas por el trigger
+	SET ROWCOUNT 0
+
+	-- Variable que contiene el mensaje de error
+	DECLARE @msg VARCHAR(2000),
+		    -- Filas afectadas por el trigger
+			@Identidad VARCHAR(15) =(SELECT IdentidadEmpleado FROM inserted),
+			@SueldoOrdinario DECIMAL(10,2),
+			@HorasFaltadas INT ,
+			@DeduccionesHorasFaltadas DECIMAL(12,2),
+			@SueldoPorHora DECIMAL(10,2),
+			@IHSS DECIMAL(10,2),
+			@RAP DECIMAL(10,2),
+			@HorasExtra DECIMAL(10,2),
+			@SueldoNeto DECIMAL(10,2),
+			@rowsAffected INT = (SELECT COUNT(*) FROM inserted)
+
+	-- Si no existen filas afectadas no hay necesidad de continuar
+	IF @rowsAffected = 0 RETURN;
+
+	BEGIN TRY
+
+	    -- Actualizamos  en planilla final con los calculos ya hechos
+
+		SET @SueldoOrdinario=(SELECT Empleado.SueldoOrdinario FROM Planilla.Empleado WHERE Empleado.Identidad=@Identidad)
+		SET @SueldoPorHora=((@SueldoOrdinario/30)/8)
+		SET @HorasFaltadas=(SELECT sum(TotalHora) FROM HoraFaltada WHERE IdentidadEmpleado=@Identidad)
+		SET @DeduccionesHorasFaltadas=(@HorasFaltadas*@SueldoPorHora)
+		PRINT( @SueldoPorHora );
+		PRINT'SUELDO HORAS';
+			PRINT( @HorasFaltadas );
+		UPDATE Planilla.PlanillaFinal
+		SET PlanillaFinal.HorasFaltadas = @DeduccionesHorasFaltadas
+		 WHERE PlanillaFinal.IdentidadEmpleado=@Identidad;
+
+
+          -- Actualizamos  en planilla final con los calculos ya hechos
+		 
+		SET @IHSS=(SELECT IHSS FROM Planilla.PlanillaFinal WHERE IdentidadEmpleado=@Identidad )
+		SET @RAP=(SELECT RAP FROM Planilla.PlanillaFinal WHERE IdentidadEmpleado=@Identidad )
+		SET @HorasExtra=(SELECT HorasExtras FROM Planilla.PlanillaFinal WHERE IdentidadEmpleado=@Identidad )
+		SET @SueldoNeto= (((((@SueldoOrdinario)-@DeduccionesHorasFaltadas)-(ISNULL(@IHSS,0)))-(ISNULL(@RAP,0))+(ISNULL(@HorasExtra,0))))
+
+
+		UPDATE Planilla.PlanillaFinal
+		SET PlanillaFinal.SueldoNeto = @SueldoNeto
+		 WHERE PlanillaFinal.IdentidadEmpleado=@Identidad;
+
+	END TRY
+		BEGIN CATCH
+				IF @@TRANCOUNT > 0
+					ROLLBACK TRANSACTION;
+
+					THROW;
+			END CATCH
+END
+GO
+
+
+-- TRIGGER 3: Calcula las horas extras y actualiza la planilla final con los datos
+
+CREATE TRIGGER CalculoHorasExtras
+ON Planilla.HoraExtra
+AFTER INSERT AS
+BEGIN
+	SET NOCOUNT ON
+	-- En caso de que el cliente haya modificado el conteo
+	-- de fila para filas insertadas o actualizadas por el trigger
+	SET ROWCOUNT 0
+
+	-- Variable que contiene el mensaje de error
+	DECLARE @msg VARCHAR(2000),
+		    -- Filas afectadas por el trigger
+			@Identidad VARCHAR(15) =(SELECT IdentidadEmpleado FROM inserted),
+			@SueldoOrdinario DECIMAL(10,2),
+			@HorasDiurnas INT,
+			@HorasNocturnas INT ,
+			@HorasMixtas INT ,
+			@SueldoporHorasDiurnas DECIMAL(10,2) ,
+			@SueldoporHorasNocturnas DECIMAL(10,2) ,
+			@SueldoporHorasMixtas DECIMAL(10,2) ,
+			@TotalHorasExtra DECIMAL(10,2),
+			@SueldoPorHora DECIMAL(10,2),
+			@IHSS DECIMAL(10,2),
+			@RAP DECIMAL(10,2),
+			@HorasFaltadas DECIMAL(10,2),
+			@SueldoNeto DECIMAL(10,2),
+			@rowsAffected INT = (SELECT COUNT(*) FROM inserted)
+
+	-- Si no existen filas afectadas no hay necesidad de continuar
+	IF @rowsAffected = 0 RETURN;
+
+	BEGIN TRY
+
+		SET @SueldoOrdinario=(SELECT Empleado.SueldoOrdinario FROM Planilla.Empleado WHERE Empleado.Identidad=@Identidad)
+		SET @HorasDiurnas=(SELECT SUM(TotalHora) FROM Planilla.HoraExtra WHERE IdentidadEmpleado=@Identidad AND CodigoPorcentajeHoraExtra='HD')
+		SET @HorasNocturnas=(SELECT SUM(TotalHora) FROM Planilla.HoraExtra WHERE IdentidadEmpleado=@Identidad AND CodigoPorcentajeHoraExtra='HN')
+		SET @HorasMixtas=(SELECT SUM(TotalHora) FROM Planilla.HoraExtra WHERE IdentidadEmpleado=@Identidad AND CodigoPorcentajeHoraExtra='HM' )
+
+		SET @HorasDiurnas=(ISNULL(@HorasDiurnas,0))
+		
+		SET @HorasNocturnas=(ISNULL(@HorasNocturnas,0))
+		
+		SET @HorasMixtas=(ISNULL(@HorasMixtas,0))
+
+		SET @SueldoPorHora=((@SueldoOrdinario/30)/8)
+		
+		SET @SueldoporHorasDiurnas=((@SueldoPorHora*@HorasDiurnas)*1.25)
+				
+		SET @SueldoporHorasNocturnas=((@SueldoPorHora*@HorasNocturnas)*1.50)
+				
+		SET @SueldoporHorasMixtas=((@SueldoPorHora*@HorasMixtas)*1.75)
+		
+		SET @TotalHorasExtra=(@SueldoporHorasDiurnas+@SueldoporHorasNocturnas)
+		print @TotalHorasExtra
+		
+		UPDATE Planilla.PlanillaFinal
+		SET PlanillaFinal.HorasExtras = @TotalHorasExtra
+		 WHERE PlanillaFinal.IdentidadEmpleado=@Identidad;
+
+		  
+		SET @IHSS=(SELECT IHSS FROM Planilla.PlanillaFinal WHERE IdentidadEmpleado=@Identidad )
+		SET @RAP=(SELECT RAP FROM Planilla.PlanillaFinal WHERE IdentidadEmpleado=@Identidad )
+		SET @HorasFaltadas=(SELECT HorasFaltadas FROM Planilla.PlanillaFinal WHERE IdentidadEmpleado=@Identidad )
+		SET @SueldoNeto= (((((@SueldoOrdinario)-(ISNULL(@HorasFaltadas,0))))-(ISNULL(@IHSS,0)))-(ISNULL(@RAP,0))+@TotalHorasExtra)
+
+
+		UPDATE Planilla.PlanillaFinal
+		SET PlanillaFinal.SueldoNeto = @SueldoNeto
+		 WHERE PlanillaFinal.IdentidadEmpleado=@Identidad;
+
+
+	END TRY
+		BEGIN CATCH
+				IF @@TRANCOUNT > 0
+					ROLLBACK TRANSACTION;
+
+					THROW;
+			END CATCH
+END
+GO
+
+--Fin Triggers
