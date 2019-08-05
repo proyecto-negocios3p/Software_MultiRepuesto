@@ -296,7 +296,7 @@ ALTER TABLE Planilla.PlanillaFinal WITH CHECK
 		CHECK(IdentidadEmpleado LIKE'[0-9][0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]-[0-9][0-9][0-9][0-9][0-9]')
 GO
 -- Insertando valores en la Tabla PorcentajeHorasExtras
-INSERT INTO Planilla.PorcentajeHorasExtras (Codigo, TipoHora)
+INSERT INTO Planilla.PorcentajeHoraExtra (Codigo, TipoHora)
 VALUES 	('HD','Hora diurna'),
 		('HN','Hora nocturna'),
 		('HM','Hora mixta')
