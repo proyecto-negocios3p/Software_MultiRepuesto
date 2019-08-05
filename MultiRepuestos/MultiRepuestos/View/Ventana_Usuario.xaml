@@ -4,9 +4,47 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MultiRepuestos.View"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="Ventana_Usuario" Height="450" Width="800">
+        Title="Ventana_Usuario" Height="400" Width="350" WindowStartupLocation="CenterScreen" WindowStyle="None" FontFamily="Roboto Black">
     <Grid>
-        
+        <!--#region Columnas-->
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+
+        </Grid.RowDefinitions>
+     
+        <!--#endregion-->
+
+        <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Background="#03A9F4" Name="BarraBusperior" MouseLeftButtonDown="BarraBusperior_MouseLeftButtonDown">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Click="BtnMin_Click" Name="btnMin" Width="auto" Height="auto" BorderThickness="0" Background="Transparent" >
+                    <materialDesign:PackIcon Kind="WindowMinimize" Foreground="White"/>
+                </Button>
+
+                <Button Name="btnRest" Width="auto" Height="auto" BorderThickness="0" Background="Transparent"  Visibility="Collapsed">
+                    <materialDesign:PackIcon Kind="WindowRestore" Foreground="White"/>
+                </Button>
+                <Button Name="btnCerrar" Width="auto" Height="auto" BorderThickness="0" Background="Transparent" Click="BtnCerrar_Click" >
+                    <materialDesign:PackIcon Kind="WindowClose" Foreground="White" />
+                </Button>
+            </StackPanel>
+        </Border>
+        <Border Grid.Row="1">
+            <TextBlock FontSize="30" TextAlignment="Center">Crear usuario</TextBlock>
+        </Border>
+        <Border Grid.Row="2" >
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBox Width="auto" Height="auto" FontSize="25"  materialDesign:HintAssist.Hint="Identidad" materialDesign:HintAssist.IsFloating="True" Name="txtIdentidad" IsEnabled="False" Margin="15"></TextBox>
+                <TextBox Width="auto" Height="auto" FontSize="25" materialDesign:HintAssist.Hint="Usuario" materialDesign:HintAssist.IsFloating="True" Margin="15" Name="txtUser"></TextBox>
+                <TextBox Width="auto" Height="auto" FontSize="25"  materialDesign:HintAssist.Hint="Contraseña" materialDesign:HintAssist.IsFloating="True" Margin="15" Name="txtPass"></TextBox>
+            </StackPanel>
+      </Border>
+        <Button IsDefault="True" Grid.Row="3" x:Name="btnAgregar" Click="BtnAgregar_Click" FontSize="30" Width="auto" Height="auto" Content="Agregar" Background="#FFC107" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="10" ></Button>
+
     </Grid>
 </Window>

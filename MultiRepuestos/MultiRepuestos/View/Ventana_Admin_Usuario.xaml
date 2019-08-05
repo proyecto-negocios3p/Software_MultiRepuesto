@@ -73,7 +73,7 @@
                 <TextBox Name="txtContra" Width="auto" Height="auto" FontSize="30" materialDesign:HintAssist.Hint="Contraseña" materialDesign:HintAssist.IsFloating="True" HorizontalAlignment="Center"></TextBox>
 
                 <StackPanel Orientation="Vertical" Margin="60">
-                    <Button Name="btnActualizar" FontSize="25" Width="auto" Height="auto" Content="Actualizar" Background="#FFC107" materialDesign:ShadowAssist.ShadowDepth="Depth3"></Button>
+                    <Button Name="btnActualizar" FontSize="25" Width="auto" Height="auto" Content="Actualizar" Background="#FFC107" materialDesign:ShadowAssist.ShadowDepth="Depth3" Click="BtnActualizar_Click"></Button>
 
                 </StackPanel>
             </StackPanel>

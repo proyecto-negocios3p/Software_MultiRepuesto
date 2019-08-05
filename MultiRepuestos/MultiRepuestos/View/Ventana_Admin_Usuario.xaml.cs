@@ -26,6 +26,7 @@ namespace MultiRepuestos.View
         LinqToSqlDataClassesDataContext dataContext;
         SqlConnection conexion = new SqlConnection("Data Source = (local)\\SQLEXPRESS; Initial Catalog = PlanillaDePagoMensual; Integrated Security = True");
 
+        string id = "";
         private DataTable tabla;
 
         public Ventana_Admin_Usuario()
@@ -90,12 +91,19 @@ namespace MultiRepuestos.View
         }
         private void BuscarEmpleado()
         {
-            string id = dgEmpleados.SelectedValue.ToString();
-            MessageBox.Show(id.ToString());
-            try
+            
+            // MessageBox.Show(id.ToString());
+            if (dgEmpleados.SelectedValue == null)
             {
 
-                var User = (from u in dataContext.Usuario
+            }
+            else
+            {
+                  try
+            {
+
+                    string id = dgEmpleados.SelectedValue.ToString();
+                    var User = (from u in dataContext.Usuario
                             where u.IdentidadEmpleado == id
                             select u).First();
 
@@ -117,11 +125,53 @@ namespace MultiRepuestos.View
             {
                 MessageBox.Show(ex.ToString());
             }
+            }
         }
 
         private void DgEmpleados_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             BuscarEmpleado();
+            if (dgEmpleados.SelectedValue != null)
+            {
+                id = dgEmpleados.SelectedValue.ToString();
+            }
+        }
+
+        private void BtnActualizar_Click(object sender, RoutedEventArgs e)
+        {
+            if (dgEmpleados.SelectedValue == null)
+            {
+                MessageBox.Show("Debes escoger una identidad antes de actualizar.");
+
+            }
+            else
+            {
+                try
+                {
+                    string query = "UPDATE Planilla.Usuario SET Usuario = @Us,Contraseña=@Con WHERE IdentidadEmpleado = @CodId";
+
+                    SqlCommand sqlCommand = new SqlCommand(query, conexion);
+
+                    conexion.Open();
+
+                    sqlCommand.Parameters.AddWithValue("@Con", txtContra.Text);
+                    sqlCommand.Parameters.AddWithValue("@Us", txtUser.Text);
+                    sqlCommand.Parameters.AddWithValue("@CodId", id);
+                    sqlCommand.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+                finally
+                {
+                    conexion.Close();
+                  
+                    txtUser.Text = String.Empty;
+                    txtContra.Text = String.Empty;
+                    mostrarEmpleados();
+                }
+            }
         }
     }
 }

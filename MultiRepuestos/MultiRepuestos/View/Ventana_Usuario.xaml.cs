@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,9 +20,53 @@ namespace MultiRepuestos.View
     /// </summary>
     public partial class Ventana_Usuario : Window
     {
-        public Ventana_Usuario()
+        LinqToSqlDataClassesDataContext dataContext;
+        string id = null;
+        SqlConnection conexion = new SqlConnection("Data Source = (local)\\SQLEXPRESS; Initial Catalog = PlanillaDePagoMensual; Integrated Security = True");
+
+        public Ventana_Usuario(string Identidad)
         {
             InitializeComponent();
+            dataContext = new LinqToSqlDataClassesDataContext(conexion);
+            id = Identidad;
         }
+
+        private void BtnCerrar_Click(object sender, RoutedEventArgs e)
+        {
+            WindowContenedorPrincipal ventana = new WindowContenedorPrincipal();
+            ventana.Show();
+            this.Close();
+        }
+
+        private void BtnMin_Click(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
+        }
+
+        private void BarraBusperior_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
+        }
+
+        private void BtnAgregar_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                dataContext.Usuario.InsertOnSubmit(new Usuario { Usuario1  = txtUser.Text, Contraseña = txtPass.Text, IdentidadEmpleado=id,Estado=true,Fecha=DateTime.Now});
+
+                dataContext.SubmitChanges();
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                MessageBox.Show(String.Format("Se Agrego al usuario"));
+            }
+        }
+
+      
     }
 }

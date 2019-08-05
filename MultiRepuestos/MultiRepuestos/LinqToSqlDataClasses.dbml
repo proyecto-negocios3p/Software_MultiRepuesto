@@ -1,15 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="PlanillaDePagoMensual" Class="LinqToSqlDataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-J4NHS3J\SQLEXPRESS;Initial Catalog=PlanillaDePagoMensual;Integrated Security=True" SettingsObjectName="MultiRepuestos.Properties.Settings" SettingsPropertyName="PlanillaDePagoMensualConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="Planilla.Usuario" Member="Usuario">
-    <Type Name="Usuario">
-      <Column Name="Codigo" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Usuario" Member="Usuario1" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
-      <Column Name="Contraseña" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
-      <Column Name="IdentidadEmpleado" Type="System.String" DbType="Char(15)" CanBeNull="true" />
-      <Column Name="Fecha" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="Estado" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-    </Type>
-  </Table>
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(local)\SQLEXPRESS;Initial Catalog=PlanillaDePagoMensual;Integrated Security=True" SettingsObjectName="MultiRepuestos.Properties.Settings" SettingsPropertyName="PlanillaDePagoMensualConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="Planilla.TelefonoEmpleado" Member="TelefonoEmpleado">
     <Type Name="TelefonoEmpleado">
       <Column Name="Codigo" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -42,6 +32,7 @@
       <Association Name="Empleado_HoraFaltada" Member="HoraFaltada" ThisKey="Identidad" OtherKey="IdentidadEmpleado" Type="HoraFaltada" />
       <Association Name="Empleado_PlanillaFinal" Member="PlanillaFinal" ThisKey="Identidad" OtherKey="IdentidadEmpleado" Type="PlanillaFinal" />
       <Association Name="Empleado_PrestacionLaboral" Member="PrestacionLaboral" ThisKey="Identidad" OtherKey="IdentidadEmpleado" Type="PrestacionLaboral" />
+      <Association Name="Empleado_Usuario" Member="Usuario" ThisKey="Identidad" OtherKey="IdentidadEmpleado" Type="Usuario" />
       <Association Name="Cargo_Empleado" Member="Cargo" ThisKey="CodigoCargo" OtherKey="Codigo" Type="Cargo" IsForeignKey="true" />
     </Type>
   </Table>
@@ -126,6 +117,17 @@
       <Column Name="Lactancia" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
       <Column Name="Fecha" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Association Name="PrestacionLaboral_PrestacionLaboralEmbarazo" Member="PrestacionLaboral" ThisKey="Codigo" OtherKey="Codigo" Type="PrestacionLaboral" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Planilla.Usuario" Member="Usuario">
+    <Type Name="Usuario">
+      <Column Name="Codigo" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Usuario" Member="Usuario1" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="Contraseña" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="IdentidadEmpleado" Type="System.String" DbType="Char(15)" CanBeNull="true" />
+      <Column Name="Fecha" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Estado" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Empleado_Usuario" Member="Empleado" ThisKey="IdentidadEmpleado" OtherKey="Identidad" Type="Empleado" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

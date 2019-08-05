@@ -50,7 +50,7 @@
         <Border Grid.Row="2">
             <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
 
-                <ComboBox Name="cbCargo" Width="auto" Height="auto" FontSize="30" Margin="10" materialDesign:HintAssist.Hint="Cargos"></ComboBox>
+                <ComboBox Name="cbCargo" Width="auto" Height="auto" FontSize="30" Margin="10" materialDesign:HintAssist.Hint="Cargos" SelectionChanged="CbCargo_SelectionChanged"></ComboBox>
 
 
             </StackPanel>

@@ -48,7 +48,7 @@
         <Border Grid.Row="2">
             <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
                 
-                <TextBlock x:Name="txtIHSSMostrar" FontSize="30" Margin="10" TextAlignment="Center">0</TextBlock>
+                <TextBlock x:Name="lbIHSS" FontSize="30" Margin="10" TextAlignment="Center">0</TextBlock>
                 <TextBox FontSize="30" Name="txtIHSS" Height="auto" Width="150"></TextBox>
 
             </StackPanel>

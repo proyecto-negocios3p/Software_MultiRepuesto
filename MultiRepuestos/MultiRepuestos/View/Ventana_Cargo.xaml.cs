@@ -46,14 +46,45 @@ namespace MultiRepuestos.View
 
         private void BtnActualizar_Click(object sender, RoutedEventArgs e)
         {
-            mostrarCargos();
+            if (cbCargo.SelectedValue == null)
+            {
+                MessageBox.Show("Debes escoger un cargo antes de actualizarlo.");
+                
+            }
+            else
+            {
+                try
+                {
+                    string query = "UPDATE Planilla.Cargo SET Codigo = @Cod,Nombre=@Nom WHERE Codigo = @CodId";
+
+                    SqlCommand sqlCommand = new SqlCommand(query, conexion);
+
+                    conexion.Open();
+
+                    sqlCommand.Parameters.AddWithValue("@Nom", txtNombre.Text);
+                    sqlCommand.Parameters.AddWithValue("@Cod", txtCodigo.Text);
+                    sqlCommand.Parameters.AddWithValue("@CodId", cbCargo.SelectedValue.ToString());
+                    sqlCommand.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+                finally
+                {
+                    conexion.Close();
+                    mostrarCargos();
+                    txtCodigo.Text = String.Empty;
+                    txtNombre.Text = String.Empty;
+                }
+            }
         }
 
         private void BtnAgregar_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                dataContext.Cargo.InsertOnSubmit(new Cargo { Codigo = txtCodigo.Text,Nombre=txtNombre.Text });
+                dataContext.Cargo.InsertOnSubmit(new Cargo { Codigo = txtCodigo.Text,Nombre=txtNombre.Text,Fecha= DateTime.Now });
     
                 dataContext.SubmitChanges();
             }
@@ -73,6 +104,7 @@ namespace MultiRepuestos.View
                 SqlDataAdapter adapter = new SqlDataAdapter(query, conexion);
                 using (adapter)
                 {
+                   
                     adapter.Fill(tabla);
                     cbCargo.DisplayMemberPath = "Nombre";
                     cbCargo.SelectedValuePath = "Codigo";
@@ -87,6 +119,36 @@ namespace MultiRepuestos.View
         
         
 
+        }
+
+        private void CbCargo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+            if (cbCargo.SelectedItem == null)
+            {
+
+            }
+            else
+            {
+                try
+                {
+                    string id = cbCargo.SelectedValue.ToString();
+                    //  MessageBox.Show(id);
+                    var Cargo = (from c in dataContext.Cargo
+                                 where c.Codigo == id
+                                 select c).Single();
+
+                    txtCodigo.Text = Cargo.Codigo;
+                    txtNombre.Text = Cargo.Nombre;
+
+
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+            }
         }
     }
 }

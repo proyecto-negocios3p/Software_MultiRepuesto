@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,11 +20,14 @@ namespace MultiRepuestos.View
     /// </summary>
     public partial class Ventana_RAP : Window
     {
+        LinqToSqlDataClassesDataContext dataContext;
+        SqlConnection conexion = new SqlConnection("Data Source = (local)\\SQLEXPRESS; Initial Catalog = PlanillaDePagoMensual; Integrated Security = True");
+
         public Ventana_RAP()
         {
             InitializeComponent();
-
-            Mostrar();
+            dataContext = new LinqToSqlDataClassesDataContext(conexion);
+            Exite();
         }
         private void BtnCerrar_Click(object sender, RoutedEventArgs e)
         {
@@ -44,22 +48,100 @@ namespace MultiRepuestos.View
             }
             else
             {
-                var db = new ConexionLinqRAPDataContext();
-                var IH = (from a in db.RAP where a.Techo == a.Techo select a).Single();
 
-                IH.Techo = Convert.ToDecimal(txtRAP.Text);
-                db.SubmitChanges();
-                MessageBox.Show("Se ah actualizado con exito");
-                txtRAP.Text = string.Empty;
-                Mostrar();
+
+                try
+                {
+
+                    var Existe = (from r in dataContext.RAP select r).ToList();
+
+                    if (Existe.Count > 0)
+                    {
+                       
+                            try
+                            {
+                                string query = "UPDATE Planilla.RAP SET Techo = @T WHERE Codigo = 1";
+
+                                SqlCommand sqlCommand = new SqlCommand(query, conexion);
+
+                                conexion.Open();
+
+                              
+                                sqlCommand.Parameters.AddWithValue("@T", txtRAP.Text);
+                                sqlCommand.ExecuteNonQuery();
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show(ex.ToString());
+                            }
+                            finally
+                            {
+                                conexion.Close();
+
+                            }
+                        
+                    }
+                    else
+                    {
+                        dataContext.RAP.InsertOnSubmit(new RAP { Techo= Convert.ToDecimal(txtRAP.Text), Fecha = DateTime.Now });
+
+                        dataContext.SubmitChanges();
+                        Mostrar();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+                finally
+                {
+                    MessageBox.Show("Se actualizo con exito");
+                    txtRAP.Text = string.Empty;
+                    Mostrar();
+                }
+
+
+
+
+
+
+
+
+          
+            
+                
             }
         }
 
         private void Mostrar()
         {
-            var db = new ConexionLinqRAPDataContext();
-            var IH = (from a in db.RAP where a.Techo == a.Techo select a).Single();
+          
+            var IH = (from a in dataContext.RAP select a).First();
             lbRAP.Text = IH.Techo.ToString();
+        }
+
+        private void Exite()
+        {
+            
+            try
+            {
+               
+                var Existe = (from e in dataContext.RAP
+                        
+                            select e).ToList();
+               if (Existe.Count > 0)
+                {
+                    Mostrar();
+                }
+                else
+                {
+
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
     }
 }

@@ -20,11 +20,15 @@ namespace MultiRepuestos.View
     /// </summary>
     public partial class Ventana_IHSS : Window
     {
-        
+        LinqToSqlDataClassesDataContext dataContext;
+        SqlConnection conexion = new SqlConnection("Data Source = (local)\\SQLEXPRESS; Initial Catalog = PlanillaDePagoMensual; Integrated Security = True");
+
+
         public Ventana_IHSS()
         {
             InitializeComponent();
-            Mostrar();
+            dataContext = new LinqToSqlDataClassesDataContext(conexion);
+            Exite();
         }
 
         private void BtnCerrar_Click(object sender, RoutedEventArgs e)
@@ -39,32 +43,108 @@ namespace MultiRepuestos.View
 
         private void BtnActualizar_Click(object sender, RoutedEventArgs e)
         {
-            
-            
+
+
             if (txtIHSS.Text == string.Empty)
             {
-                MessageBox.Show("Debe ingresar el IHSS");
+                MessageBox.Show("Debe ingresar el RAP");
 
             }
             else
             {
-                 var db  = new conexionlinqIHSSDataContext();
-                var IH = (from a in db.IHSS where a.SalarioTecho == a.SalarioTecho select a).Single();
 
-                IH.SalarioTecho = Convert.ToDecimal(txtIHSS.Text);
-                db.SubmitChanges();
-                MessageBox.Show("Se ah actualizado con exito");
-                txtIHSS.Text = string.Empty;
-                Mostrar();
+
+                try
+                {
+
+                    var Existe = (from r in dataContext.RAP select r).ToList();
+
+                    if (Existe.Count > 0)
+                    {
+
+                        try
+                        {
+                            string query = "UPDATE Planilla.RAP SET Techo = @T WHERE Codigo = 1";
+
+                            SqlCommand sqlCommand = new SqlCommand(query, conexion);
+
+                            conexion.Open();
+
+
+                            sqlCommand.Parameters.AddWithValue("@T", txtIHSS.Text);
+                            sqlCommand.ExecuteNonQuery();
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.ToString());
+                        }
+                        finally
+                        {
+                            conexion.Close();
+
+                        }
+
+                    }
+                    else
+                    {
+                        dataContext.RAP.InsertOnSubmit(new RAP { Techo = Convert.ToDecimal(txtIHSS.Text), Fecha = DateTime.Now });
+
+                        dataContext.SubmitChanges();
+                        Mostrar();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+                finally
+                {
+                    MessageBox.Show("Se actualizo con exito");
+                    txtIHSS.Text = string.Empty;
+                    Mostrar();
+                }
+
+
+
+
+
+
+
+
+
+
+
             }
         }
 
         private void Mostrar()
         {
-            var db = new conexionlinqIHSSDataContext();
-            var IH = (from a in db.IHSS select a).First();
-            txtIHSSMostrar.Text = IH.SalarioTecho.ToString();
-            
+            var IH = (from a in dataContext.RAP select a).First();
+            lbIHSS.Text = IH.Techo.ToString();
+
+        }
+        private void Exite()
+        {
+
+            try
+            {
+
+                var Existe = (from e in dataContext.RAP
+
+                              select e).ToList();
+                if (Existe.Count > 0)
+                {
+                    Mostrar();
+                }
+                else
+                {
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
     }
 }
