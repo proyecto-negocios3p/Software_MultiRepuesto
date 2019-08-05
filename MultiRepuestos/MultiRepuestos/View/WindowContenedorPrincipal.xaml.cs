@@ -216,8 +216,9 @@ namespace MultiRepuestos.View
         private void BtnPlanillaCrear_Click(object sender, RoutedEventArgs e)
         {
             Crear_Planilla ventana = new Crear_Planilla();
+
             ventana.Show();
-            this.Close();
+            ventana.Owner = this;
         }
 
         private void BtnPlanillaBuscar_Click_1(object sender, RoutedEventArgs e)
@@ -240,14 +241,6 @@ namespace MultiRepuestos.View
         private void AgregarHorasFaltadas_Click(object sender, RoutedEventArgs e)
         {
             AgregarHoraFaltada ventana = new AgregarHoraFaltada();
-            ventana.Show();
-            ventana.Owner = this;
-        }
-
-        // Agregar horas trabajadas
-        private void AgregarHorasTrabajadas_Click(object sender, RoutedEventArgs e)
-        {
-            AgregarHoraTrabajada ventana = new AgregarHoraTrabajada();
             ventana.Show();
             ventana.Owner = this;
         }
