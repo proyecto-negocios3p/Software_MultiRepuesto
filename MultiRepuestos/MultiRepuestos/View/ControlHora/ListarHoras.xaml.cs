@@ -39,12 +39,30 @@ namespace MultiRepuestos.View.ControlHora
 
         private void ListarTipoHora()
         {
-            throw new NotImplementedException();
+          
         }
 
         private void ListarEmpleados()
         {
-            throw new NotImplementedException();
+            tabla = new DataTable();
+            try
+            {
+                conexion.Open();
+                string query = "SELECT * FROM Planilla.Empleado";
+                SqlDataAdapter adapter = new SqlDataAdapter(query, conexion);
+                using (adapter)
+                {
+                    adapter.Fill(tabla);
+                    cbIdentidad.DisplayMemberPath="Identidad";
+                    cbIdentidad.SelectedValuePath = "Identidad";
+                    cbIdentidad.ItemsSource = tabla.DefaultView;
+                    conexion.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         private void MostrarHoras()

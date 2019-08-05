@@ -32,7 +32,7 @@ namespace MultiRepuestos.View
         {
             InitializeComponent();
              dataContext = new LinqToSqlDataClassesDataContext(conexion);
-            txtCodigo.IsEnabled = false;
+           
             mostrarCargos();
         }
         private void BtnCerrar_Click(object sender, RoutedEventArgs e)
