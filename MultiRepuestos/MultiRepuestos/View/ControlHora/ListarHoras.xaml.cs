@@ -134,8 +134,7 @@ namespace MultiRepuestos.View.ControlHora
 
         private void BtnCerrar_Click(object sender, RoutedEventArgs e)
         {
-            WindowContenedorPrincipal ventana = new WindowContenedorPrincipal();
-            ventana.Show();
+         
             this.Close();
         }
 

@@ -36,7 +36,7 @@ CREATE TABLE Planilla.Empleado (
 	Apellido VARCHAR(30) NOT NULL,
 	Genero CHAR(1) NOT NULL,
 	SueldoOrdinario DECIMAL(10,2) NOT NULL,
-	Fecha DATETIME NULL DEFAULT GETDATETIME(),
+	Fecha DATETIME NULL DEFAULT GETDATE(),
 	NivelAcademico CHAR(50)NOT NULL,
 	Estado BIT NULL DEFAULT 1 --1 ACTIVO 0 INACTIVO
 
@@ -574,3 +574,19 @@ END
 GO
 
 --Fin Triggers
+
+GO
+
+--INSERT INTO Planilla.RAP (Techo)
+GO
+
+INSERT INTO Planilla.RAP (Techo)
+VALUES ( 8882.30)
+GO
+
+GO
+INSERT INTO Planilla.IHSS  (
+	GastosMedicos,
+	SalarioTecho)
+VALUES ( 8882.30, 8103.30);
+GO

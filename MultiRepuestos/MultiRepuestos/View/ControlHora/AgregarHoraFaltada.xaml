@@ -38,7 +38,7 @@
 
 
         <StackPanel Grid.Row="4" Grid.Column="0" Orientation="Vertical">
-            <Label Content="Ingrese el número de horas extra" FontSize="14" Margin="10,0,10,1"/>
+            <Label Content="Ingrese el número de horas" FontSize="14" Margin="10,0,10,1"/>
             <TextBox Name="txtHorasFaltadas" FontSize="16" FontFamily="Roboto" Margin="70,0,70,0" VerticalAlignment="Center"/>
         </StackPanel>
 
