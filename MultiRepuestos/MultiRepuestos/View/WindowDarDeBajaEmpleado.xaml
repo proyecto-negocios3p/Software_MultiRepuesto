@@ -44,17 +44,21 @@
         <!--#region Ingreso de datos-->
         <Label Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Content="Dar de baja a empleados" Foreground="#03A9F4" FontSize="32" HorizontalAlignment="Center" Margin="0,10,0,0"/>
 
-        <ComboBox Grid.Column="0" Grid.Row="2"  Margin="40" Name="txtNombre" materialDesign:HintAssist.Hint="Nombre" materialDesign:HintAssist.IsFloating="True" Style="{StaticResource MaterialDesignFloatingHintComboBox}" FontFamily="Roboto" FontSize="18" VerticalAlignment="Center">
-            <ComboBoxItem Content="op1"/>
+        <ComboBox Grid.Column="0" Grid.Row="2"  Margin="40" Name="cbIdentidad" materialDesign:HintAssist.Hint="Identidad" materialDesign:HintAssist.IsFloating="True" Style="{StaticResource MaterialDesignFloatingHintComboBox}" FontFamily="Roboto" FontSize="18" VerticalAlignment="Center" SelectionChanged="CbNombre_SelectionChanged">
+            
         </ComboBox>
-        <TextBox Grid.Column="1" Grid.Row="2"  Margin="40" Name="txtApellido" materialDesign:HintAssist.Hint="Apellido" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Roboto" FontSize="18" VerticalAlignment="Center"/>
+        <TextBox Grid.Column="1" Grid.Row="3"  Margin="40" Name="txtApellido" materialDesign:HintAssist.Hint="Apellido" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Roboto" FontSize="18" VerticalAlignment="Center"/>
 
-        <TextBox Grid.Column="0" Grid.Row="3"  Margin="40" Name="txtIdentidad" materialDesign:HintAssist.Hint="Identidad" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Roboto" FontSize="18" VerticalAlignment="Center"/>
-        <TextBox Grid.Column="1" Grid.Row="3"  Margin="40" Name="txtUsuario" materialDesign:HintAssist.Hint="Usuario" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Roboto" FontSize="18" VerticalAlignment="Center"/>
+        <TextBox Grid.Column="0" Grid.Row="3"  Margin="40" Name="txtNombre" materialDesign:HintAssist.Hint="Nombre" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Roboto" FontSize="18" VerticalAlignment="Center"/>
+        <!--<TextBox Grid.Column="1" Grid.Row="3"  Margin="40" Name="txtUsuario" materialDesign:HintAssist.Hint="Usuario" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Roboto" FontSize="18" VerticalAlignment="Center"/>-->
         
-        <ComboBox Grid.Column="0" Grid.Row="4"  Margin="40" Name="cmbMotivo" materialDesign:HintAssist.Hint="Motivo" materialDesign:HintAssist.IsFloating="True" Style="{StaticResource MaterialDesignFloatingHintComboBox}" FontFamily="Roboto" FontSize="18" VerticalAlignment="Center">
-            <ComboBoxItem Content="op1"/>
+        <ComboBox Grid.Column="0" Grid.Row="4"  Margin="40" Name="cbTipo" materialDesign:HintAssist.Hint="Tipo" materialDesign:HintAssist.IsFloating="True" Style="{StaticResource MaterialDesignFloatingHintComboBox}" FontFamily="Roboto" FontSize="18" VerticalAlignment="Center">
+            <ComboBoxItem Content="Despido" />
+            <ComboBoxItem Content="Preaviso"/>
         </ComboBox>
+        <TextBox Width="auto" Height="auto" TextWrapping="Wrap"   Grid.Column="1" Grid.Row="4"  Margin="40" Name="cmbMotivo" materialDesign:HintAssist.Hint="Motivo" materialDesign:HintAssist.IsFloating="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Roboto" FontSize="18" VerticalAlignment="Center">
+            
+        </TextBox>
 
         <!--#region -->
 

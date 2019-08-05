@@ -69,10 +69,9 @@ namespace MultiRepuestos
             try
             {
 
-                var User = (from c in dataContext.Usuario where c.Usuario1 == txtUsuario.Text select c).ToList();
-                var contra = (from c in dataContext.Usuario where c.Contraseña == pwbContraseña.Password select c).ToList();
-
-
+                var User = (from c in dataContext.Usuario where c.Usuario1 == txtUsuario.Text && c.Estado == true select c).ToList();
+                var contra = (from c in dataContext.Usuario where c.Contraseña == pwbContraseña.Password && c.Estado == true select c).ToList();
+       
                 if (contra.Count > 0 && User.Count > 0)
                 {
 
