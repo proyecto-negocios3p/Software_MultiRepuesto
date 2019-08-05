@@ -1,0 +1,42 @@
+﻿<Window x:Class="MultiRepuestos.View.Reportes.ReporteEmpleados"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MultiRepuestos.View.Reportes"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+       
+        mc:Ignorable="d"
+        Title="ReporteEmpleados" Height="620" Width="900" WindowStartupLocation="CenterScreen" WindowStyle="None" FontFamily="Roboto Black">
+    <Grid>
+        <!--#region Columnas-->
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+    
+
+        </Grid.RowDefinitions>
+      
+        <!--#endregion-->
+
+        <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Background="#03A9F4" Name="BarraBusperior" MouseLeftButtonDown="BarraBusperior_MouseLeftButtonDown">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Click="BtnMin_Click" Name="btnMin" Width="auto" Height="auto" BorderThickness="0" Background="Transparent" >
+                    <materialDesign:PackIcon Kind="WindowMinimize" Foreground="White"/>
+                </Button>
+
+                <Button Name="btnRest" Width="auto" Height="auto" BorderThickness="0" Background="Transparent"  Visibility="Collapsed">
+                    <materialDesign:PackIcon Kind="WindowRestore" Foreground="White"/>
+                </Button>
+                <Button Name="btnCerrar" Width="auto" Height="auto" BorderThickness="0" Background="Transparent" Click="BtnCerrar_Click" >
+                    <materialDesign:PackIcon Kind="WindowClose" Foreground="White" />
+                </Button>
+            </StackPanel>
+        </Border >
+        <TextBlock Grid.Row="2" FontSize="30" HorizontalAlignment="Center" Foreground="#03A9F4" Margin="10"> Reporte Empleado</TextBlock>
+        <DataGrid Grid.Row="3"  Name="dgEmpleados" Width="auto" Height="auto"></DataGrid>
+    </Grid>
+</Window>

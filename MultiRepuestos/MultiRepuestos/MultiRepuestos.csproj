@@ -102,6 +102,15 @@
     <Compile Include="View\ControlHora\ListarHoras.xaml.cs">
       <DependentUpon>ListarHoras.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Reportes\ReporteEmpleados.xaml.cs">
+      <DependentUpon>ReporteEmpleados.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Reportes\ReporteHorasFaltadas.xaml.cs">
+      <DependentUpon>ReporteHorasFaltadas.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Reportes\ReportPlanillas.xaml.cs">
+      <DependentUpon>ReportPlanillas.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Ventana_Usuario.xaml.cs">
       <DependentUpon>Ventana_Usuario.xaml</DependentUpon>
     </Compile>
@@ -163,6 +172,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ControlHora\ListarHoras.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Reportes\ReporteEmpleados.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Reportes\ReporteHorasFaltadas.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Reportes\ReportPlanillas.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -274,9 +295,7 @@
   <ItemGroup>
     <Resource Include="Assets\Logo.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="View\Reportes\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Sql\NewPlanillaMensualDePago.sql" />
   </ItemGroup>

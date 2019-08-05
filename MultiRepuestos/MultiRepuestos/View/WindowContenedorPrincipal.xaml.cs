@@ -13,7 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 // Agregando los namespaces necesarios
-using MultiRepuestos.View.Planilla;
+using MultiRepuestos.View.Reportes;
 using MultiRepuestos.View.ControlHora;
 
 
@@ -221,12 +221,7 @@ namespace MultiRepuestos.View
             ventana.Owner = this;
         }
 
-        private void BtnPlanillaBuscar_Click_1(object sender, RoutedEventArgs e)
-        {
-            Buscar_Planilla ventana = new Buscar_Planilla();
-            ventana.Show();
-            this.Close();
-        }
+      
 
         // Módulo de Control de horas
         // Agregar horas extra
@@ -249,6 +244,27 @@ namespace MultiRepuestos.View
         private void ListarHoras_Click(object sender, RoutedEventArgs e)
         {
             ListarHoras ventana = new ListarHoras();
+            ventana.Show();
+            ventana.Owner = this;
+        }
+
+        private void BtnREmpleado_Click(object sender, RoutedEventArgs e)
+        {
+           ReporteEmpleados ventana = new ReporteEmpleados();
+            ventana.Show();
+            ventana.Owner = this;
+        }
+
+        private void BtnRHorasF_Click(object sender, RoutedEventArgs e)
+        {
+            ReporteHorasFaltadas ventana = new ReporteHorasFaltadas();
+            ventana.Show();
+            ventana.Owner = this;
+        }
+
+        private void BtnRPlanillas_Click(object sender, RoutedEventArgs e)
+        {
+            ReportPlanillas ventana = new ReportPlanillas();
             ventana.Show();
             ventana.Owner = this;
         }
