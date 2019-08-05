@@ -29,6 +29,7 @@ namespace MultiRepuestos.View
             InitializeComponent();
             dataContext = new LinqToSqlDataClassesDataContext(conexion);
             id = Identidad;
+            txtIdentidad.Text = Identidad;
         }
 
         private void BtnCerrar_Click(object sender, RoutedEventArgs e)

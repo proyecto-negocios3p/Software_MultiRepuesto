@@ -79,7 +79,7 @@ namespace MultiRepuestos.View
             try
             {
                 conexion.Open();
-                string query = "SELECT E.Identidad, E.Nombre, E.Apellido, C.Nombre AS Cargo, E.Genero, E.Fecha, E.SueldoOrdinario AS Sueldo, E.NivelAcademico FROM Planilla.Empleado AS E INNER JOIN Planilla.Cargo AS C ON E.CodigoCargo=C.Codigo";
+                string query = "SELECT E.Identidad, E.Nombre, E.Apellido, C.Nombre AS Cargo, E.Genero, E.Fecha, E.SueldoOrdinario AS Sueldo, E.NivelAcademico FROM Planilla.Empleado AS E INNER JOIN Planilla.Cargo AS C ON E.CodigoCargo=C.Codigo WHERE E.Estado=1";
                 SqlDataAdapter adapter = new SqlDataAdapter(query, conexion);
                 using (adapter)
                 {

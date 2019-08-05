@@ -66,7 +66,7 @@ namespace MultiRepuestos.View.ControlHora
             try
             {
                 conexion.Open();
-                string query = "SELECT * FROM Planilla.Empleado";
+                string query = "SELECT * FROM Planilla.Empleado WHERE Estado =1";
                 SqlDataAdapter adapter = new SqlDataAdapter(query, conexion);
                 using (adapter)
                 {
