@@ -36,7 +36,7 @@ namespace MultiRepuestos.View
 
             dataContext = new LinqToSqlDataClassesDataContext(conexion);
 
-            // Llenar el ListView de Zoológicos
+          
             MostrarEmpleados();
         }
 
