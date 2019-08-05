@@ -11,6 +11,10 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+// Agregando los namespaces necesarios para SQL Server
+using System.Configuration;
+using System.Data.SqlClient;
+using System.Data;
 
 namespace MultiRepuestos.View
 {
@@ -19,10 +23,23 @@ namespace MultiRepuestos.View
     /// </summary>
     public partial class WindowListarEmpleados : Window
     {
+        LinqToSqlDataClassesDataContext dataContext;
+        SqlConnection conexion = new SqlConnection("Data Source = (local)\\SQLEXPRESS; Initial Catalog = PlanillaDePagoMensual; Integrated Security = True");
+
+        private DataTable tabla;
+        // SqlConnection = new SqlConnection(connectionString);
+
         public WindowListarEmpleados()
         {
+
             InitializeComponent();
+
+            dataContext = new LinqToSqlDataClassesDataContext(conexion);
+
+            // Llenar el ListView de Zoológicos
+            MostrarEmpleados();
         }
+
 
         private void BarraSuperior_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
@@ -53,6 +70,29 @@ namespace MultiRepuestos.View
             WindowContenedorPrincipal ventana = new WindowContenedorPrincipal();
             ventana.Show();
             this.Close();
+        }
+
+        // Métodos y propiedades
+        private void MostrarEmpleados()
+        {
+            tabla = new DataTable();
+            try
+            {
+                conexion.Open();
+                string query = "SELECT E.Identidad, E.Nombre, E.Apellido, C.Nombre AS Cargo, E.Genero, E.Fecha, E.SueldoOrdinario AS Sueldo, E.NivelAcademico FROM Planilla.Empleado AS E INNER JOIN Planilla.Cargo AS C ON E.CodigoCargo=C.Codigo";
+                SqlDataAdapter adapter = new SqlDataAdapter(query, conexion);
+                using (adapter)
+                {
+                    adapter.Fill(tabla);
+
+                    lvEmpleados.ItemsSource = tabla.DefaultView;
+                    conexion.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
     }
 }
