@@ -96,7 +96,7 @@ namespace MultiRepuestos.View
             try
             {
                 // Falta condición de campos vacios
-                MessageBox.Show(Convert.ToString(cmbCargo.SelectedValue));
+               // MessageBox.Show(Convert.ToString(cmbCargo.SelectedValue));
                 DateTime now = DateTime.Now;
                 dataContext.Empleado.InsertOnSubmit(new Empleado { Identidad = txtIdentidad.Text, Nombre = txtNombre.Text, Apellido = txtApellido.Text, CodigoCargo = cmbCargo.SelectedValue.ToString(), Genero = Convert.ToChar(cmbGenero.Text) , SueldoOrdinario = Convert.ToDecimal(txtSueldoBase.Text), NivelAcademico = cmbAcademico.Text, Fecha = now, Estado = true});
 
@@ -109,6 +109,10 @@ namespace MultiRepuestos.View
             finally
             {
                 MessageBox.Show("El empleado se agregó corretamente");
+                Ventana_Usuario ventana = new Ventana_Usuario(txtIdentidad.Text);
+                ventana.Owner = this;
+                ventana.Show();
+
             }
 
         }
