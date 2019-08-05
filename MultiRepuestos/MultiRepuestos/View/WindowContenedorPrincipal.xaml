@@ -235,7 +235,6 @@
                     <Button Name="btnConfIHSS" Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5" Click="BtnConfIHSS_Click">IHSS</Button>
                     <Button Name="btnConfRAP" Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5" Click="BtnConfRAP_Click">RAP</Button>
                     <Button Name="btnConfPagoPorHora" Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5" Click="BtnConfPagoPorHora_Click">Cargo</Button>
-                    <Button Name="btnConfPagoPorHoraExtra" Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5" Click="BtnConfPagoPorHoraExtra_Click">Pago Por Hora Extra</Button>
                     <Button Name="btnAdmiUsuario" Height="auto" Width="auto" materialDesign:ShadowAssist.ShadowDepth="Depth3" Margin="5" Click="BtnAdmiUsuario_Click">Administrar Usuarios</Button>
 
                 </StackPanel>

@@ -129,9 +129,6 @@
     <Compile Include="View\Ventana_Cargo.xaml.cs">
       <DependentUpon>Ventana_Cargo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Ventana_Pago_Hora_Extra.xaml.cs">
-      <DependentUpon>Ventana_Pago_Hora_Extra.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\Ventana_RAP.xaml.cs">
       <DependentUpon>Ventana_RAP.xaml</DependentUpon>
     </Compile>
@@ -208,10 +205,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Ventana_Cargo.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\Ventana_Pago_Hora_Extra.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

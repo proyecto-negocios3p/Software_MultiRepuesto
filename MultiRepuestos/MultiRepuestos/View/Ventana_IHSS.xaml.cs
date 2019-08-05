@@ -57,14 +57,14 @@ namespace MultiRepuestos.View
                 try
                 {
 
-                    var Existe = (from r in dataContext.RAP select r).ToList();
+                    var Existe = (from r in dataContext.IHSS select r).ToList();
 
                     if (Existe.Count > 0)
                     {
 
                         try
                         {
-                            string query = "UPDATE Planilla.RAP SET Techo = @T WHERE Codigo = 1";
+                            string query = "UPDATE Planilla.IHSS SET SalarioTecho = @T WHERE Codigo = 1";
 
                             SqlCommand sqlCommand = new SqlCommand(query, conexion);
 
@@ -87,7 +87,7 @@ namespace MultiRepuestos.View
                     }
                     else
                     {
-                        dataContext.RAP.InsertOnSubmit(new RAP { Techo = Convert.ToDecimal(txtIHSS.Text), Fecha = DateTime.Now });
+                        dataContext.IHSS.InsertOnSubmit(new IHSS { SalarioTecho = Convert.ToDecimal(txtIHSS.Text),GastosMedicos= Convert.ToDecimal(8882.30), Fecha = DateTime.Now });
 
                         dataContext.SubmitChanges();
                         Mostrar();
@@ -119,8 +119,8 @@ namespace MultiRepuestos.View
 
         private void Mostrar()
         {
-            var IH = (from a in dataContext.RAP select a).First();
-            lbIHSS.Text = IH.Techo.ToString();
+            var IH = (from a in dataContext.IHSS select a).First();
+            lbIHSS.Text = IH.SalarioTecho.ToString();
 
         }
         private void Exite()
@@ -129,7 +129,7 @@ namespace MultiRepuestos.View
             try
             {
 
-                var Existe = (from e in dataContext.RAP
+                var Existe = (from e in dataContext.IHSS
 
                               select e).ToList();
                 if (Existe.Count > 0)

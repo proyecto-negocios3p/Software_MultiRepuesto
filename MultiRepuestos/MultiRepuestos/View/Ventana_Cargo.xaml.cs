@@ -32,6 +32,7 @@ namespace MultiRepuestos.View
         {
             InitializeComponent();
              dataContext = new LinqToSqlDataClassesDataContext(conexion);
+            txtCodigo.IsEnabled = false;
             mostrarCargos();
         }
         private void BtnCerrar_Click(object sender, RoutedEventArgs e)
@@ -55,14 +56,14 @@ namespace MultiRepuestos.View
             {
                 try
                 {
-                    string query = "UPDATE Planilla.Cargo SET Codigo = @Cod,Nombre=@Nom WHERE Codigo = @CodId";
+                    string query = "UPDATE Planilla.Cargo SET Nombre=@Nom WHERE Codigo = @CodId";
 
                     SqlCommand sqlCommand = new SqlCommand(query, conexion);
 
                     conexion.Open();
 
                     sqlCommand.Parameters.AddWithValue("@Nom", txtNombre.Text);
-                    sqlCommand.Parameters.AddWithValue("@Cod", txtCodigo.Text);
+                   // sqlCommand.Parameters.AddWithValue("@Cod", txtCodigo.Text);
                     sqlCommand.Parameters.AddWithValue("@CodId", cbCargo.SelectedValue.ToString());
                     sqlCommand.ExecuteNonQuery();
                 }
